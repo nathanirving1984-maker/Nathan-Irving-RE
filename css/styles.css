@@ -315,3 +315,15 @@ p { margin: 0 0 var(--space-sm); color: var(--color-charcoal); }
   color: var(--color-gold);
   border-radius: var(--radius);
 }
+
+/* ---- Logos (added) ---- */
+.brand-logo { height: 38px; display: block; }
+.footer-logo { height: 32px; margin-bottom: var(--space-xs); display: block; }
+.cb-badge {
+  background: var(--color-bone);
+  display: inline-block;
+  padding: 0.7rem 1.1rem;
+  border-radius: var(--radius);
+  margin-top: var(--space-sm);
+}
+.cb-badge img { height: 70px; display: block; }
