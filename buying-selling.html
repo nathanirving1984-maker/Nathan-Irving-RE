@@ -6,14 +6,6 @@
 <title>Buying &amp; Selling | Nathan Irving Real Estate</title>
 <meta name="description" content="Buyer and seller resources, intake forms, and a mortgage calculator from Marin County REALTOR® Nathan Irving.">
 <link rel="stylesheet" href="css/styles.css">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VT6K9D4HKX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-VT6K9D4HKX');
-  </script>
 </head>
 <body>
 
@@ -66,8 +58,7 @@
           EDIT: Replace YOUR_BUYER_FORM_ID with the endpoint from a
           NEW Formspree form created specifically for buyer intake.
         -->
-        <form action="https://formspree.io/f/xkodqnvn" method="POST" class="form-grid">
-          <input type="hidden" name="_subject" value="New Buyer Inquiry - Nathan Irving RE">
+        <form action="https://formspree.io/f/YOUR_BUYER_FORM_ID" method="POST" class="form-grid">
           <div class="grid-2" style="gap:var(--space-sm);">
             <div class="form-row">
               <label for="b_name">Name</label>
@@ -137,6 +128,23 @@
               </select>
             </div>
           </div>
+          <div class="grid-2" style="gap:var(--space-sm);">
+            <div class="form-row">
+              <label for="b_preapproval">Pre-approval status</label>
+              <select id="b_preapproval" name="preapproval_status">
+                <option value="Not yet">Not yet</option>
+                <option value="Working on it">Working on it</option>
+                <option value="Pre-approved">Pre-approved</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="b_has_agent">Currently working with an agent?</label>
+              <select id="b_has_agent" name="working_with_agent">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+          </div>
           <div class="form-row">
             <label for="b_notes">Anything else Nathan should know?</label>
             <textarea id="b_notes" name="notes" rows="3"></textarea>
@@ -162,8 +170,7 @@
           EDIT: Replace YOUR_SELLER_FORM_ID with the endpoint from a
           NEW Formspree form created specifically for seller intake.
         -->
-        <form action="https://formspree.io/f/xdaqwoll" method="POST" class="form-grid">
-          <input type="hidden" name="_subject" value="New Seller Inquiry - Nathan Irving RE">
+        <form action="https://formspree.io/f/YOUR_SELLER_FORM_ID" method="POST" class="form-grid">
           <div class="grid-2" style="gap:var(--space-sm);">
             <div class="form-row">
               <label for="s_name">Name</label>
@@ -232,6 +239,13 @@
                 <option value="Just exploring">Just exploring</option>
               </select>
             </div>
+          </div>
+          <div class="form-row">
+            <label for="s_has_agent">Currently working with an agent?</label>
+            <select id="s_has_agent" name="working_with_agent">
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
           </div>
           <div class="form-row">
             <label for="s_notes">Anything else Nathan should know?</label>
