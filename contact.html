@@ -10,14 +10,14 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VT6K9D4HKX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-VT6K9D4HKX');
-  </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VT6K9D4HKX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VT6K9D4HKX');
+</script>
 </head>
 <body>
 
@@ -30,7 +30,8 @@
     <nav class="main-nav" data-main-nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="buying-selling.html">Buying &amp; Selling</a>
+      <a href="buy.html">Buy</a>
+      <a href="sell.html">Sell</a>
       <a href="property-search.html">Property Search</a>
       <a href="market-updates.html">Market Updates</a>
       <a href="contact.html">Contact</a>
@@ -38,6 +39,7 @@
   </div>
 </header>
 
+<main>
 <main>
 
   <section class="section" style="padding-bottom:0;">
@@ -56,8 +58,7 @@
           EDIT: Replace YOUR_CONTACT_FORM_ID with the endpoint from a
           NEW Formspree form created specifically for this page.
         -->
-        <form action="https://formspree.io/f/xaqrpydp" method="POST" class="form-grid">
-          <input type="hidden" name="_subject" value="New Contact Message - Nathan Irving RE">
+        <form action="https://formspree.io/f/YOUR_CONTACT_FORM_ID" method="POST" class="form-grid">
           <div class="form-row">
             <label for="c_name">Name</label>
             <input type="text" id="c_name" name="name" required>
@@ -106,8 +107,8 @@
           <h3>Looking for more specific help?</h3>
           <p style="margin-bottom:var(--space-sm);">Go straight to a dedicated form for a faster, more tailored response.</p>
           <div class="hero-actions">
-            <a href="buying-selling.html#buying" class="btn btn--ghost">Buyer Intake</a>
-            <a href="buying-selling.html#selling" class="btn btn--ghost">Seller Intake</a>
+            <a href="buy.html#buying" class="btn btn--ghost">Buyer Intake</a>
+            <a href="sell.html#selling" class="btn btn--ghost">Seller Intake</a>
           </div>
         </div>
       </div>
@@ -115,6 +116,7 @@
     </div>
   </section>
 
+</main>
 </main>
 
 <footer class="site-footer">
@@ -130,7 +132,8 @@
       <div class="footer-col">
         <h4>Explore</h4>
         <a href="about.html">About Nathan</a>
-        <a href="buying-selling.html">Buying &amp; Selling</a>
+        <a href="buy.html">Buy</a>
+        <a href="sell.html">Sell</a>
         <a href="property-search.html">Property Search</a>
         <a href="market-updates.html">Market Updates</a>
       </div>
