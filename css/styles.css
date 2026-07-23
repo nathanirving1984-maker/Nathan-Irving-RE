@@ -317,7 +317,7 @@ p { margin: 0 0 var(--space-sm); color: var(--color-charcoal); }
 }
 
 /* ---- Logos (added) ---- */
-.brand-logo { height: 38px; display: block; }
+.brand-logo { height: 56px; display: block; }
 .footer-logo { height: 32px; margin-bottom: var(--space-xs); display: block; }
 .cb-badge {
   background: var(--color-bone);
