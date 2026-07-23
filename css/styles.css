@@ -193,7 +193,7 @@ p { margin: 0 0 var(--space-sm); color: var(--color-charcoal); }
   color: var(--color-bone);
 }
 .hero-inner { padding: var(--space-2xl) 0 var(--space-xl); max-width: 720px; }
-.hero .eyebrow { color: var(--color-gold-soft); }
+.hero .eyebrow { color: #000000; }
 .hero h1 { color: var(--color-white); font-weight: 300; }
 .hero p { color: rgba(247,244,238,0.86); font-size: 1.1rem; max-width: 520px; }
 .hero-actions { display: flex; gap: var(--space-sm); margin-top: var(--space-md); flex-wrap: wrap; }
@@ -318,7 +318,8 @@ p { margin: 0 0 var(--space-sm); color: var(--color-charcoal); }
 
 /* ---- Logos (added) ---- */
 .brand-logo { height: 56px; display: block; }
-.footer-logo { height: 32px; margin-bottom: var(--space-xs); display: block; }
+.footer-logo { height: 48px; margin-bottom: var(--space-xs); display: block; }
+.site-footer p { color: rgba(247,244,238,0.75); }
 .cb-badge {
   background: var(--color-bone);
   display: inline-block;
