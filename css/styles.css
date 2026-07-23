@@ -327,3 +327,14 @@ p { margin: 0 0 var(--space-sm); color: var(--color-charcoal); }
   margin-top: var(--space-sm);
 }
 .cb-badge img { height: 70px; display: block; }
+
+/* ---- Accent CTA button (visible by default, unlike .btn--gold which is for dark sections) ---- */
+.btn--accent {
+  background: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  color: var(--color-navy);
+}
+.btn--accent:hover {
+  background: transparent;
+  color: var(--color-gold);
+}
