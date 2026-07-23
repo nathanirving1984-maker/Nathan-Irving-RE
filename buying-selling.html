@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buying &amp; Selling | Nathan Irving Real Estate</title>
+<meta name="description" content="Buyer and seller resources, intake forms, and a mortgage calculator from Marin County REALTOR® Nathan Irving.">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">Nathan Irving <span>Real Estate</span></a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" data-main-nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="buying-selling.html">Buying &amp; Selling</a>
+      <a href="property-search.html">Property Search</a>
+      <a href="market-updates.html">Market Updates</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="section" style="padding-bottom:0;">
+    <div class="container text-center">
+      <span class="eyebrow">Buying &amp; Selling</span>
+      <h1>Whichever side of the deal you're on</h1>
+      <p style="max-width:560px;margin:0 auto;">Buying your first home, moving up, or ready to list — here's how Nathan can help, plus tools to get you started.</p>
+      <div class="hero-actions" style="justify-content:center;margin-top:var(--space-md);">
+        <a href="#buying" class="btn btn--ghost">I'm Buying</a>
+        <a href="#selling" class="btn btn--ghost">I'm Selling</a>
+        <a href="#calculator" class="btn btn--ghost">Mortgage Calculator</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BUYING ===================== -->
+  <section class="section" id="buying">
+    <div class="container">
+      <div class="section-head" style="text-align:left;max-width:100%;margin-bottom:var(--space-md);">
+        <span class="badge">For Buyers</span>
+        <h2 class="mt-lg">Finding the right home, without the guesswork</h2>
+        <p>Nathan works directly with you from your first search through closing day — no hand-offs, no autopilot. Share a few details below and he'll follow up personally within one business day.</p>
+      </div>
+
+      <div class="tool-panel">
+        <!--
+          EDIT: Replace YOUR_BUYER_FORM_ID with the endpoint from a
+          NEW Formspree form created specifically for buyer intake.
+        -->
+        <form action="https://formspree.io/f/YOUR_BUYER_FORM_ID" method="POST" class="form-grid">
+          <div class="grid-2" style="gap:var(--space-sm);">
+            <div class="form-row">
+              <label for="b_name">Name</label>
+              <input type="text" id="b_name" name="name" required>
+            </div>
+            <div class="form-row">
+              <label for="b_email">Email</label>
+              <input type="email" id="b_email" name="email" required>
+            </div>
+          </div>
+          <div class="grid-2" style="gap:var(--space-sm);">
+            <div class="form-row">
+              <label for="b_phone">Phone</label>
+              <input type="tel" id="b_phone" name="phone">
+            </div>
+            <div class="form-row">
+              <label for="b_location">Preferred town(s) or area(s)</label>
+              <input type="text" id="b_location" name="location" placeholder="e.g. Mill Valley, San Rafael">
+            </div>
+          </div>
+          <div class="grid-2" style="gap:var(--space-sm);">
+            <div class="form-row">
+              <label for="b_budget_min">Budget — minimum</label>
+              <input type="text" id="b_budget_min" name="budget_min" placeholder="e.g. $900,000">
+            </div>
+            <div class="form-row">
+              <label for="b_budget_max">Budget — maximum</label>
+              <input type="text" id="b_budget_max" name="budget_max" placeholder="e.g. $1,400,000">
+            </div>
+          </div>
+          <div class="grid-2" style="gap:var(--space-sm);">
+            <div class="form-row">
+              <label for="b_bedrooms">Bedrooms needed</label>
+              <select id="b_bedrooms" name="bedrooms">
+                <option value="1">1</option><option value="2">2</option>
+                <option value="3" selected>3</option><option value="4">4</option>
+                <option value="5+">5+</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="b_bathrooms">Bathrooms needed</label>
+              <select id="b_bathrooms" name="bathrooms">
+                <option value="1">1</option><option value="2" selected>2</option>
+                <option value="3">3</option><option value="4+">4+</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid-2" style="gap:var(--space-sm);">
+            <div class="form-row">
+              <label for="b_property_type">Property type</label>
+              <select id="b_property_type" name="property_type">
+                <option value="Single-family">Single-family</option>
+                <option value="Condo">Condo</option>
+                <option value="Townhouse">Townhouse</option>
+                <option value="Multi-family">Multi-family</option>
+                <option value="Land">Land</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="b_timeline">Timeline</label>
+              <select id="b_timeline" name="timeline">
+                <option value="Immediately">Immediately</option>
+                <option value="1-3 months">1–3 months</option>
+                <option value="3-6 months">3–6 months</option>
+                <option value="6-12 months">6–12 months</option>
+                <option value="Just researching">Just researching</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="b_notes">Anything else Nathan should know?</label>
+            <textarea id="b_notes" name="notes" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn">Submit Buyer Info</button>
+          <p class="form-status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SELLING ===================== -->
+  <section class="section section--alt" id="selling">
+    <div class="container">
+      <div class="section-head" style="text-align:left;max-width:100%;margin-bottom:var(--space-md);">
+        <span class="badge">For Sellers</span>
+        <h2 class="mt-lg">A pricing and marketing plan built around your home</h2>
+        <p>Tell Nathan about your property and goals, and he'll follow up with next steps — including a market analysis specific to your home.</p>
+      </div>
+
+      <div class="tool-panel">
+        <!--
+          EDIT: Replace YOUR_SELLER_FORM_ID with the endpoint from a
+          NEW Formspree form created specifically for seller intake.
+        -->
+        <form action="https://formspree.io/f/YOUR_SELLER_FORM_ID" method="POST" class="form-grid">
+          <div class="grid-2" style="gap:var(--space-sm);">
+            <div class="form-row">
+              <label for="s_name">Name</label>
+              <input type="text" id="s_name" name="name" required>
+            </div>
+            <div class="form-row">
+              <label for="s_email">Email</label>
+              <input type="email" id="s_email" name="email" required>
+            </div>
+          </div>
+          <div class="grid-2" style="gap:var(--space-sm);">
+            <div class="form-row">
+              <label for="s_phone">Phone</label>
+              <input type="tel" id="s_phone" name="phone">
+            </div>
+            <div class="form-row">
+              <label for="s_address">Property address</label>
+              <input type="text" id="s_address" name="address">
+            </div>
+          </div>
+          <div class="grid-2" style="gap:var(--space-sm);">
+            <div class="form-row">
+              <label for="s_property_type">Property type</label>
+              <select id="s_property_type" name="property_type">
+                <option value="Single-family">Single-family</option>
+                <option value="Condo">Condo</option>
+                <option value="Townhouse">Townhouse</option>
+                <option value="Multi-family">Multi-family</option>
+                <option value="Land">Land</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="s_sqft">Approximate square footage</label>
+              <input type="text" id="s_sqft" name="sqft">
+            </div>
+          </div>
+          <div class="grid-2" style="gap:var(--space-sm);">
+            <div class="form-row">
+              <label for="s_bedrooms">Bedrooms</label>
+              <select id="s_bedrooms" name="bedrooms">
+                <option value="1">1</option><option value="2">2</option>
+                <option value="3" selected>3</option><option value="4">4</option>
+                <option value="5+">5+</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="s_bathrooms">Bathrooms</label>
+              <select id="s_bathrooms" name="bathrooms">
+                <option value="1">1</option><option value="2" selected>2</option>
+                <option value="3">3</option><option value="4+">4+</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid-2" style="gap:var(--space-sm);">
+            <div class="form-row">
+              <label for="s_price_expectation">Price expectation (if you have one in mind)</label>
+              <input type="text" id="s_price_expectation" name="price_expectation" placeholder="e.g. $1,200,000">
+            </div>
+            <div class="form-row">
+              <label for="s_timeline">Timeline to sell</label>
+              <select id="s_timeline" name="timeline">
+                <option value="Immediately">Immediately</option>
+                <option value="1-3 months">1–3 months</option>
+                <option value="3-6 months">3–6 months</option>
+                <option value="6-12 months">6–12 months</option>
+                <option value="Just exploring">Just exploring</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="s_notes">Anything else Nathan should know?</label>
+            <textarea id="s_notes" name="notes" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn">Submit Seller Info</button>
+          <p class="form-status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MORTGAGE CALCULATOR ===================== -->
+  <section class="section" id="calculator">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Free Tool</span>
+        <h2>Mortgage Calculator</h2>
+        <p>Estimate your monthly payment, including taxes, insurance, and HOA dues.</p>
+      </div>
+
+      <div class="grid-2" style="align-items:start;">
+        <div class="tool-panel">
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="m_price">Home price ($)</label>
+              <input type="number" id="m_price" value="1200000" min="0" step="1000">
+            </div>
+            <div class="grid-2" style="gap:var(--space-sm);">
+              <div class="form-row">
+                <label for="m_down_pct">Down payment (%)</label>
+                <input type="number" id="m_down_pct" value="20" min="0" max="100" step="1">
+              </div>
+              <div class="form-row">
+                <label for="m_rate">Interest rate (%)</label>
+                <input type="number" id="m_rate" value="6.375" min="0" max="20" step="0.01">
+              </div>
+            </div>
+            <div class="grid-2" style="gap:var(--space-sm);">
+              <div class="form-row">
+                <label for="m_term">Loan term (years)</label>
+                <select id="m_term">
+                  <option value="30" selected>30</option>
+                  <option value="15">15</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="m_tax_rate">Annual property tax (%)</label>
+                <input type="number" id="m_tax_rate" value="1.1" min="0" max="10" step="0.01">
+              </div>
+            </div>
+            <div class="grid-2" style="gap:var(--space-sm);">
+              <div class="form-row">
+                <label for="m_insurance">Annual home insurance ($)</label>
+                <input type="number" id="m_insurance" value="1800" min="0" step="50">
+              </div>
+              <div class="form-row">
+                <label for="m_hoa">Monthly HOA dues ($)</label>
+                <input type="number" id="m_hoa" value="0" min="0" step="10">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-result">
+          <div class="label">Estimated Monthly Payment</div>
+          <div class="figure" id="m_total_monthly">$0</div>
+          <div style="text-align:left;margin-top:var(--space-md);font-size:0.9rem;border-top:1px solid rgba(247,244,238,0.2);padding-top:var(--space-sm);">
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;">
+              <span>Principal &amp; Interest</span><span id="m_pi">$0</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;">
+              <span>Property Tax</span><span id="m_tax">$0</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;">
+              <span>Home Insurance</span><span id="m_ins">$0</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;">
+              <span>HOA Dues</span><span id="m_hoa_out">$0</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid rgba(247,244,238,0.2);">
+              <span>Loan Amount</span><span id="m_loan_amount">$0</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;">
+              <span>Total Interest Paid</span><span id="m_total_interest">$0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:0.78rem;color:#8a897f;max-width:640px;margin:var(--space-md) auto 0;text-align:center;">
+        For general informational purposes only. Actual rates and payments depend on lender, credit, income, and property specifics. Consult a mortgage professional for exact figures.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Nathan Irving <span>Real Estate</span></div>
+        <p style="max-width:280px;">Marin County REALTOR® with Coldwell Banker Realty, Greenbrae office.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="about.html">About Nathan</a>
+        <a href="buying-selling.html">Buying &amp; Selling</a>
+        <a href="property-search.html">Property Search</a>
+        <a href="market-updates.html">Market Updates</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+14152094864">(415) 209-4864</a>
+        <a href="mailto:nathan.irving@cbrealty.com">nathan.irving@cbrealty.com</a>
+        <a href="https://www.linkedin.com/in/nathan-irving-realestate" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-current-year></span> Nathan Irving Real Estate. Coldwell Banker Realty. Equal Housing Opportunity.</span>
+      <span>DRE# 02414117</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script>
+// ---- Mortgage calculator ----
+(function () {
+  var priceEl = document.getElementById('m_price');
+  var downPctEl = document.getElementById('m_down_pct');
+  var rateEl = document.getElementById('m_rate');
+  var termEl = document.getElementById('m_term');
+  var taxRateEl = document.getElementById('m_tax_rate');
+  var insuranceEl = document.getElementById('m_insurance');
+  var hoaEl = document.getElementById('m_hoa');
+
+  var totalMonthlyOut = document.getElementById('m_total_monthly');
+  var piOut = document.getElementById('m_pi');
+  var taxOut = document.getElementById('m_tax');
+  var insOut = document.getElementById('m_ins');
+  var hoaOut = document.getElementById('m_hoa_out');
+  var loanAmountOut = document.getElementById('m_loan_amount');
+  var totalInterestOut = document.getElementById('m_total_interest');
+
+  function formatCurrency(num) {
+    return '$' + Math.round(num).toLocaleString('en-US');
+  }
+
+  function calculate() {
+    var price = parseFloat(priceEl.value) || 0;
+    var downPct = parseFloat(downPctEl.value) || 0;
+    var rateAnnual = parseFloat(rateEl.value) || 0;
+    var termYears = parseFloat(termEl.value) || 30;
+    var taxRateAnnual = parseFloat(taxRateEl.value) || 0;
+    var insuranceAnnual = parseFloat(insuranceEl.value) || 0;
+    var hoaMonthly = parseFloat(hoaEl.value) || 0;
+
+    var loanAmount = price * (1 - (downPct / 100));
+    var monthlyRate = (rateAnnual / 100) / 12;
+    var numPayments = termYears * 12;
+
+    var monthlyPI = 0;
+    if (monthlyRate > 0) {
+      monthlyPI = loanAmount *
+        (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) /
+        (Math.pow(1 + monthlyRate, numPayments) - 1);
+    } else if (numPayments > 0) {
+      monthlyPI = loanAmount / numPayments;
+    }
+
+    var totalPaid = monthlyPI * numPayments;
+    var totalInterest = totalPaid - loanAmount;
+
+    var monthlyTax = (price * (taxRateAnnual / 100)) / 12;
+    var monthlyInsurance = insuranceAnnual / 12;
+
+    var totalMonthly = monthlyPI + monthlyTax + monthlyInsurance + hoaMonthly;
+
+    totalMonthlyOut.textContent = formatCurrency(totalMonthly);
+    piOut.textContent = formatCurrency(monthlyPI);
+    taxOut.textContent = formatCurrency(monthlyTax);
+    insOut.textContent = formatCurrency(monthlyInsurance);
+    hoaOut.textContent = formatCurrency(hoaMonthly);
+    loanAmountOut.textContent = formatCurrency(loanAmount);
+    totalInterestOut.textContent = formatCurrency(totalInterest);
+  }
+
+  [priceEl, downPctEl, rateEl, termEl, taxRateEl, insuranceEl, hoaEl].forEach(function (el) {
+    el.addEventListener('input', calculate);
+    el.addEventListener('change', calculate);
+  });
+
+  calculate();
+})();
+</script>
+</body>
+</html>
