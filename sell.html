@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sell | Nathan Irving Real Estate</title>
-<meta name="description" content="Thinking about selling in Marin County? Get a pricing and marketing plan from Nathan Irving, REALTOR® at Coldwell Banker Realty. Seller intake form and free home valuation.">
+<meta name="description" content="Thinking about selling in Marin County? Get an instant valuation estimate and a pricing plan from Nathan Irving, REALTOR® at Coldwell Banker Realty.">
 <link rel="stylesheet" href="css/styles.css">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -40,7 +40,6 @@
 </header>
 
 <main>
-
   <section class="section" style="padding-bottom:0;">
     <div class="container text-center">
       <span class="eyebrow">Selling Your Home</span>
@@ -70,7 +69,7 @@
           EDIT: Replace YOUR_SELLER_FORM_ID with the endpoint from a
           NEW Formspree form created specifically for seller intake.
         -->
-        <form action="https://formspree.io/f/YOUR_SELLER_FORM_ID" method="POST" class="form-grid">
+        <form action="https://formspree.io/f/xdaqwoll" method="POST" class="form-grid">
           <div class="grid-2" style="gap:var(--space-sm);">
             <div class="form-row">
               <label for="s_name">Name</label>
@@ -157,23 +156,49 @@
       </div>
     </div>
   </section>
-
-
   <!-- ===================== HOME VALUATION ===================== -->
   <section class="section" id="valuation">
     <div class="container">
       <div class="section-head" style="text-align:left;max-width:100%;margin-bottom:var(--space-md);">
         <span class="badge">Free Home Valuation</span>
         <h2 class="mt-lg">Curious what your home is worth right now?</h2>
-        <p>Skip the automated online estimates — those tools don't know your home's actual condition, upgrades, or the block it sits on. Share a few details and Nathan will personally put together a real comparative market analysis based on current Marin sales, usually within a day or two.</p>
+        <p>Get an instant ballpark estimate below, then request a real comparative market analysis from Nathan based on your home's actual condition, upgrades, and recent Marin sales — usually ready within a day or two.</p>
       </div>
 
       <div class="tool-panel">
+        <h3 style="margin-bottom:0.3rem;">Instant Estimate</h3>
+        <p style="font-size:0.9rem;color:#6b6a63;margin-bottom:var(--space-sm);">A quick ballpark based on town-wide averages — not a substitute for a real CMA, but a starting point.</p>
+        <div class="form-grid">
+          <div class="grid-2" style="gap:var(--space-sm);">
+            <div class="form-row">
+              <label for="est_town">Town</label>
+              <select id="est_town"></select>
+            </div>
+            <div class="form-row">
+              <label for="est_sqft">Square footage</label>
+              <input type="number" id="est_sqft" value="1800" min="100" step="50">
+            </div>
+          </div>
+        </div>
+        <div class="tool-result" style="margin-top:var(--space-sm);">
+          <div class="label">Estimated Range</div>
+          <div class="figure" id="est_output">$0 — $0</div>
+          <p style="font-size:0.78rem;color:rgba(247,244,238,0.7);margin:var(--space-xs) 0 0;">
+            Based on <span id="est_town_label"></span> town-wide averages (updated <span id="est_updated"></span>). Your home's actual value depends on condition, upgrades, lot, and specific location.
+          </p>
+        </div>
+        <div class="text-center" style="margin-top:var(--space-md);">
+          <a href="#valuation-form" class="btn btn--ghost">Get a Real, Personalized Valuation</a>
+        </div>
+      </div>
+
+      <div class="tool-panel" id="valuation-form" style="margin-top:var(--space-md);">
+        <h3 style="margin-bottom:var(--space-sm);">Request a Real Comparative Market Analysis</h3>
         <!--
           EDIT: Replace YOUR_VALUATION_FORM_ID with the endpoint from a
           NEW Formspree form created specifically for valuation requests.
         -->
-        <form action="https://formspree.io/f/YOUR_VALUATION_FORM_ID" method="POST" class="form-grid">
+        <form action="https://formspree.io/f/mojgkwle" method="POST" class="form-grid">
           <div class="grid-2" style="gap:var(--space-sm);">
             <div class="form-row">
               <label for="v_name">Name</label>
@@ -245,7 +270,46 @@
     </div>
   </section>
 
+  <script src="js/data/valuation-data.js"></script>
+  <script>
+  (function () {
+    var townSelect = document.getElementById('est_town');
+    var sqftInput = document.getElementById('est_sqft');
+    var output = document.getElementById('est_output');
+    var townLabel = document.getElementById('est_town_label');
+    var updatedLabel = document.getElementById('est_updated');
 
+    if (!townSelect || typeof VALUATION_DATA === 'undefined') return;
+
+    VALUATION_DATA.towns.forEach(function (t) {
+      var opt = document.createElement('option');
+      opt.value = t.pricePerSqft;
+      opt.textContent = t.name;
+      opt.dataset.name = t.name;
+      townSelect.appendChild(opt);
+    });
+
+    updatedLabel.textContent = VALUATION_DATA.lastUpdated;
+
+    function formatCurrency(num) {
+      return '$' + Math.round(num).toLocaleString('en-US');
+    }
+
+    function calculate() {
+      var pricePerSqft = parseFloat(townSelect.value) || 0;
+      var sqft = parseFloat(sqftInput.value) || 0;
+      var estimate = pricePerSqft * sqft;
+      var low = estimate * 0.9;
+      var high = estimate * 1.1;
+      output.textContent = formatCurrency(low) + ' — ' + formatCurrency(high);
+      townLabel.textContent = townSelect.selectedOptions[0] ? townSelect.selectedOptions[0].dataset.name : '';
+    }
+
+    townSelect.addEventListener('change', calculate);
+    sqftInput.addEventListener('input', calculate);
+    calculate();
+  })();
+  </script>
 </main>
 
 <footer class="site-footer">
