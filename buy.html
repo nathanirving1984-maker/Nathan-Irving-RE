@@ -40,7 +40,6 @@
 </header>
 
 <main>
-
   <section class="section" style="padding-bottom:0;">
     <div class="container text-center">
       <span class="eyebrow">Buying a Home</span>
@@ -167,8 +166,6 @@
       </div>
     </div>
   </section>
-
-
   <!-- ===================== MORTGAGE CALCULATOR ===================== -->
   <section class="section" id="calculator">
     <div class="container">
@@ -252,43 +249,6 @@
       </p>
     </div>
   </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <img src="images/ni-logo-light.png" alt="Nathan Irving Real Estate" class="footer-logo">
-        <p style="max-width:280px;">Marin County REALTOR® with Coldwell Banker Realty, Greenbrae office.</p>
-        <div class="cb-badge">
-          <img src="images/cb-logo.png" alt="Coldwell Banker Realty">
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <a href="about.html">About Nathan</a>
-        <a href="buy.html">Buy</a>
-        <a href="sell.html">Sell</a>
-        <a href="property-search.html">Property Search</a>
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-        <a href="market-updates.html">Market Updates</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="tel:+14152094864">(415) 209-4864</a>
-        <a href="mailto:nathan.irving@cbrealty.com">nathan.irving@cbrealty.com</a>
-        <a href="https://www.linkedin.com/in/nathan-irving-realestate" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; <span data-current-year></span> Nathan Irving Real Estate. Coldwell Banker Realty. Equal Housing Opportunity.</span>
-      <span>DRE# 02414117</span>
-    </div>
-  </div>
-</footer>
-
-
 </main>
 
 <footer class="site-footer">
@@ -324,5 +284,75 @@
 </footer>
 
 <script src="js/nav.js"></script>
+<script>
+// ---- Mortgage calculator ----
+(function () {
+  var priceEl = document.getElementById('m_price');
+  var downPctEl = document.getElementById('m_down_pct');
+  var rateEl = document.getElementById('m_rate');
+  var termEl = document.getElementById('m_term');
+  var taxRateEl = document.getElementById('m_tax_rate');
+  var insuranceEl = document.getElementById('m_insurance');
+  var hoaEl = document.getElementById('m_hoa');
+
+  var totalMonthlyOut = document.getElementById('m_total_monthly');
+  var piOut = document.getElementById('m_pi');
+  var taxOut = document.getElementById('m_tax');
+  var insOut = document.getElementById('m_ins');
+  var hoaOut = document.getElementById('m_hoa_out');
+  var loanAmountOut = document.getElementById('m_loan_amount');
+  var totalInterestOut = document.getElementById('m_total_interest');
+
+  function formatCurrency(num) {
+    return '$' + Math.round(num).toLocaleString('en-US');
+  }
+
+  function calculate() {
+    var price = parseFloat(priceEl.value) || 0;
+    var downPct = parseFloat(downPctEl.value) || 0;
+    var rateAnnual = parseFloat(rateEl.value) || 0;
+    var termYears = parseFloat(termEl.value) || 30;
+    var taxRateAnnual = parseFloat(taxRateEl.value) || 0;
+    var insuranceAnnual = parseFloat(insuranceEl.value) || 0;
+    var hoaMonthly = parseFloat(hoaEl.value) || 0;
+
+    var loanAmount = price * (1 - (downPct / 100));
+    var monthlyRate = (rateAnnual / 100) / 12;
+    var numPayments = termYears * 12;
+
+    var monthlyPI = 0;
+    if (monthlyRate > 0) {
+      monthlyPI = loanAmount *
+        (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) /
+        (Math.pow(1 + monthlyRate, numPayments) - 1);
+    } else if (numPayments > 0) {
+      monthlyPI = loanAmount / numPayments;
+    }
+
+    var totalPaid = monthlyPI * numPayments;
+    var totalInterest = totalPaid - loanAmount;
+
+    var monthlyTax = (price * (taxRateAnnual / 100)) / 12;
+    var monthlyInsurance = insuranceAnnual / 12;
+
+    var totalMonthly = monthlyPI + monthlyTax + monthlyInsurance + hoaMonthly;
+
+    totalMonthlyOut.textContent = formatCurrency(totalMonthly);
+    piOut.textContent = formatCurrency(monthlyPI);
+    taxOut.textContent = formatCurrency(monthlyTax);
+    insOut.textContent = formatCurrency(monthlyInsurance);
+    hoaOut.textContent = formatCurrency(hoaMonthly);
+    loanAmountOut.textContent = formatCurrency(loanAmount);
+    totalInterestOut.textContent = formatCurrency(totalInterest);
+  }
+
+  [priceEl, downPctEl, rateEl, termEl, taxRateEl, insuranceEl, hoaEl].forEach(function (el) {
+    el.addEventListener('input', calculate);
+    el.addEventListener('change', calculate);
+  });
+
+  calculate();
+})();
+</script>
 </body>
 </html>
