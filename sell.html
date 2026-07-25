@@ -167,7 +167,7 @@
 
       <div class="tool-panel">
         <h3 style="margin-bottom:0.3rem;">Instant Estimate</h3>
-        <p style="font-size:0.9rem;color:#6b6a63;margin-bottom:var(--space-sm);">A quick ballpark based on town-wide averages — not a substitute for a real CMA, but a starting point.</p>
+        <p style="font-size:0.9rem;color:#6b6a63;margin-bottom:var(--space-sm);">A ballpark based on town-wide averages, adjusted for property type, condition, and bed/bath count — not a substitute for a real CMA, but a closer starting point.</p>
         <div class="form-grid">
           <div class="grid-2" style="gap:var(--space-sm);">
             <div class="form-row">
@@ -179,12 +179,50 @@
               <input type="number" id="est_sqft" value="1800" min="100" step="50">
             </div>
           </div>
+          <div class="grid-2" style="gap:var(--space-sm);">
+            <div class="form-row">
+              <label for="est_property_type">Property type</label>
+              <select id="est_property_type">
+                <option value="Single-family">Single-family</option>
+                <option value="Condo">Condo</option>
+                <option value="Townhouse">Townhouse</option>
+                <option value="Multi-family">Multi-family</option>
+                <option value="Land">Land</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="est_condition">Condition / upgrades</label>
+              <select id="est_condition">
+                <option value="dated">Original / dated</option>
+                <option value="average" selected>Average / well-maintained</option>
+                <option value="updated">Updated / renovated</option>
+                <option value="luxury">Luxury / fully remodeled</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid-2" style="gap:var(--space-sm);">
+            <div class="form-row">
+              <label for="est_bedrooms">Bedrooms</label>
+              <select id="est_bedrooms">
+                <option value="1">1</option><option value="2">2</option>
+                <option value="3" selected>3</option><option value="4">4</option>
+                <option value="5">5+</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="est_bathrooms">Bathrooms</label>
+              <select id="est_bathrooms">
+                <option value="1">1</option><option value="2" selected>2</option>
+                <option value="3">3</option><option value="4">4+</option>
+              </select>
+            </div>
+          </div>
         </div>
         <div class="tool-result" style="margin-top:var(--space-sm);">
           <div class="label">Estimated Range</div>
           <div class="figure" id="est_output">$0 — $0</div>
           <p style="font-size:0.78rem;color:rgba(247,244,238,0.7);margin:var(--space-xs) 0 0;">
-            Based on <span id="est_town_label"></span> town-wide averages (updated <span id="est_updated"></span>). Your home's actual value depends on condition, upgrades, lot, and specific location.
+            Based on <span id="est_town_label"></span> town-wide averages (updated <span id="est_updated"></span>), adjusted for the details above. Your home's actual value still depends on lot, exact location, and specifics a real CMA accounts for.
           </p>
         </div>
         <div class="text-center" style="margin-top:var(--space-md);">
@@ -275,6 +313,10 @@
   (function () {
     var townSelect = document.getElementById('est_town');
     var sqftInput = document.getElementById('est_sqft');
+    var propertyTypeSelect = document.getElementById('est_property_type');
+    var conditionSelect = document.getElementById('est_condition');
+    var bedroomsSelect = document.getElementById('est_bedrooms');
+    var bathroomsSelect = document.getElementById('est_bathrooms');
     var output = document.getElementById('est_output');
     var townLabel = document.getElementById('est_town_label');
     var updatedLabel = document.getElementById('est_updated');
@@ -296,16 +338,37 @@
     }
 
     function calculate() {
+      townLabel.textContent = townSelect.selectedOptions[0] ? townSelect.selectedOptions[0].dataset.name : '';
+
+      if (propertyTypeSelect.value === 'Land') {
+        output.textContent = 'Contact Nathan for a land valuation';
+        return;
+      }
+
       var pricePerSqft = parseFloat(townSelect.value) || 0;
       var sqft = parseFloat(sqftInput.value) || 0;
-      var estimate = pricePerSqft * sqft;
-      var low = estimate * 0.9;
-      var high = estimate * 1.1;
+      var bedrooms = parseFloat(bedroomsSelect.value) || 0;
+      var bathrooms = parseFloat(bathroomsSelect.value) || 0;
+
+      var typeMultiplier = VALUATION_DATA.propertyTypeMultipliers[propertyTypeSelect.value] || 1;
+      var conditionMultiplier = VALUATION_DATA.conditionMultipliers[conditionSelect.value] || 1;
+
+      // Nudge for bed/bath count relative to what's typical for a home of this size,
+      // capped so an unusual layout can't swing the estimate too far.
+      var expectedBedrooms = sqft / 550;
+      var bedroomAdj = 1 + Math.max(-0.06, Math.min(0.06, (bedrooms - expectedBedrooms) * 0.02));
+      var expectedBathrooms = expectedBedrooms * 0.75;
+      var bathroomAdj = 1 + Math.max(-0.05, Math.min(0.05, (bathrooms - expectedBathrooms) * 0.015));
+
+      var estimate = pricePerSqft * sqft * typeMultiplier * conditionMultiplier * bedroomAdj * bathroomAdj;
+      var low = estimate * 0.93;
+      var high = estimate * 1.07;
       output.textContent = formatCurrency(low) + ' — ' + formatCurrency(high);
-      townLabel.textContent = townSelect.selectedOptions[0] ? townSelect.selectedOptions[0].dataset.name : '';
     }
 
-    townSelect.addEventListener('change', calculate);
+    [townSelect, propertyTypeSelect, conditionSelect, bedroomsSelect, bathroomsSelect].forEach(function (el) {
+      el.addEventListener('change', calculate);
+    });
     sqftInput.addEventListener('input', calculate);
     calculate();
   })();
