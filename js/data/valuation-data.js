@@ -19,5 +19,21 @@ const VALUATION_DATA = {
     { name: "Novato", pricePerSqft: 574 },
     { name: "Marin City", pricePerSqft: 506 },
     { name: "Other Marin County (average)", pricePerSqft: 854 }
-  ]
+  ],
+  // Adjusts the town's $/sqft baseline for property type. Single-family is the
+  // baseline (1.00); other types trade at a discount/premium per BAREIS norms.
+  // Land has no per-sqft-of-building basis, so it's handled separately in the UI.
+  propertyTypeMultipliers: {
+    "Single-family": 1.00,
+    "Condo": 0.82,
+    "Townhouse": 0.88,
+    "Multi-family": 0.93
+  },
+  // Adjusts for reported condition/upgrade level relative to "average."
+  conditionMultipliers: {
+    dated: 0.88,
+    average: 1.00,
+    updated: 1.10,
+    luxury: 1.22
+  }
 };
