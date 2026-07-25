@@ -308,7 +308,7 @@
     </div>
   </section>
 
-  <script src="js/data/valuation-data.js"></script>
+  <script src="js/data/valuation-data.js?v=2"></script>
   <script>
   (function () {
     var townSelect = document.getElementById('est_town');
@@ -350,8 +350,8 @@
       var bedrooms = parseFloat(bedroomsSelect.value) || 0;
       var bathrooms = parseFloat(bathroomsSelect.value) || 0;
 
-      var typeMultiplier = VALUATION_DATA.propertyTypeMultipliers[propertyTypeSelect.value] || 1;
-      var conditionMultiplier = VALUATION_DATA.conditionMultipliers[conditionSelect.value] || 1;
+      var typeMultiplier = (VALUATION_DATA.propertyTypeMultipliers || {})[propertyTypeSelect.value] || 1;
+      var conditionMultiplier = (VALUATION_DATA.conditionMultipliers || {})[conditionSelect.value] || 1;
 
       // Nudge for bed/bath count relative to what's typical for a home of this size,
       // capped so an unusual layout can't swing the estimate too far.
