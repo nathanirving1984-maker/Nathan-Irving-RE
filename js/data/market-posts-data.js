@@ -1,4 +1,4 @@
-// Nathan Irving Real Estate — Market Updates data
+// Nathan Irving, REALTOR® — Market Updates data
 // Add new posts to the TOP of this array. Each post needs a unique "id".
 // Set isSample: true for placeholder posts so visitors know it's example content.
 
