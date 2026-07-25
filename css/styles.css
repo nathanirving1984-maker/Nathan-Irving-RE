@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Nathan Irving Real Estate — Global Design System
+   Nathan Irving, REALTOR® — Global Design System
    Palette: bone/ivory + navy + champagne-gold accent
    Type: Manrope (single family, weight range does the work)
    ========================================================================== */
@@ -291,12 +291,27 @@ p { margin: 0 0 var(--space-sm); color: var(--color-charcoal); }
   border-top: 1px solid rgba(247,244,238,0.15);
   padding-top: var(--space-md);
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--space-sm);
   font-size: 0.8rem;
   color: rgba(247,244,238,0.55);
 }
+.footer-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  width: 100%;
+}
+.footer-disclaimer {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  max-width: 960px;
+  color: rgba(247,244,238,0.5);
+  margin: 0;
+}
+.footer-bottom a { color: inherit; }
+.footer-bottom a:hover { color: var(--color-gold); }
 @media (max-width: 860px) {
   .footer-grid { grid-template-columns: 1fr; gap: var(--space-md); }
 }

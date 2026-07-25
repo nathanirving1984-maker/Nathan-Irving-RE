@@ -1,4 +1,4 @@
-// Nathan Irving Real Estate — nav behavior
+// Nathan Irving, REALTOR® — nav behavior
 document.addEventListener('DOMContentLoaded', function () {
   var toggle = document.querySelector('[data-nav-toggle]');
   var nav = document.querySelector('[data-main-nav]');

@@ -1,4 +1,4 @@
-// Nathan Irving Real Estate — Home Valuation Estimator data
+// Nathan Irving, REALTOR® — Home Valuation Estimator data
 // pricePerSqft values are rough town-wide AVERAGES, not precise figures.
 // Source: Redfin median sale price/sqft data, pulled July 2026.
 // IMPORTANT: These are starting points only. Update periodically using your
