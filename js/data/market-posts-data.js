@@ -1,8 +1,26 @@
 // Nathan Irving, REALTOR® — Market Updates data
 // Add new posts to the TOP of this array. Each post needs a unique "id".
 // Set isSample: true for placeholder posts so visitors know it's example content.
+//
+// Optional ZIP-code snapshot fields (all optional, backward compatible):
+//   zip:       string, e.g. "94949"
+//   zipLabel:  string, e.g. "Novato — Hamilton & Pointe Marin"
+//   images:    array of { src, caption } — photo grid rendered below the post
+//   excerpt:   long-form paragraph used instead of summary/body when present
+// When "zip" is set and js/data/zip-boundaries/{zip}.json exists, a Leaflet
+// boundary map renders below the post text. See market-updates.html.
 
 const MARKET_POSTS_DATA = [
+  {
+    id: "novato-94949-hamilton-pointe-marin-july-2026",
+    isSample: false,
+    date: "July 2026",
+    title: "Novato 94949 (Hamilton & Pointe Marin) Sales Heat Up",
+    zip: "94949",
+    zipLabel: "Novato — Hamilton & Pointe Marin",
+    excerpt: "The 94949 ZIP code — covering Hamilton and Pointe Marin — is seeing a clear pickup in activity. 16 homes sold in June alone, and 62 homes have closed so far this year, up nearly 13% from the same period in 2025. Pending sales are also outpacing last year, up over 6% year-to-date. Meanwhile active inventory has stayed roughly flat. With sales accelerating faster than new listings are appearing, buyers are moving quickly in this pocket of South Novato — good news for sellers in Hamilton and Pointe Marin considering a listing this summer.",
+    images: [],
+  },
   {
     id: "marin-market-snapshot-july-2026",
     title: "Marin County Market Snapshot — July 2026",
