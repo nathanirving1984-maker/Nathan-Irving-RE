@@ -15,10 +15,11 @@ const MARKET_POSTS_DATA = [
     id: "novato-94949-hamilton-pointe-marin-july-2026",
     isSample: false,
     date: "July 2026",
-    title: "Novato 94949 (Hamilton & Pointe Marin) Sales Heat Up",
+    title: "Novato 94949 (South Novato): Homes Selling Twice as Fast",
     zip: "94949",
-    zipLabel: "Novato — Hamilton & Pointe Marin",
-    excerpt: "The 94949 ZIP code — covering Hamilton and Pointe Marin — is seeing a clear pickup in activity. 16 homes sold in June alone, and 62 homes have closed so far this year, up nearly 13% from the same period in 2025. Pending sales are also outpacing last year, up over 6% year-to-date. Meanwhile active inventory has stayed roughly flat. With sales accelerating faster than new listings are appearing, buyers are moving quickly in this pocket of South Novato — good news for sellers in Hamilton and Pointe Marin considering a listing this summer.",
+    zipLabel: "Novato — Hamilton, Pointe Marin, Bel Marin Keys & Marin Country Club",
+    excerpt:
+      "The 94949 ZIP code — covering South Novato's Hamilton Field, Pointe Marin, Bel Marin Keys, Marin Country Club Estates, and Loma Verde — is showing one of the clearest speed-ups in the Novato market this year. Homes sold in June spent a median of just 27 days on market, down from 49 days a year ago, a 45% drop. That trend has continued into July, with homes moving in 23 days so far this month compared to 46 days last July. Buyers are also paying up for the right home: the average sale closed at 101% of original list price in June, up from 95% a year ago. Price per square foot has stayed comparatively steady around $627, so this isn't a story of runaway appreciation — it's a story of speed and competition. 16 homes sold in June alone, and 62 have closed year-to-date, up nearly 13% from the same period in 2025. For sellers across South Novato — whether it's a waterfront lot in Bel Marin Keys, a newer build in Hamilton or Pointe Marin, or an estate in Marin Country Club — that combination points to a strong window to list.",
     images: [],
   },
   {
