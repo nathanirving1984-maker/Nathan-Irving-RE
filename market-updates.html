@@ -111,6 +111,74 @@
     font-size: 0.75rem;
     color: #6b6a63;
   }
+
+  /* ---- ZIP badge (near title, uses existing .badge-style gold pill) ---- */
+  .zip-badge {
+    display: inline-block;
+    font-family: var(--font-main);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    background: var(--color-gold-soft);
+    color: var(--color-navy);
+    vertical-align: middle;
+  }
+
+  /* ---- Stat cards ---- */
+  .stat-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--space-xs);
+    margin: var(--space-sm) 0;
+  }
+  .stat-card { padding: var(--space-sm); }
+  .stat-label {
+    font-family: var(--font-main);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #6b6a63;
+    margin-bottom: 0.35rem;
+  }
+  .stat-value-row {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .stat-value {
+    font-family: var(--font-main);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-navy);
+  }
+  .stat-trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.74rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .stat-trend-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+  }
+  .stat-trend--up { color: var(--color-gold); }
+  .stat-trend--up .stat-trend-arrow { border-bottom: 6px solid currentColor; }
+  .stat-trend--down { color: #6b6a63; }
+  .stat-trend--down .stat-trend-arrow { border-top: 6px solid currentColor; }
+  .stat-trend--flat { color: #6b6a63; }
+  .stat-trend--flat .stat-trend-arrow {
+    border-left: none; border-right: none;
+    width: 8px; height: 2px; background: currentColor;
+  }
 </style>
 </head>
 <body>
@@ -272,7 +340,7 @@
     toggle.className = 'post-toggle';
     toggle.innerHTML =
       '<div class="post-toggle-text">' +
-        '<span class="post-date">' + formatDate(post.date) + (post.isSample ? ' &middot; <span class="badge" style="padding:0.15rem 0.5rem;font-size:0.62rem;">Sample post</span>' : '') + '</span>' +
+        '<span class="post-date">' + formatDate(post.date) + (post.isSample ? ' &middot; <span class="badge" style="padding:0.15rem 0.5rem;font-size:0.62rem;">Sample post</span>' : '') + (post.zip ? ' &middot; <span class="zip-badge">ZIP ' + post.zip + '</span>' : '') + '</span>' +
         '<h3>' + post.title + '</h3>' +
         '<p style="margin:0;color:#6b6a63;">' + summaryText + '</p>' +
       '</div>' +
@@ -280,6 +348,45 @@
 
     var body = document.createElement('div');
     body.className = 'post-body';
+
+    if (post.stats && post.stats.length) {
+      var statCards = document.createElement('div');
+      statCards.className = 'stat-cards';
+      post.stats.forEach(function (stat) {
+        var card = document.createElement('div');
+        card.className = 'card stat-card';
+
+        var label = document.createElement('div');
+        label.className = 'stat-label';
+        label.textContent = stat.label;
+
+        var valueRow = document.createElement('div');
+        valueRow.className = 'stat-value-row';
+
+        var value = document.createElement('span');
+        value.className = 'stat-value';
+        value.textContent = stat.value;
+        valueRow.appendChild(value);
+
+        if (stat.trend) {
+          var trend = document.createElement('span');
+          trend.className = 'stat-trend stat-trend--' + stat.trend;
+          var arrow = document.createElement('span');
+          arrow.className = 'stat-trend-arrow';
+          trend.appendChild(arrow);
+          if (stat.trendLabel) {
+            trend.appendChild(document.createTextNode(stat.trendLabel));
+          }
+          valueRow.appendChild(trend);
+        }
+
+        card.appendChild(label);
+        card.appendChild(valueRow);
+        statCards.appendChild(card);
+      });
+      body.appendChild(statCards);
+    }
+
     bodyParagraphs.forEach(function (para) {
       var p = document.createElement('p');
       p.textContent = para;
