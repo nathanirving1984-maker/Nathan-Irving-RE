@@ -14,7 +14,7 @@ const MARKET_POSTS_DATA = [
   {
     id: "novato-94949-hamilton-pointe-marin-july-2026",
     isSample: false,
-    date: "July 2026",
+    date: "2026-07-26",
     title: "Novato 94949 (South Novato): Homes Selling Twice as Fast",
     zip: "94949",
     zipLabel: "Novato — Hamilton, Pointe Marin, Bel Marin Keys & Marin Country Club",
