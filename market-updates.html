@@ -101,22 +101,6 @@
   .zip-boundary-shape:focus {
     fill-opacity: 0.3;
   }
-  .zip-road-line {
-    fill: none;
-    stroke: var(--color-white);
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    opacity: 0.85;
-    pointer-events: none;
-  }
-  .zip-road-label {
-    font-family: var(--font-main);
-    font-weight: 700;
-    fill: var(--color-navy);
-    opacity: 0.55;
-    pointer-events: none;
-  }
   .zip-map-chip {
     position: absolute;
     top: 10px;
@@ -369,23 +353,6 @@
     return str.slice(0, len).replace(/\s+\S*$/, '') + '…';
   }
 
-  // Major roads for visual context inside a ZIP shape. Coordinates are real
-  // surveyed points from Natural Earth's public-domain 1:10m roads dataset
-  // (coarser resolution than the ZIP boundary polygon, so curves are
-  // simplified, but not hand-traced guesses — actual road positions).
-  var ZIP_MAJOR_ROADS = {
-    '94949': [
-      { name: '101', points: [
-        [-122.5584, 38.0041], [-122.5567, 38.0197], [-122.5411, 38.0475],
-        [-122.5411, 38.0632], [-122.5567, 38.0875], [-122.5706, 38.1048]
-      ] }
-      // CA-37 also passes through here, but the source dataset's only
-      // segment near this ZIP clips the very edge of the frame and reads
-      // as a stray line rather than a real road — omitted rather than
-      // faked further.
-    ]
-  };
-
   // Pulls the exterior ring(s) out of a Polygon/MultiPolygon geometry.
   // Holes are ignored — fine for a simplified boundary outline.
   function boundaryRings(geometry) {
@@ -441,19 +408,6 @@
         'vector-effect="non-scaling-stroke" stroke-linejoin="round"><title>' + tooltip + '</title></polygon>';
     }).join('');
 
-    var roadFontSize = (maxX - minX) * 0.05;
-    var roads = (ZIP_MAJOR_ROADS[post.zip] || []).map(function (road) {
-      var d = road.points.map(function (c, i) {
-        return (i === 0 ? 'M' : 'L') + (c[0] * cosLat) + ',' + (-c[1]);
-      }).join(' ');
-      var mid = road.points[Math.floor(road.points.length / 2)];
-      var labelX = mid[0] * cosLat;
-      var labelY = -mid[1] - roadFontSize * 0.6;
-      return '<path class="zip-road-line" d="' + d + '" vector-effect="non-scaling-stroke" />' +
-        '<text class="zip-road-label" x="' + labelX + '" y="' + labelY + '" ' +
-        'text-anchor="middle" style="font-size:' + roadFontSize + 'px;">' + road.name + '</text>';
-    }).join('');
-
     var hintText = post.zipLabel
       ? '<span class="post-map-hint-tag">ZIP ' + post.zip + '</span>' + post.zipLabel
       : '<span class="post-map-hint-tag">ZIP ' + post.zip + '</span>Boundary shown above';
@@ -463,7 +417,7 @@
       '<div class="zip-map-compass" aria-hidden="true">N</div>' +
       '<svg viewBox="' + minX + ' ' + minY + ' ' + (maxX - minX) + ' ' + (maxY - minY) + '" ' +
         'preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;">' +
-        polygons + roads +
+        polygons +
       '</svg>' +
       '<div class="zip-map-hint">' + hintText + '</div>';
     animateBoundaryDrawIn(canvas.querySelector('svg'));
