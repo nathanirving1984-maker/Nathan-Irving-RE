@@ -63,196 +63,6 @@
     padding: 0 var(--space-md) var(--space-md);
   }
   .post-body p { color: #4a493f; }
-
-  /* ---- ZIP boundary map ---- */
-  .post-map {
-    margin-top: var(--space-sm);
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius);
-    overflow: hidden;
-  }
-  .post-map-canvas {
-    width: 100%;
-    height: 320px;
-    background: var(--color-ivory);
-    position: relative;
-  }
-  @media (max-width: 640px) {
-    .post-map-canvas { height: 240px; }
-  }
-  .post-map-caption {
-    margin: 0;
-    padding: 0.6rem var(--space-sm);
-    font-size: 0.78rem;
-    font-family: var(--font-main);
-    color: #6b6a63;
-    background: var(--color-white);
-    border-top: 1px solid var(--color-line);
-  }
-  .zip-boundary-shape {
-    fill: var(--color-navy);
-    fill-opacity: 0.14;
-    stroke: var(--color-navy);
-    stroke-width: 2;
-    cursor: pointer;
-    transition: fill-opacity 0.25s ease;
-  }
-  .zip-boundary-shape:hover,
-  .zip-boundary-shape:focus {
-    fill-opacity: 0.3;
-  }
-  .zip-map-chip {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 2;
-    font-family: var(--font-main);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    padding: 0.15rem 0.55rem;
-    border-radius: 999px;
-    background: var(--color-gold-soft);
-    color: var(--color-navy);
-    pointer-events: none;
-  }
-  .zip-map-compass {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    z-index: 2;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background: var(--color-white);
-    border: 1px solid var(--color-line);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-main);
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: var(--color-navy);
-    pointer-events: none;
-  }
-  .zip-map-hint {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-    background: linear-gradient(0deg, rgba(27,42,74,0.82), rgba(27,42,74,0));
-    color: var(--color-bone);
-    font-family: var(--font-main);
-    font-size: 0.78rem;
-    padding: 1.8rem var(--space-sm) 0.6rem;
-    opacity: 0;
-    transform: translateY(6px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
-    pointer-events: none;
-  }
-  .post-map-canvas:hover .zip-map-hint,
-  .post-map-canvas.is-active .zip-map-hint {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .post-map-hint-tag {
-    display: block;
-    font-size: 0.65rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-gold-soft);
-    margin-bottom: 0.15rem;
-  }
-
-  /* ---- Photo gallery ---- */
-  .post-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: var(--space-xs);
-    margin-top: var(--space-sm);
-  }
-  .post-gallery figure { margin: 0; }
-  .post-gallery img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: var(--radius);
-    border: 1px solid var(--color-line);
-  }
-  .post-gallery figcaption {
-    margin-top: 0.3rem;
-    font-size: 0.75rem;
-    color: #6b6a63;
-  }
-
-  /* ---- ZIP badge (near title, uses existing .badge-style gold pill) ---- */
-  .zip-badge {
-    display: inline-block;
-    font-family: var(--font-main);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    padding: 0.15rem 0.55rem;
-    border-radius: 999px;
-    background: var(--color-gold-soft);
-    color: var(--color-navy);
-    vertical-align: middle;
-  }
-
-  /* ---- Stat cards ---- */
-  .stat-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: var(--space-xs);
-    margin: var(--space-sm) 0;
-  }
-  .stat-card { padding: var(--space-sm); }
-  .stat-label {
-    font-family: var(--font-main);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #6b6a63;
-    margin-bottom: 0.35rem;
-  }
-  .stat-value-row {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  .stat-value {
-    font-family: var(--font-main);
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--color-navy);
-  }
-  .stat-trend {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    font-size: 0.74rem;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  .stat-trend-arrow {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-  }
-  .stat-trend--up { color: var(--color-gold); }
-  .stat-trend--up .stat-trend-arrow { border-bottom: 6px solid currentColor; }
-  .stat-trend--down { color: #6b6a63; }
-  .stat-trend--down .stat-trend-arrow { border-top: 6px solid currentColor; }
-  .stat-trend--flat { color: #6b6a63; }
-  .stat-trend--flat .stat-trend-arrow {
-    border-left: none; border-right: none;
-    width: 8px; height: 2px; background: currentColor;
-  }
 </style>
 </head>
 <body>
@@ -330,7 +140,7 @@
   </div>
 </footer>
 
-<script src="js/data/market-posts-data.js?v=2"></script>
+<script src="js/data/market-posts-data.js"></script>
 <script src="js/nav.js"></script>
 <script>
 (function () {
@@ -342,221 +152,34 @@
   });
 
   function formatDate(dateStr) {
-    // ISO ("YYYY-MM-DD") dates parse as local midnight; looser strings like
-    // "July 2026" are handed to Date() as-is.
-    var d = /^\d{4}-\d{2}-\d{2}$/.test(dateStr) ? new Date(dateStr + 'T00:00:00') : new Date(dateStr);
+    var d = new Date(dateStr + 'T00:00:00');
     return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-  }
-
-  function truncate(str, len) {
-    if (!str || str.length <= len) return str || '';
-    return str.slice(0, len).replace(/\s+\S*$/, '') + '…';
-  }
-
-  // Pulls the exterior ring(s) out of a Polygon/MultiPolygon geometry.
-  // Holes are ignored — fine for a simplified boundary outline.
-  function boundaryRings(geometry) {
-    if (geometry.type === 'Polygon') return [geometry.coordinates[0]];
-    if (geometry.type === 'MultiPolygon') {
-      return geometry.coordinates.map(function (poly) { return poly[0]; });
-    }
-    return [];
-  }
-
-  // Animates each boundary shape's stroke drawing itself in, using the
-  // path's own measured length so it works at any size/zoom.
-  function animateBoundaryDrawIn(svgEl) {
-    var shapes = svgEl.querySelectorAll('.zip-boundary-shape');
-    Array.prototype.forEach.call(shapes, function (shape) {
-      if (typeof shape.getTotalLength !== 'function') return;
-      var length = shape.getTotalLength();
-      shape.style.strokeDasharray = length;
-      shape.style.strokeDashoffset = length;
-      shape.getBoundingClientRect(); // force reflow so the transition below actually animates
-      requestAnimationFrame(function () {
-        shape.style.transition = 'stroke-dashoffset 1s ease, fill-opacity 0.25s ease';
-        shape.style.strokeDashoffset = '0';
-      });
-    });
-  }
-
-  // Renders a ZIP boundary as a plain inline SVG — no map tiles, no external
-  // requests beyond the same-origin GeoJSON fetch, so it can't go blank due
-  // to third-party CDN/network flakiness the way the old Leaflet map could.
-  function renderBoundarySvg(canvas, geojson, post) {
-    var rings = boundaryRings(geojson.features[0].geometry);
-    if (!rings.length) return false;
-
-    var allPoints = [];
-    rings.forEach(function (ring) { allPoints = allPoints.concat(ring); });
-
-    var avgLat = allPoints.reduce(function (sum, c) { return sum + c[1]; }, 0) / allPoints.length;
-    var cosLat = Math.cos(avgLat * Math.PI / 180); // corrects longitude stretch at this latitude
-
-    var xs = allPoints.map(function (c) { return c[0] * cosLat; });
-    var ys = allPoints.map(function (c) { return -c[1]; }); // flip so north is up
-    var minX = Math.min.apply(null, xs), maxX = Math.max.apply(null, xs);
-    var minY = Math.min.apply(null, ys), maxY = Math.max.apply(null, ys);
-    var padX = (maxX - minX) * 0.1 || 0.01;
-    var padY = (maxY - minY) * 0.1 || 0.01;
-    minX -= padX; maxX += padX; minY -= padY; maxY += padY;
-
-    var tooltip = (post.zipLabel ? post.zipLabel + ' — ' : '') + 'ZIP ' + post.zip;
-    var polygons = rings.map(function (ring) {
-      var points = ring.map(function (c) { return (c[0] * cosLat) + ',' + (-c[1]); }).join(' ');
-      return '<polygon class="zip-boundary-shape" points="' + points + '" ' +
-        'vector-effect="non-scaling-stroke" stroke-linejoin="round"><title>' + tooltip + '</title></polygon>';
-    }).join('');
-
-    var hintText = post.zipLabel
-      ? '<span class="post-map-hint-tag">ZIP ' + post.zip + '</span>' + post.zipLabel
-      : '<span class="post-map-hint-tag">ZIP ' + post.zip + '</span>Boundary shown above';
-
-    canvas.innerHTML =
-      '<div class="zip-map-chip">ZIP ' + post.zip + '</div>' +
-      '<div class="zip-map-compass" aria-hidden="true">N</div>' +
-      '<svg viewBox="' + minX + ' ' + minY + ' ' + (maxX - minX) + ' ' + (maxY - minY) + '" ' +
-        'preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;">' +
-        polygons +
-      '</svg>' +
-      '<div class="zip-map-hint">' + hintText + '</div>';
-    animateBoundaryDrawIn(canvas.querySelector('svg'));
-
-    // Tap support: :hover alone doesn't fire reliably on touch devices, so a
-    // tap toggles the same reveal state as a mouse hover.
-    canvas.addEventListener('click', function () {
-      canvas.classList.toggle('is-active');
-    });
-    return true;
-  }
-
-  function initPostMap(canvas, post) {
-    fetch('js/data/zip-boundaries/' + post.zip + '.json?v=1')
-      .then(function (res) {
-        if (!res.ok) throw new Error('no boundary file for ' + post.zip);
-        return res.json();
-      })
-      .then(function (geojson) {
-        if (!renderBoundarySvg(canvas, geojson, post)) throw new Error('unsupported geometry');
-      })
-      .catch(function () {
-        // No js/data/zip-boundaries/{zip}.json yet for this ZIP — add one to
-        // upgrade this post to a boundary outline. Until then, show a plain
-        // placeholder so the post still renders cleanly.
-        canvas.innerHTML =
-          '<div style="display:flex;align-items:center;justify-content:center;height:100%;' +
-          'color:#6b6a63;font-size:0.85rem;text-align:center;padding:0 1rem;">' +
-          'ZIP map coming soon for ' + post.zip + '</div>';
-      });
   }
 
   sorted.forEach(function (post) {
     var item = document.createElement('div');
     item.className = 'post-item';
 
-    var summaryText = post.summary || truncate(post.excerpt, 150);
-    var bodyParagraphs = post.body || (post.excerpt ? [post.excerpt] : []);
-
     var toggle = document.createElement('button');
     toggle.className = 'post-toggle';
     toggle.innerHTML =
       '<div class="post-toggle-text">' +
-        '<span class="post-date">' + formatDate(post.date) + (post.isSample ? ' &middot; <span class="badge" style="padding:0.15rem 0.5rem;font-size:0.62rem;">Sample post</span>' : '') + (post.zip ? ' &middot; <span class="zip-badge">ZIP ' + post.zip + '</span>' : '') + '</span>' +
+        '<span class="post-date">' + formatDate(post.date) + (post.isSample ? ' &middot; <span class="badge" style="padding:0.15rem 0.5rem;font-size:0.62rem;">Sample post</span>' : '') + '</span>' +
         '<h3>' + post.title + '</h3>' +
-        '<p style="margin:0;color:#6b6a63;">' + summaryText + '</p>' +
+        '<p style="margin:0;color:#6b6a63;">' + post.summary + '</p>' +
       '</div>' +
       '<span class="post-toggle-icon">+</span>';
 
     var body = document.createElement('div');
     body.className = 'post-body';
-
-    if (post.stats && post.stats.length) {
-      var statCards = document.createElement('div');
-      statCards.className = 'stat-cards';
-      post.stats.forEach(function (stat) {
-        var card = document.createElement('div');
-        card.className = 'card stat-card';
-
-        var label = document.createElement('div');
-        label.className = 'stat-label';
-        label.textContent = stat.label;
-
-        var valueRow = document.createElement('div');
-        valueRow.className = 'stat-value-row';
-
-        var value = document.createElement('span');
-        value.className = 'stat-value';
-        value.textContent = stat.value;
-        valueRow.appendChild(value);
-
-        if (stat.trend) {
-          var trend = document.createElement('span');
-          trend.className = 'stat-trend stat-trend--' + stat.trend;
-          var arrow = document.createElement('span');
-          arrow.className = 'stat-trend-arrow';
-          trend.appendChild(arrow);
-          if (stat.trendLabel) {
-            trend.appendChild(document.createTextNode(stat.trendLabel));
-          }
-          valueRow.appendChild(trend);
-        }
-
-        card.appendChild(label);
-        card.appendChild(valueRow);
-        statCards.appendChild(card);
-      });
-      body.appendChild(statCards);
-    }
-
-    bodyParagraphs.forEach(function (para) {
+    post.body.forEach(function (para) {
       var p = document.createElement('p');
       p.textContent = para;
       body.appendChild(p);
     });
 
-    var mapCanvas = null;
-    if (post.zip) {
-      var mapWrap = document.createElement('div');
-      mapWrap.className = 'post-map';
-      mapCanvas = document.createElement('div');
-      mapCanvas.className = 'post-map-canvas';
-      mapWrap.appendChild(mapCanvas);
-      if (post.zipLabel) {
-        var caption = document.createElement('p');
-        caption.className = 'post-map-caption';
-        caption.textContent = post.zipLabel + ' · ZIP ' + post.zip;
-        mapWrap.appendChild(caption);
-      }
-      body.appendChild(mapWrap);
-    }
-
-    if (post.images && post.images.length) {
-      var gallery = document.createElement('div');
-      gallery.className = 'post-gallery';
-      post.images.forEach(function (image) {
-        var figure = document.createElement('figure');
-        var img = document.createElement('img');
-        img.src = image.src;
-        img.alt = image.caption || '';
-        img.loading = 'lazy';
-        var figcaption = document.createElement('figcaption');
-        figcaption.textContent = image.caption || '';
-        figure.appendChild(img);
-        figure.appendChild(figcaption);
-        gallery.appendChild(figure);
-      });
-      body.appendChild(gallery);
-    }
-
-    var mapInitialized = false;
     toggle.addEventListener('click', function () {
       item.classList.toggle('is-open');
-      if (item.classList.contains('is-open') && mapCanvas) {
-        if (!mapInitialized) {
-          initPostMap(mapCanvas, post);
-          mapInitialized = true;
-        }
-      }
     });
 
     item.appendChild(toggle);
