@@ -369,15 +369,20 @@
     return str.slice(0, len).replace(/\s+\S*$/, '') + '…';
   }
 
-  // Major roads sketched in for visual context inside a ZIP shape. Unlike
-  // the boundary polygon (real ZCTA geometry), these points are NOT
-  // precisely geocoded — just rough paths placed from general knowledge of
-  // the area's road layout, purely decorative to help the shape read as an
-  // actual place rather than an abstract blob.
+  // Major roads for visual context inside a ZIP shape. Coordinates are real
+  // surveyed points from Natural Earth's public-domain 1:10m roads dataset
+  // (coarser resolution than the ZIP boundary polygon, so curves are
+  // simplified, but not hand-traced guesses — actual road positions).
   var ZIP_MAJOR_ROADS = {
     '94949': [
-      { name: '101', points: [[-122.548, 38.099], [-122.541, 38.070], [-122.520, 38.038]] },
-      { name: '37', points: [[-122.543, 38.090], [-122.515, 38.078], [-122.480, 38.068]] }
+      { name: '101', points: [
+        [-122.5584, 38.0041], [-122.5567, 38.0197], [-122.5411, 38.0475],
+        [-122.5411, 38.0632], [-122.5567, 38.0875], [-122.5706, 38.1048]
+      ] }
+      // CA-37 also passes through here, but the source dataset's only
+      // segment near this ZIP clips the very edge of the frame and reads
+      // as a stray line rather than a real road — omitted rather than
+      // faked further.
     ]
   };
 
