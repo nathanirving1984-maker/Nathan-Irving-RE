@@ -6,8 +6,6 @@
 <title>Market Updates | Nathan Irving, REALTOR®</title>
 <meta name="description" content="Marin County real estate market updates from Nathan Irving, REALTOR® at Coldwell Banker Realty.">
 <link rel="stylesheet" href="css/styles.css">
-<!-- Leaflet (ZIP boundary maps) — scoped to this page only, not loaded site-wide -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -258,7 +256,6 @@
 
 <script src="js/data/market-posts-data.js?v=2"></script>
 <script src="js/nav.js"></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 (function () {
   var list = document.getElementById('posts-list');
@@ -286,46 +283,69 @@
     return (v && v.trim()) || fallback;
   }
 
+  // Pulls the exterior ring(s) out of a Polygon/MultiPolygon geometry.
+  // Holes are ignored — fine for a simplified boundary outline.
+  function boundaryRings(geometry) {
+    if (geometry.type === 'Polygon') return [geometry.coordinates[0]];
+    if (geometry.type === 'MultiPolygon') {
+      return geometry.coordinates.map(function (poly) { return poly[0]; });
+    }
+    return [];
+  }
+
+  // Renders a ZIP boundary as a plain inline SVG — no map tiles, no external
+  // requests beyond the same-origin GeoJSON fetch, so it can't go blank due
+  // to third-party CDN/network flakiness the way the old Leaflet map could.
+  function renderBoundarySvg(canvas, geojson) {
+    var rings = boundaryRings(geojson.features[0].geometry);
+    if (!rings.length) return false;
+
+    var allPoints = [];
+    rings.forEach(function (ring) { allPoints = allPoints.concat(ring); });
+
+    var avgLat = allPoints.reduce(function (sum, c) { return sum + c[1]; }, 0) / allPoints.length;
+    var cosLat = Math.cos(avgLat * Math.PI / 180); // corrects longitude stretch at this latitude
+
+    var xs = allPoints.map(function (c) { return c[0] * cosLat; });
+    var ys = allPoints.map(function (c) { return -c[1]; }); // flip so north is up
+    var minX = Math.min.apply(null, xs), maxX = Math.max.apply(null, xs);
+    var minY = Math.min.apply(null, ys), maxY = Math.max.apply(null, ys);
+    var padX = (maxX - minX) * 0.1 || 0.01;
+    var padY = (maxY - minY) * 0.1 || 0.01;
+    minX -= padX; maxX += padX; minY -= padY; maxY += padY;
+
+    var outline = paletteColor('--color-navy', '#1B2A4A');
+    var polygons = rings.map(function (ring) {
+      var points = ring.map(function (c) { return (c[0] * cosLat) + ',' + (-c[1]); }).join(' ');
+      return '<polygon points="' + points + '" fill="' + outline + '" fill-opacity="0.14" ' +
+        'stroke="' + outline + '" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round" />';
+    }).join('');
+
+    canvas.innerHTML =
+      '<svg viewBox="' + minX + ' ' + minY + ' ' + (maxX - minX) + ' ' + (maxY - minY) + '" ' +
+        'preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;">' +
+        polygons +
+      '</svg>';
+    return true;
+  }
+
   function initPostMap(canvas, post) {
-    if (typeof L === 'undefined') return;
-
-    var map = L.map(canvas, { scrollWheelZoom: false });
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 18
-    }).addTo(map);
-
     fetch('js/data/zip-boundaries/' + post.zip + '.json?v=1')
       .then(function (res) {
         if (!res.ok) throw new Error('no boundary file for ' + post.zip);
         return res.json();
       })
       .then(function (geojson) {
-        var outline = paletteColor('--color-navy', '#1B2A4A');
-        var boundary = L.geoJSON(geojson, {
-          style: { color: outline, weight: 2.5, fillColor: outline, fillOpacity: 0.12 }
-        }).addTo(map);
-        map.fitBounds(boundary.getBounds(), { padding: [12, 12] });
+        if (!renderBoundarySvg(canvas, geojson)) throw new Error('unsupported geometry');
       })
       .catch(function () {
-        // No js/data/zip-boundaries/{zip}.json yet for this ZIP — add one
-        // (see Step 3 in the task write-up) to upgrade this to an outlined
-        // boundary. Until then, fall back to a centered marker so the post
-        // still renders. Center comes from a free, no-key ZIP centroid
-        // lookup; if that also fails, skip the map entirely.
-        fetch('https://api.zippopotam.us/us/' + post.zip)
-          .then(function (res) { if (!res.ok) throw new Error('no centroid for ' + post.zip); return res.json(); })
-          .then(function (loc) {
-            var place = loc.places && loc.places[0];
-            if (!place) throw new Error('no centroid data');
-            var lat = parseFloat(place.latitude);
-            var lng = parseFloat(place.longitude);
-            map.setView([lat, lng], 12);
-            L.marker([lat, lng]).addTo(map);
-          })
-          .catch(function () {
-            canvas.closest('.post-map').remove();
-          });
+        // No js/data/zip-boundaries/{zip}.json yet for this ZIP — add one to
+        // upgrade this post to a boundary outline. Until then, show a plain
+        // placeholder so the post still renders cleanly.
+        canvas.innerHTML =
+          '<div style="display:flex;align-items:center;justify-content:center;height:100%;' +
+          'color:#6b6a63;font-size:0.85rem;text-align:center;padding:0 1rem;">' +
+          'ZIP map coming soon for ' + post.zip + '</div>';
       });
   }
 
