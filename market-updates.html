@@ -256,7 +256,7 @@
   </div>
 </footer>
 
-<script src="js/data/market-posts-data.js"></script>
+<script src="js/data/market-posts-data.js?v=2"></script>
 <script src="js/nav.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -295,7 +295,7 @@
       maxZoom: 18
     }).addTo(map);
 
-    fetch('js/data/zip-boundaries/' + post.zip + '.json')
+    fetch('js/data/zip-boundaries/' + post.zip + '.json?v=1')
       .then(function (res) {
         if (!res.ok) throw new Error('no boundary file for ' + post.zip);
         return res.json();
