@@ -75,6 +75,7 @@
     width: 100%;
     height: 320px;
     background: var(--color-ivory);
+    position: relative;
   }
   @media (max-width: 640px) {
     .post-map-canvas { height: 240px; }
@@ -100,13 +101,68 @@
   .zip-boundary-shape:focus {
     fill-opacity: 0.3;
   }
-  .zip-boundary-label {
+  .zip-map-chip {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
     font-family: var(--font-main);
+    font-size: 0.68rem;
     font-weight: 700;
-    fill: var(--color-navy);
-    opacity: 0.16;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    background: var(--color-gold-soft);
+    color: var(--color-navy);
     pointer-events: none;
+  }
+  .zip-map-compass {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 2;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--color-white);
+    border: 1px solid var(--color-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-main);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    pointer-events: none;
+  }
+  .zip-map-hint {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background: linear-gradient(0deg, rgba(27,42,74,0.82), rgba(27,42,74,0));
+    color: var(--color-bone);
+    font-family: var(--font-main);
+    font-size: 0.78rem;
+    padding: 1.8rem var(--space-sm) 0.6rem;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+  }
+  .post-map-canvas:hover .zip-map-hint,
+  .post-map-canvas.is-active .zip-map-hint {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .post-map-hint-tag {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-gold-soft);
+    margin-bottom: 0.15rem;
   }
 
   /* ---- Photo gallery ---- */
@@ -352,18 +408,25 @@
         'vector-effect="non-scaling-stroke" stroke-linejoin="round"><title>' + tooltip + '</title></polygon>';
     }).join('');
 
-    var centerX = (minX + maxX) / 2;
-    var centerY = (minY + maxY) / 2;
-    var labelSize = (maxX - minX) * 0.11;
-    var label = '<text class="zip-boundary-label" x="' + centerX + '" y="' + centerY + '" ' +
-      'text-anchor="middle" dominant-baseline="middle" style="font-size:' + labelSize + 'px;">' + post.zip + '</text>';
+    var hintText = post.zipLabel
+      ? '<span class="post-map-hint-tag">ZIP ' + post.zip + '</span>' + post.zipLabel
+      : '<span class="post-map-hint-tag">ZIP ' + post.zip + '</span>Boundary shown above';
 
     canvas.innerHTML =
+      '<div class="zip-map-chip">ZIP ' + post.zip + '</div>' +
+      '<div class="zip-map-compass" aria-hidden="true">N</div>' +
       '<svg viewBox="' + minX + ' ' + minY + ' ' + (maxX - minX) + ' ' + (maxY - minY) + '" ' +
         'preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;">' +
-        polygons + label +
-      '</svg>';
+        polygons +
+      '</svg>' +
+      '<div class="zip-map-hint">' + hintText + '</div>';
     animateBoundaryDrawIn(canvas.querySelector('svg'));
+
+    // Tap support: :hover alone doesn't fire reliably on touch devices, so a
+    // tap toggles the same reveal state as a mouse hover.
+    canvas.addEventListener('click', function () {
+      canvas.classList.toggle('is-active');
+    });
     return true;
   }
 
