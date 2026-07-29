@@ -72,6 +72,14 @@
     text-transform: uppercase;
   }
 
+  .grid-view {
+    display: block;
+  }
+
+  .grid-view.hidden {
+    display: none;
+  }
+
   .neighborhood-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -93,9 +101,8 @@
     box-shadow: 0 4px 12px rgba(27, 42, 74, 0.1);
   }
 
-  .neighborhood-card-header {
+  .neighborhood-card-preview {
     padding: var(--space-md);
-    border-bottom: 1px solid var(--color-line);
   }
 
   .neighborhood-card-title {
@@ -110,37 +117,83 @@
     color: var(--color-navy-soft);
   }
 
-  .neighborhood-card-content {
-    padding: var(--space-md);
+  .detail-view {
     display: none;
-    border-top: 1px solid var(--color-line);
   }
 
-  .neighborhood-card.expanded .neighborhood-card-content {
+  .detail-view.active {
     display: block;
   }
 
-  .neighborhood-card-section {
+  .detail-back {
+    display: inline-block;
+    margin-bottom: var(--space-md);
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--color-navy);
+    color: var(--color-navy);
+    font-family: Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+
+  .detail-back:hover {
+    background: var(--color-navy);
+    color: var(--color-bone);
+  }
+
+  .detail-content {
+    background: var(--color-ivory);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    padding: var(--space-lg);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .detail-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+  }
+
+  .detail-meta {
+    font-size: 0.95rem;
+    color: var(--color-navy-soft);
+    font-weight: 500;
     margin-bottom: var(--space-md);
   }
 
-  .neighborhood-card-section:last-child {
-    margin-bottom: 0;
+  .detail-section {
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-line);
   }
 
-  .neighborhood-card-label {
+  .detail-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .detail-label {
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--color-gold);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 
-  .neighborhood-card-text {
-    font-size: 0.95rem;
+  .detail-text {
+    font-size: 1rem;
     color: var(--color-charcoal);
-    line-height: 1.6;
+    line-height: 1.7;
     margin: 0;
   }
 
@@ -189,6 +242,14 @@
     .neighborhood-grid {
       grid-template-columns: 1fr;
     }
+
+    .detail-title {
+      font-size: 1.5rem;
+    }
+
+    .detail-content {
+      padding: var(--space-md);
+    }
   }
 </style>
 </head>
@@ -224,8 +285,15 @@
 
   <section class="section section--alt">
     <div class="container">
-      <div class="town-selector" id="townSelector"></div>
-      <div id="neighborhoodContent"></div>
+      <div id="gridView" class="grid-view">
+        <div class="town-selector" id="townSelector"></div>
+        <div id="neighborhoodContent"></div>
+      </div>
+
+      <div id="detailView" class="detail-view">
+        <button class="detail-back" id="detailBack">← Back to Neighborhoods</button>
+        <div class="detail-content" id="detailContent"></div>
+      </div>
     </div>
   </section>
 </main>
@@ -269,6 +337,19 @@
   const TOWNS = ['Novato', 'San Rafael', 'Petaluma', 'Mill Valley', 'Larkspur', 'Corte Madera', 'San Anselmo'];
   let activeTown = 'Novato';
 
+  function getQueryParam(param) {
+    const params = new URLSearchParams(window.location.search);
+    return params.get(param);
+  }
+
+  function updateUrl(params) {
+    let url = window.location.pathname;
+    const query = new URLSearchParams(params);
+    const queryStr = query.toString();
+    if (queryStr) url += '?' + queryStr;
+    window.history.pushState(null, '', url);
+  }
+
   function renderTownSelector() {
     const selector = document.getElementById('townSelector');
     TOWNS.forEach(town => {
@@ -290,6 +371,7 @@
     document.querySelectorAll('.town-btn').forEach(btn => {
       btn.classList.toggle('active', btn.textContent === town);
     });
+    updateUrl({ town: town.toLowerCase() });
     renderNeighborhoods();
   }
 
@@ -306,65 +388,18 @@
     grid.className = 'neighborhood-grid';
 
     neighborhoods.forEach(neighborhood => {
-      const card = document.createElement('div');
+      const card = document.createElement('button');
       card.className = 'neighborhood-card';
+      card.type = 'button';
       card.innerHTML = `
-        <div class="neighborhood-card-header">
+        <div class="neighborhood-card-preview">
           <h3 class="neighborhood-card-title">${neighborhood.name}</h3>
           <div class="neighborhood-card-meta">
             <strong>${neighborhood.zip}</strong> • ${neighborhood.town}
           </div>
         </div>
-        <div class="neighborhood-card-content">
-          ${neighborhood.builtEra ? `
-            <div class="neighborhood-card-section">
-              <div class="neighborhood-card-label">Built Era</div>
-              <p class="neighborhood-card-text">${neighborhood.builtEra}</p>
-            </div>
-          ` : ''}
-          ${neighborhood.avgSqft ? `
-            <div class="neighborhood-card-section">
-              <div class="neighborhood-card-label">Avg. Sq Ft</div>
-              <p class="neighborhood-card-text">${neighborhood.avgSqft.toLocaleString()}</p>
-            </div>
-          ` : ''}
-          ${neighborhood.avgPrice ? `
-            <div class="neighborhood-card-section">
-              <div class="neighborhood-card-label">Avg. Price</div>
-              <p class="neighborhood-card-text">$${(neighborhood.avgPrice / 1000000).toFixed(1)}M</p>
-            </div>
-          ` : ''}
-          ${neighborhood.schoolDistrict ? `
-            <div class="neighborhood-card-section">
-              <div class="neighborhood-card-label">School District</div>
-              <p class="neighborhood-card-text">${neighborhood.schoolDistrict}</p>
-            </div>
-          ` : ''}
-          ${neighborhood.amenities && neighborhood.amenities.length > 0 ? `
-            <div class="neighborhood-card-section">
-              <div class="neighborhood-card-label">Amenities</div>
-              <div class="amenity-tags">
-                ${neighborhood.amenities.map(a => '<span class="amenity-tag">' + a + '</span>').join('')}
-              </div>
-            </div>
-          ` : ''}
-          ${neighborhood.commuteAccess ? `
-            <div class="neighborhood-card-section">
-              <div class="neighborhood-card-label">Commute Access</div>
-              <p class="neighborhood-card-text">${neighborhood.commuteAccess}</p>
-            </div>
-          ` : ''}
-          ${neighborhood.description ? `
-            <div class="neighborhood-card-section">
-              <div class="neighborhood-card-label">About</div>
-              <p class="neighborhood-card-text">${neighborhood.description}</p>
-            </div>
-          ` : ''}
-        </div>
       `;
-      card.addEventListener('click', () => {
-        card.classList.toggle('expanded');
-      });
+      card.addEventListener('click', () => showDetail(neighborhood));
       grid.appendChild(card);
     });
 
@@ -372,8 +407,121 @@
     container.appendChild(grid);
   }
 
-  renderTownSelector();
-  renderNeighborhoods();
+  function showDetail(neighborhood) {
+    const gridView = document.getElementById('gridView');
+    const detailView = document.getElementById('detailView');
+    const detailContent = document.getElementById('detailContent');
+
+    const html = `
+      <h2 class="detail-title">${neighborhood.name}</h2>
+      <div class="detail-meta">
+        <strong>${neighborhood.zip}</strong> • ${neighborhood.town}
+      </div>
+
+      ${neighborhood.description ? `
+        <div class="detail-section">
+          <p class="detail-text">${neighborhood.description}</p>
+        </div>
+      ` : ''}
+
+      ${neighborhood.builtEra ? `
+        <div class="detail-section">
+          <div class="detail-label">Built Era</div>
+          <p class="detail-text">${neighborhood.builtEra}</p>
+        </div>
+      ` : ''}
+
+      ${neighborhood.avgSqft ? `
+        <div class="detail-section">
+          <div class="detail-label">Average Square Footage</div>
+          <p class="detail-text">${neighborhood.avgSqft.toLocaleString()} sq ft</p>
+        </div>
+      ` : ''}
+
+      ${neighborhood.avgPrice ? `
+        <div class="detail-section">
+          <div class="detail-label">Average Price</div>
+          <p class="detail-text">$${(neighborhood.avgPrice / 1000000).toFixed(1)}M</p>
+        </div>
+      ` : ''}
+
+      ${neighborhood.schoolDistrict ? `
+        <div class="detail-section">
+          <div class="detail-label">School District</div>
+          <p class="detail-text">${neighborhood.schoolDistrict}</p>
+        </div>
+      ` : ''}
+
+      ${neighborhood.amenities && neighborhood.amenities.length > 0 ? `
+        <div class="detail-section">
+          <div class="detail-label">Amenities</div>
+          <div class="amenity-tags">
+            ${neighborhood.amenities.map(a => '<span class="amenity-tag">' + a + '</span>').join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      ${neighborhood.commuteAccess ? `
+        <div class="detail-section">
+          <div class="detail-label">Commute Access</div>
+          <p class="detail-text">${neighborhood.commuteAccess}</p>
+        </div>
+      ` : ''}
+    `;
+
+    detailContent.innerHTML = html;
+    gridView.classList.add('hidden');
+    detailView.classList.add('active');
+    updateUrl({ neighborhood: neighborhood.slug });
+    window.scrollTo(0, 0);
+  }
+
+  function showGrid(town) {
+    activeTown = town || 'Novato';
+    const gridView = document.getElementById('gridView');
+    const detailView = document.getElementById('detailView');
+
+    document.querySelectorAll('.town-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent === activeTown);
+    });
+
+    renderNeighborhoods();
+    gridView.classList.remove('hidden');
+    detailView.classList.remove('active');
+    updateUrl(town ? { town: town.toLowerCase() } : {});
+    window.scrollTo(0, 0);
+  }
+
+  function init() {
+    renderTownSelector();
+
+    const neighborhoodSlug = getQueryParam('neighborhood');
+    const townParam = getQueryParam('town');
+
+    if (neighborhoodSlug) {
+      const neighborhood = NEIGHBORHOODS_DATA.find(n => n.slug === neighborhoodSlug);
+      if (neighborhood) {
+        activeTown = neighborhood.town;
+        showDetail(neighborhood);
+      } else {
+        renderNeighborhoods();
+      }
+    } else if (townParam) {
+      const town = TOWNS.find(t => t.toLowerCase() === townParam);
+      if (town) {
+        activeTown = town;
+      }
+      renderNeighborhoods();
+    } else {
+      renderNeighborhoods();
+    }
+
+    document.getElementById('detailBack').addEventListener('click', () => {
+      showGrid(activeTown);
+    });
+  }
+
+  init();
 })();
 </script>
 <script src="js/nav.js"></script>

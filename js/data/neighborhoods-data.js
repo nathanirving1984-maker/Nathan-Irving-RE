@@ -2,6 +2,7 @@ const NEIGHBORHOODS_DATA = [
   // 94949
   {
     name: "Hamilton Field",
+    slug: "hamilton",
     town: "Novato",
     zip: "94949",
     builtEra: "PLACEHOLDER — e.g. 1990s–2000s (former Hamilton AFB redevelopment)",
@@ -15,6 +16,7 @@ const NEIGHBORHOODS_DATA = [
   },
   {
     name: "Pointe Marin",
+    slug: "pointe-marin",
     town: "Novato",
     zip: "94949",
     builtEra: "PLACEHOLDER",
@@ -28,6 +30,7 @@ const NEIGHBORHOODS_DATA = [
   },
   {
     name: "Bel Marin Keys",
+    slug: "bel-marin-keys",
     town: "Novato",
     zip: "94949",
     builtEra: "PLACEHOLDER",
@@ -41,6 +44,7 @@ const NEIGHBORHOODS_DATA = [
   },
   {
     name: "Marin Country Club Estates",
+    slug: "marin-country-club",
     town: "Novato",
     zip: "94949",
     builtEra: "PLACEHOLDER",
@@ -54,6 +58,7 @@ const NEIGHBORHOODS_DATA = [
   },
   {
     name: "Loma Verde",
+    slug: "loma-verde",
     town: "Novato",
     zip: "94949",
     builtEra: "PLACEHOLDER",
@@ -68,6 +73,7 @@ const NEIGHBORHOODS_DATA = [
   // 94947
   {
     name: "San Marin",
+    slug: "san-marin",
     town: "Novato",
     zip: "94947",
     builtEra: "PLACEHOLDER",
@@ -81,6 +87,7 @@ const NEIGHBORHOODS_DATA = [
   },
   {
     name: "Ignacio",
+    slug: "ignacio",
     town: "Novato",
     zip: "94947",
     builtEra: "PLACEHOLDER",
@@ -95,6 +102,7 @@ const NEIGHBORHOODS_DATA = [
   // 94945
   {
     name: "Black Point",
+    slug: "black-point",
     town: "Novato",
     zip: "94945",
     builtEra: "PLACEHOLDER",
@@ -108,6 +116,7 @@ const NEIGHBORHOODS_DATA = [
   },
   {
     name: "Central Novato",
+    slug: "central-novato",
     town: "Novato",
     zip: "94945",
     builtEra: "PLACEHOLDER",
