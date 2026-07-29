@@ -5,7 +5,7 @@ const NEIGHBORHOODS_DATA = [
     slug: "hamilton",
     town: "Novato",
     zip: "94949",
-    builtEra: "PLACEHOLDER — e.g. 1990s–2000s (former Hamilton AFB redevelopment)",
+    builtEra: "1999–2012",
     avgSqft: null,
     avgPrice: null,
     amenities: [],
