@@ -197,6 +197,55 @@
     margin: 0;
   }
 
+  .commute-table-wrap {
+    overflow-x: auto;
+    margin-top: 0.75rem;
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+  }
+
+  .commute-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    min-width: 480px;
+  }
+
+  .commute-table thead th {
+    background: var(--color-navy);
+    color: var(--color-bone);
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.75rem 1rem;
+    white-space: nowrap;
+  }
+
+  .commute-table tbody tr + tr th,
+  .commute-table tbody tr + tr td {
+    border-top: 1px solid var(--color-line);
+  }
+
+  .commute-table tbody th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-navy);
+    padding: 0.75rem 1rem;
+  }
+
+  .commute-table tbody td {
+    color: var(--color-charcoal);
+    padding: 0.75rem 1rem;
+    white-space: nowrap;
+  }
+
+  .commute-table tbody tr:nth-child(even) th,
+  .commute-table tbody tr:nth-child(even) td {
+    background: rgba(201, 169, 97, 0.07);
+  }
+
   .amenity-tags {
     display: flex;
     flex-wrap: wrap;
@@ -454,10 +503,32 @@
         </div>
       ` : ''}
 
-      ${neighborhood.commuteAccess ? `
+      ${(neighborhood.commuteAccess || (neighborhood.commuteTimes && neighborhood.commuteTimes.length > 0)) ? `
         <div class="detail-section">
           <div class="detail-label">Commute Access</div>
-          <p class="detail-text">${neighborhood.commuteAccess}</p>
+          ${neighborhood.commuteAccess ? `<p class="detail-text">${neighborhood.commuteAccess}</p>` : ''}
+          ${neighborhood.commuteTimes && neighborhood.commuteTimes.length > 0 ? `
+            <div class="commute-table-wrap">
+              <table class="commute-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Drive time (typical)</th>
+                    <th scope="col">Drive time (peak traffic)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${neighborhood.commuteTimes.map(t => `
+                    <tr>
+                      <th scope="row">${t.destination}</th>
+                      <td>${t.typical}</td>
+                      <td>${t.peak}</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          ` : ''}
         </div>
       ` : ''}
     `;
