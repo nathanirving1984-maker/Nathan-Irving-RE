@@ -29,7 +29,10 @@ const MARKET_POSTS_DATA = [
     ],
     excerpt:
       "The 94949 ZIP code — covering South Novato's Hamilton Field, Pointe Marin, Bel Marin Keys, Marin Country Club Estates, and Loma Verde — is showing one of the clearest speed-ups in the Novato market this year. Year-over-year, the shift is dramatic: homes sold in June spent a median of just 27 days on market, down from 49 days in June 2025, a 45% drop. Buyers are also paying up for the right home, with the average sale closing at 101% of original list price in June, up from 95% a year ago. Price per square foot held comparatively steady at $627, essentially flat versus last June's $645 — this isn't runaway appreciation, it's speed and competition. Year-to-date, the trend is holding: 62 homes have closed in 94949 so far in 2026, up nearly 13% from the same window last year, days on market YTD sits at 28 versus 31 a year ago, a small difference, but consistent with common trends, and the sold-to-list price ratio is holding at 98%, matching last year's pace. That consistency across seven months suggests a real market shift, not a one-month blip. For sellers across South Novato — whether it's a waterfront lot in Bel Marin Keys, a newer build in Hamilton or Pointe Marin, or an estate near the Marin Country Club — that combination of fast sales, over-asking prices, and steady per-square-foot values points to a strong window to list.",
-    images: [],
+    images: [
+      { src: "images/94949-bel-marin-keys-aerial.jpeg", caption: "Bel Marin Keys waterfront homes" },
+      { src: "images/94949-hamilton-pointe-marin-aerial.webp", caption: "Hamilton & Pointe Marin neighborhood" },
+    ],
   },
   {
     id: "marin-market-snapshot-july-2026",
