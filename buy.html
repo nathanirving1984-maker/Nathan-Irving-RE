@@ -69,7 +69,7 @@
           EDIT: Replace YOUR_BUYER_FORM_ID with the endpoint from a
           NEW Formspree form created specifically for buyer intake.
         -->
-        <form action="https://formspree.io/f/YOUR_BUYER_FORM_ID" method="POST" class="form-grid">
+        <form action="https://formspree.io/f/YOUR_BUYER_FORM_ID" method="POST" class="form-grid" data-form-name="buyer_intake">
           <div class="grid-2" style="gap:var(--space-sm);">
             <div class="form-row">
               <label for="b_name">Name</label>
@@ -288,6 +288,7 @@
 </footer>
 
 <script src="js/nav.js"></script>
+<script src="js/analytics-events.js"></script>
 <script>
 // ---- Mortgage calculator ----
 (function () {

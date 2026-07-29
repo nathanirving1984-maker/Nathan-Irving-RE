@@ -58,7 +58,7 @@
           EDIT: Replace YOUR_CONTACT_FORM_ID with the endpoint from a
           NEW Formspree form created specifically for this page.
         -->
-        <form action="https://formspree.io/f/YOUR_CONTACT_FORM_ID" method="POST" class="form-grid">
+        <form action="https://formspree.io/f/YOUR_CONTACT_FORM_ID" method="POST" class="form-grid" data-form-name="contact_form">
           <div class="form-row">
             <label for="c_name">Name</label>
             <input type="text" id="c_name" name="name" required>
@@ -164,5 +164,6 @@
 </footer>
 
 <script src="js/nav.js"></script>
+<script src="js/analytics-events.js"></script>
 </body>
 </html>
