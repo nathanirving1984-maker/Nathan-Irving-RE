@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local Data | Nathan Irving, REALTOR®</title>
+<meta name="description" content="Explore neighborhoods across Marin County — community profiles, amenities, schools, and commute access.">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VT6K9D4HKX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VT6K9D4HKX');
+</script>
+<style>
+  .town-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: var(--space-md) 0;
+    justify-content: center;
+  }
+
+  .town-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--color-navy);
+    background: transparent;
+    color: var(--color-navy);
+    font-family: Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 4px;
+    position: relative;
+  }
+
+  .town-btn:hover:not(:disabled) {
+    background: var(--color-navy);
+    color: var(--color-bone);
+  }
+
+  .town-btn.active {
+    background: var(--color-navy);
+    color: var(--color-bone);
+  }
+
+  .town-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: var(--color-line);
+    color: var(--color-navy-soft);
+  }
+
+  .town-btn.coming-soon::after {
+    content: "Coming soon";
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    color: var(--color-navy-soft);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  .neighborhood-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+
+  .neighborhood-card {
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--color-ivory);
+    cursor: pointer;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+
+  .neighborhood-card:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 4px 12px rgba(27, 42, 74, 0.1);
+  }
+
+  .neighborhood-card-header {
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .neighborhood-card-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+
+  .neighborhood-card-meta {
+    font-size: 0.85rem;
+    color: var(--color-navy-soft);
+  }
+
+  .neighborhood-card-content {
+    padding: var(--space-md);
+    display: none;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .neighborhood-card.expanded .neighborhood-card-content {
+    display: block;
+  }
+
+  .neighborhood-card-section {
+    margin-bottom: var(--space-md);
+  }
+
+  .neighborhood-card-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .neighborhood-card-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+
+  .neighborhood-card-text {
+    font-size: 0.95rem;
+    color: var(--color-charcoal);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .amenity-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .amenity-tag {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    background: var(--color-gold-soft);
+    color: var(--color-navy);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: var(--space-lg);
+    color: var(--color-navy-soft);
+  }
+
+  .empty-state p {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  @media (max-width: 640px) {
+    .town-selector {
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding-bottom: var(--space-sm);
+    }
+
+    .town-btn {
+      flex-shrink: 0;
+    }
+
+    .town-btn.coming-soon::after {
+      display: none;
+    }
+
+    .neighborhood-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand"><img src="images/ni-logo-dark.png" alt="Nathan Irving, REALTOR®" class="brand-logo"></a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" data-main-nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="buy.html">Buy</a>
+      <a href="sell.html">Sell</a>
+      <a href="property-search.html">Property Search</a>
+      <a href="market-updates.html">Market Updates</a>
+      <a href="local-data.html">Local Data</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section" style="padding-bottom:0;">
+    <div class="container text-center">
+      <span class="eyebrow">Neighborhood Guide</span>
+      <h1>A closer look at Marin</h1>
+      <p style="max-width:600px;margin:0 auto;">Explore neighborhoods across Marin County — learn about communities, local amenities, schools, and what makes each town distinct.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="town-selector" id="townSelector"></div>
+      <div id="neighborhoodContent"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="images/ni-logo-light.png" alt="Nathan Irving, REALTOR®" class="footer-logo">
+        <p style="max-width:280px;">Marin County REALTOR® with Coldwell Banker Realty, Greenbrae office.</p>
+        <div class="cb-badge">
+          <img src="images/cb-logo.png" alt="Coldwell Banker Realty">
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="about.html">About Nathan</a>
+        <a href="buy.html">Buy</a>
+        <a href="sell.html">Sell</a>
+        <a href="property-search.html">Property Search</a>
+        <a href="market-updates.html">Market Updates</a>
+        <a href="local-data.html">Local Data</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+14152094864">(415) 209-4864</a>
+        <a href="mailto:nathan.irving@cbrealty.com">nathan.irving@cbrealty.com</a>
+        <a href="https://www.linkedin.com/in/nathan-irving-realestate" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/nathan.irvingrealestate" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Nathan Irving, REALTOR®. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-use.html">Terms of Use</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data/neighborhoods-data.js"></script>
+<script>
+(function () {
+  const TOWNS = ['Novato', 'San Rafael', 'Petaluma', 'Mill Valley', 'Larkspur', 'Corte Madera', 'San Anselmo'];
+  let activeTown = 'Novato';
+
+  function renderTownSelector() {
+    const selector = document.getElementById('townSelector');
+    TOWNS.forEach(town => {
+      const isNovato = town === 'Novato';
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'town-btn' + (isNovato ? ' active' : ' coming-soon');
+      btn.textContent = town;
+      btn.disabled = !isNovato;
+      if (isNovato) {
+        btn.addEventListener('click', () => selectTown(town));
+      }
+      selector.appendChild(btn);
+    });
+  }
+
+  function selectTown(town) {
+    activeTown = town;
+    document.querySelectorAll('.town-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent === town);
+    });
+    renderNeighborhoods();
+  }
+
+  function renderNeighborhoods() {
+    const neighborhoods = NEIGHBORHOODS_DATA.filter(n => n.town === activeTown);
+    const container = document.getElementById('neighborhoodContent');
+
+    if (neighborhoods.length === 0) {
+      container.innerHTML = '<div class="empty-state"><p>Coming soon — check back soon for ' + activeTown + ' neighborhoods.</p></div>';
+      return;
+    }
+
+    const grid = document.createElement('div');
+    grid.className = 'neighborhood-grid';
+
+    neighborhoods.forEach(neighborhood => {
+      const card = document.createElement('div');
+      card.className = 'neighborhood-card';
+      card.innerHTML = `
+        <div class="neighborhood-card-header">
+          <h3 class="neighborhood-card-title">${neighborhood.name}</h3>
+          <div class="neighborhood-card-meta">
+            <strong>${neighborhood.zip}</strong> • ${neighborhood.town}
+          </div>
+        </div>
+        <div class="neighborhood-card-content">
+          ${neighborhood.builtEra ? `
+            <div class="neighborhood-card-section">
+              <div class="neighborhood-card-label">Built Era</div>
+              <p class="neighborhood-card-text">${neighborhood.builtEra}</p>
+            </div>
+          ` : ''}
+          ${neighborhood.avgSqft ? `
+            <div class="neighborhood-card-section">
+              <div class="neighborhood-card-label">Avg. Sq Ft</div>
+              <p class="neighborhood-card-text">${neighborhood.avgSqft.toLocaleString()}</p>
+            </div>
+          ` : ''}
+          ${neighborhood.avgPrice ? `
+            <div class="neighborhood-card-section">
+              <div class="neighborhood-card-label">Avg. Price</div>
+              <p class="neighborhood-card-text">$${(neighborhood.avgPrice / 1000000).toFixed(1)}M</p>
+            </div>
+          ` : ''}
+          ${neighborhood.schoolDistrict ? `
+            <div class="neighborhood-card-section">
+              <div class="neighborhood-card-label">School District</div>
+              <p class="neighborhood-card-text">${neighborhood.schoolDistrict}</p>
+            </div>
+          ` : ''}
+          ${neighborhood.amenities && neighborhood.amenities.length > 0 ? `
+            <div class="neighborhood-card-section">
+              <div class="neighborhood-card-label">Amenities</div>
+              <div class="amenity-tags">
+                ${neighborhood.amenities.map(a => '<span class="amenity-tag">' + a + '</span>').join('')}
+              </div>
+            </div>
+          ` : ''}
+          ${neighborhood.commuteAccess ? `
+            <div class="neighborhood-card-section">
+              <div class="neighborhood-card-label">Commute Access</div>
+              <p class="neighborhood-card-text">${neighborhood.commuteAccess}</p>
+            </div>
+          ` : ''}
+          ${neighborhood.description ? `
+            <div class="neighborhood-card-section">
+              <div class="neighborhood-card-label">About</div>
+              <p class="neighborhood-card-text">${neighborhood.description}</p>
+            </div>
+          ` : ''}
+        </div>
+      `;
+      card.addEventListener('click', () => {
+        card.classList.toggle('expanded');
+      });
+      grid.appendChild(card);
+    });
+
+    container.innerHTML = '';
+    container.appendChild(grid);
+  }
+
+  renderTownSelector();
+  renderNeighborhoods();
+})();
+</script>
+<script src="js/nav.js"></script>
+<script src="js/analytics-events.js"></script>
+</body>
+</html>
