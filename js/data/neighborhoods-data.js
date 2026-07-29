@@ -11,7 +11,7 @@ const NEIGHBORHOODS_DATA = [
     schoolDistrict: "PLACEHOLDER",
     amenities: [],
     commuteAccess: "PLACEHOLDER",
-    description: "PLACEHOLDER",
+    description: "Tucked between Highway 101 and the wetlands of San Pablo Bay, Hamilton is Novato's most distinctive neighborhood — a master-planned community built on the site of the former Hamilton Army Air Field, a bombardment base established in the early 1930s and decommissioned in 1975. Today its nine distinct planned neighborhoods — Bayside, Hamilton Meadows, Hamilton Park, Southgate, Traditions, Inspirations, Sunny Cove, Newport, and The Landing — sit on the former base grounds, with homes built between 1999 and 2012. The result is a community that feels newer and more cohesive than much of Marin, with generally larger homes on smaller lots set close together, and a strong sense of community spirit, especially around the holidays. Many of the neighborhood's original Spanish-style buildings from the 1930s have been renovated and preserved, giving Hamilton a rare mix of historic architecture and contemporary planning. Outdoor life centers on the bay: the Hamilton Wetlands along the neighborhood's eastern edge are its signature natural feature, alongside the Bay Trail with its water views, South Hamilton Park, and the public Hamilton Community Pool. Culture and community life run through the Marin Museum of Contemporary Art and the Novato Arts Center, plus a monthly farmers market. Hamilton also benefits from its own SMART train station and proximity to Highway 101, putting it about 26 miles north of San Francisco.",
     images: []
   },
   {
