@@ -333,98 +333,118 @@ const NEIGHBORHOODS_DATA = [
     name: "Downtown",
     slug: "petaluma-downtown",
     town: "Petaluma",
-    zip: "",
-    builtEra: "",
+    zip: "94952",
+    builtEra: "1850s–1910s (historic core, National Register-listed)",
     avgSqft: null,
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "San Francisco (via 101)", typical: "45–50 min", peak: "65–90 min" }
+    ],
+    description: "Downtown Petaluma is the kind of place people move to Sonoma County specifically to live near. Chartered in 1858 and built up as a Gold Rush-era agricultural and shipping hub along the Petaluma River, the historic core survived the 1906 earthquake largely intact and is now listed on the National Register of Historic Places — along with dozens of other sites around town. Today that history translates into a genuinely lively daily life: breweries and biergartens, a busy restaurant scene, the art-deco Phoenix Theater for live music, and a SMART train stop right in the center of it all for an easy trip to Santa Rosa or south toward Marin. Petaluma's hometown pride shows up in real ways too, like the beloved Butter & Egg Days Parade that draws thousands every year. For buyers who want walkable, historic charm with genuine small-town character — not a manufactured version of it — Downtown Petaluma is hard to beat.",
     images: []
   },
   {
-    name: "West Petaluma",
+    name: "West Petaluma (Westside)",
     slug: "petaluma-west-petaluma",
     town: "Petaluma",
-    zip: "",
-    builtEra: "",
+    zip: "94952",
+    builtEra: "Late 1800s–early 1900s core, with newer development (e.g., Victoria, early 2000s) further from downtown",
     avgSqft: null,
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "Downtown Petaluma", typical: "5–8 min", peak: "8–12 min" },
+      { destination: "San Francisco (via 101)", typical: "45–50 min", peak: "65–90 min" }
+    ],
+    description: "The Westside is Petaluma's postcard neighborhood — tree-lined streets lined with Victorians, Craftsman bungalows, and Spanish Revival homes, many dating from the 1860s through the 1940s, overlooking the historic downtown and the Sonoma Valley beyond. It's the kind of neighborhood where you can walk your dog at Oak Hill Park in the morning, stroll into downtown for dinner, and still come home to genuine architectural character rather than a subdivision. Further out, the Westside opens up into newer development and generous open space, including direct access to Helen Putnam Regional Park's 216 acres of hiking and biking trails just a couple miles from downtown — it's not unusual to spot deer, quail, or wild turkeys along the way. For buyers who want historic charm within walking distance of everything, paired with genuine nature access minutes away, West Petaluma delivers both without compromise.",
     images: []
   },
   {
-    name: "East Petaluma",
+    name: "East Petaluma (Eastside)",
     slug: "petaluma-east-petaluma",
     town: "Petaluma",
-    zip: "",
-    builtEra: "",
+    zip: "94954",
+    builtEra: "Predominantly 1970s–2000s",
     avgSqft: null,
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "Downtown Petaluma", typical: "5–8 min", peak: "10–15 min" },
+      { destination: "San Francisco (via 101)", typical: "43–48 min", peak: "63–88 min" }
+    ],
+    description: "East Petaluma offers something the historic west side can't: newer, more spacious homes with easy freeway access, all while staying just minutes from downtown's restaurants and river walks. This side of town tends toward more contemporary construction and family-oriented subdivisions, appealing to buyers who want modern layouts, updated systems, and a bit more breathing room without giving up proximity to everyday conveniences. Highway 101 runs directly along the eastern edge, making it a genuinely practical choice for commuters, while local parks and the Petaluma River corridor still offer plenty of outdoor access close to home. It's the neighborhood buyers choose when they want Petaluma's small-town character with a more modern, low-maintenance package.",
     images: []
   },
   {
     name: "Oak Hill-Brewster",
     slug: "petaluma-oak-hill-brewster",
     town: "Petaluma",
-    zip: "",
-    builtEra: "",
+    zip: "94952",
+    builtEra: "1850s–mid-1900s (designated historic district)",
     avgSqft: null,
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "Downtown Petaluma", typical: "5–8 min", peak: "8–12 min" },
+      { destination: "San Francisco (via 101)", typical: "45–50 min", peak: "65–90 min" }
+    ],
+    description: "Oak Hill-Brewster is a family-first neighborhood that pairs historic homes with genuine everyday convenience, all within easy reach of downtown. It's anchored by highly rated McKinley Elementary and Oakhill Park, giving families a real neighborhood core — playgrounds, sports facilities, and walking paths that turn errands and after-school time into something more social than transactional. The housing stock here blends historic character with practical family layouts, appealing to buyers who want charm without sacrificing function. Its walkable proximity to downtown's dining and shopping scene means residents get small-town neighborhood life without losing access to Petaluma's best amenities just a short walk or bike ride away.",
     images: []
   },
   {
     name: "Adobe",
     slug: "petaluma-adobe",
     town: "Petaluma",
-    zip: "",
-    builtEra: "",
+    zip: "94954",
+    builtEra: "Predominantly 1970s–1990s",
     avgSqft: null,
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "Downtown Petaluma", typical: "8–10 min", peak: "12–18 min" },
+      { destination: "San Francisco (via 101)", typical: "45–52 min", peak: "65–92 min" }
+    ],
+    description: "Petaluma's Adobe neighborhood offers a genuinely appealing trade: suburban comfort paired with real countryside views, all while staying connected to strong local schools. Kenilworth Junior High and Casa Grande High School — both highly rated — serve the area, making it a natural draw for families prioritizing education without sacrificing space or setting. The neighborhood's rural-edge feel means larger lots and a quieter pace than the denser in-town neighborhoods, while still being close enough to Petaluma's shopping, dining, and downtown scene for easy day-to-day living. For buyers who want a genuine sense of openness and countryside character without leaving city services and good schools behind, Adobe hits that balance well.",
     images: []
   },
   {
     name: "McNear's Landing",
     slug: "petaluma-mcnears-landing",
     town: "Petaluma",
-    zip: "",
-    builtEra: "",
+    zip: "94952",
+    builtEra: "1997–2000 (built in three phases)",
     avgSqft: null,
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "Downtown Petaluma", typical: "5–8 min", peak: "8–12 min" },
+      { destination: "San Francisco (via 101)", typical: "45–50 min", peak: "65–90 min" }
+    ],
+    description: "McNear's Landing offers something genuinely rare in Sonoma County: real riverfront living just minutes from a vibrant downtown. Sitting along the Petaluma River, the neighborhood gives residents direct access to the water — walking paths, river views, and a sense of scenic openness that's hard to find this close to a town center. It's named for the historic McNear family, whose 19th-century brickworks and wharf helped build much of Petaluma's downtown, so there's genuine history layered into the setting as well as the scenery. For buyers drawn to water views and a slower, more scenic pace of daily life — without giving up quick access to downtown's restaurants and shops — McNear's Landing is one of Petaluma's most distinctive addresses.",
     images: []
   },
   {
     name: "West Hills",
     slug: "petaluma-west-hills",
     town: "Petaluma",
-    zip: "",
-    builtEra: "",
+    zip: "94952",
+    builtEra: "Predominantly early 2000s (e.g., Victoria), with some older custom hillside estates",
     avgSqft: null,
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "Downtown Petaluma", typical: "8–10 min", peak: "12–18 min" },
+      { destination: "San Francisco (via 101)", typical: "47–52 min", peak: "67–92 min" }
+    ],
+    description: "West Hills is Petaluma's hillside retreat — a neighborhood of larger, view-forward homes tucked into the rolling terrain west of downtown, bordering Helen Putnam Regional Park's sweeping panoramas of the city and the Sonoma-Marin countryside beyond. Newer subdivisions here, like Victoria, offer open floor plans and high ceilings on well-planned lots, some with direct park access right from the neighborhood, while custom hillside estates further out offer larger lots, real privacy, and views worth the climb. It's a quieter, more spacious alternative to in-town living, but still just a short drive from Petaluma Boulevard South's shops, cafes, and restaurants. For buyers who want elbow room, a view, and genuine peace and quiet — without leaving Petaluma's conveniences too far behind — West Hills is the clearest answer in town.",
     images: []
   },
   {
