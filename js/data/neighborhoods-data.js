@@ -457,7 +457,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Larkspur", typical: "5–8 min", peak: "10–15 min" },
+      { destination: "San Francisco (via 101)", typical: "27–32 min", peak: "42–62 min" }
+    ],
     description: "Baltimore Canyon is Larkspur's redwood retreat — a canyon neighborhood climbing toward Mount Tamalpais, adjacent to Dolliver Park and the popular Dawn Falls trailhead. Homes here sit tucked among towering redwood groves, offering genuine privacy and a forest-immersion feel that's rare this close to a walkable downtown. It's a favorite for buyers who want daily access to hiking trails right from their street, paired with the kind of tree-canopy seclusion that makes the neighborhood feel far more remote than its actual proximity to Larkspur's shops and restaurants suggests. The tradeoff for that redwood setting is worth knowing upfront — canyon-adjacent buyers should always confirm wildfire zoning and insurance details during their diligence period — but for the right buyer, that natural beauty is exactly the draw.",
     images: []
   },
@@ -471,7 +474,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Larkspur", typical: "3–5 min", peak: "6–10 min" },
+      { destination: "San Francisco (via 101)", typical: "25–30 min", peak: "40–60 min" }
+    ],
     description: "Baltimore Park is a small, flat, gridded pocket just off Magnolia Avenue between Old Town and the canyon neighborhoods — genuinely rare in Larkspur for its level lots and open layout, since so much of town climbs hillside terrain. Formerly agricultural land, it offers larger, flatter parcels than most of central Marin, and inventory here is chronically scarce, which tells its own story about how much residents love staying put once they've moved in. It's a quiet, walkable pocket that puts buyers close to downtown's restaurants and the Lark Theater without the steep driveways and hillside engineering that define so much of the rest of town. For buyers who want Larkspur's walkability and charm on a flat, easy-to-live-on lot, Baltimore Park is one of the town's best-kept secrets.",
     images: []
   },
@@ -485,7 +491,9 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "San Francisco (via 101)", typical: "25–30 min", peak: "40–60 min" }
+    ],
     description: "Downtown Larkspur is Marin's classic small-town main street done right — Magnolia Avenue's Victorian-style storefronts, early 20th-century Craftsman cottages, and the art-deco Lark Theater all combine to give the town a genuinely lived-in, historic charm rather than a manufactured one. It's a place where locals actually walk to dinner at Left Bank or Perry's, grab coffee before catching a matinee, and run into neighbors doing the same. The town's listing on the National Register of Historic Places isn't just a plaque — it's visible in nearly every storefront and cottage along the main drag. For buyers who want genuine walkability, historic character, and small-town charm within easy reach of San Francisco, Downtown Larkspur is one of Marin's most complete packages.",
     images: []
   },
@@ -499,7 +507,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Larkspur", typical: "5–8 min", peak: "10–15 min" },
+      { destination: "San Francisco (via 101)", typical: "25–30 min", peak: "40–60 min" }
+    ],
     description: "College Park is one of Larkspur's quieter, more residential in-town neighborhoods — a genuinely walkable pocket that puts buyers within easy reach of downtown's shops and the Lark Theater without paying for canyon views or waterfront frontage. It offers a practical, established feel with mid-century housing stock that's been steadily updated over the decades, appealing to buyers who want Larkspur's small-town charm and top-rated schools in a more understated, everyday package. It's the kind of neighborhood where the appeal isn't a single standout feature but the whole package — good schools, an easy walk to town, and genuine neighborhood stability.",
     images: []
   },
@@ -513,7 +524,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Larkspur", typical: "3–5 min", peak: "6–10 min" },
+      { destination: "San Francisco (via 101)", typical: "25–30 min", peak: "40–60 min" }
+    ],
     description: "Heather Gardens is a highly desirable, established Larkspur neighborhood just blocks from historic downtown — close enough to walk to shops, restaurants, the movie theater, and the library, while still offering the kind of private yards and mature landscaping that make a house feel like a genuine home rather than a starter property. Homes here tend to sit on flat, sunny lots with real character — mature fruit trees, hardwood floors, and versatile layouts that work for growing families or multi-generational living. A community park anchors the neighborhood's social life. For buyers who want walkability without sacrificing a real yard and a settled, established feel, Heather Gardens is one of Larkspur's most sought-after addresses.",
     images: []
   },
@@ -527,7 +541,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Larkspur", typical: "5–8 min", peak: "10–15 min" },
+      { destination: "San Francisco (via 101)", typical: "22–27 min", peak: "38–55 min" }
+    ],
     description: "Larkspur Landing offers a genuinely different Larkspur experience — rolling, ridgeline streets designed in the 1940s by planner Niels Shultz specifically to preserve the area's mature tree canopy (the name Greenbrae literally means \"green hillside\" in Gaelic). Homes here climb the hillside toward panoramic views of Mount Tamalpais, and the neighborhood's daily rhythm is genuinely oriented around its excellent schools, making it a natural draw for families. It's also home to Marin's main ferry terminal, giving residents an easy, scenic commute option into San Francisco's Financial District without touching bridge traffic. For buyers who want hillside views, strong schools, and a genuinely painless SF commute all in one address, Larkspur Landing delivers a package that's hard to find elsewhere in Marin.",
     images: []
   },
@@ -541,7 +558,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Larkspur", typical: "5–8 min", peak: "10–15 min" },
+      { destination: "San Francisco (via 101)", typical: "23–28 min", peak: "38–58 min" }
+    ],
     description: "Larkspur Marina puts waterfront living within easy reach of a walkable downtown — a neighborhood where the natural splendor of the bay takes center stage, with homes offering direct or near-direct water access and views that change with the tide. It's a genuinely unique Marin setting: boating and waterfront recreation are part of daily life here, not just a weekend activity, while downtown Larkspur's restaurants and shops remain just minutes away. For buyers who want a marina lifestyle without sacrificing proximity to town, Larkspur Marina offers a compelling, distinctive answer.",
     images: []
   },
@@ -555,7 +575,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Larkspur", typical: "5–8 min", peak: "10–15 min" },
+      { destination: "San Francisco (via 101)", typical: "25–30 min", peak: "40–60 min" }
+    ],
     description: "Meadowwood is Larkspur living at its most quietly luxurious — a neighborhood of 1960s-built homes that have been steadily updated with modern finishes and features, giving buyers the best of both eras: established, mature landscaping and a settled neighborhood feel, paired with the kind of contemporary comfort today's buyers expect. It's the kind of place where curb appeal is consistently strong across the entire neighborhood, not just a standout property here and there, making it a genuinely reliable choice for buyers who want Larkspur's lifestyle without any surprises. For buyers seeking understated luxury and a well-established, cohesive neighborhood, Meadowwood delivers exactly that.",
     images: []
   },
@@ -569,7 +592,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Larkspur", typical: "3–5 min", peak: "6–10 min" },
+      { destination: "San Francisco (via 101)", typical: "25–30 min", peak: "40–60 min" }
+    ],
     description: "Murray Park is one of Larkspur's classic in-town residential pockets — a genuinely walkable neighborhood offering easy access to downtown's restaurants, the Lark Theater, and top-rated schools, all within a settled, established setting. It's a practical, well-loved neighborhood where the draw isn't one flashy feature but the complete package: proximity, schools, and Larkspur's small-town charm, all wrapped into an accessible, everyday-livable address.",
     images: []
   },
@@ -583,7 +609,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Larkspur", typical: "5–8 min", peak: "10–15 min" },
+      { destination: "San Francisco (via 101)", typical: "25–30 min", peak: "40–60 min" }
+    ],
     description: "Palm Hill is one of Larkspur's most distinctive enclaves — a neighborhood reached via the Alexander Avenue bridge over the Corte Madera-Larkspur bike path, named for the Mexican fan palms planted here in the early 1900s, with streets named after trees that give the whole area a genuinely storybook feel. The housing stock leans Craftsman, Spanish, and California bungalow, and homes here have historically sold among the fastest in the city — a clear signal of how much buyers love the setting once they discover it. For buyers who want historic character, a distinctive sense of place, and easy access to the bike path connecting Larkspur to Corte Madera, Palm Hill offers something genuinely different from the rest of town.",
     images: []
   },
@@ -597,7 +626,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Corte Madera", typical: "5–8 min", peak: "10–15 min" },
+      { destination: "San Francisco (via 101)", typical: "27–32 min", peak: "42–62 min" }
+    ],
     description: "Chapman Park sits on the west side of town, where older ranch-style homes line lagoons fed from Mt. Tamalpais alongside a mix of California cottages and hillside homes with bay views. It's a genuinely varied neighborhood architecturally, giving buyers real range — from classic mid-century ranch layouts to more storied cottage-style homes — all within the same walkable pocket of town. Water access and views are a real draw here, with lagoon-adjacent properties offering a rare blend of suburban practicality and genuine natural beauty. For buyers who want variety, water proximity, and an established Corte Madera address, Chapman Park delivers a distinctive mix that's hard to find in one neighborhood elsewhere in Marin.",
     images: []
   },
@@ -611,7 +643,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Corte Madera", typical: "5–8 min", peak: "10–15 min" },
+      { destination: "San Francisco (via 101)", typical: "27–32 min", peak: "42–62 min" }
+    ],
     description: "Christmas Tree Hill is Corte Madera's most picturesque hillside neighborhood — narrow, winding streets first laid out by early 20th-century developers to draw train-arriving buyers up the hill to available vacation lots, a history that's still visible in the neighborhood's historic stair system and diverse mix of homes. Bay views are the norm here, and at the top of the hill, trails lead directly out to the open expanse of Mt. Tamalpais and connect to Mill Valley, Larkspur, and Kentfield — genuine hiking access right from the neighborhood. It's a peaceful, tree-filled setting beloved for its dog-friendly trails and abundant nature. For buyers who want dramatic views, direct trail access, and a historic hillside setting, Christmas Tree Hill is one of Corte Madera's most rewarding addresses.",
     images: []
   },
@@ -625,7 +660,9 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "San Francisco (via 101)", typical: "25–30 min", peak: "40–60 min" }
+    ],
     description: "Old Town is the historic heart of Corte Madera — tree-lined streets and quaint homes that trace back to the town's days as a stop on the Northwestern Pacific Railroad, when the timber industry and the arrival of the railroad first put Corte Madera on the map. It's often called the heart of town for good reason: a genuine blend of historic charm and everyday convenience, bordered by Corte Madera Town Park and within easy reach of both San Francisco and the rest of Southern Marin. For buyers who want a home with real history and a walkable, established feel, Old Town delivers Corte Madera's most authentic, storied address.",
     images: []
   },
@@ -639,7 +676,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Corte Madera", typical: "8–10 min", peak: "12–18 min" },
+      { destination: "San Francisco (via 101)", typical: "25–30 min", peak: "40–60 min" }
+    ],
     description: "Marin Estates and the surrounding Mariner neighborhoods are Corte Madera's bayside enclave — interconnected communities with curving streets that climb the hillside, offering sweeping bay panoramas, East Bay skyline views, and Mount Tamalpais as a backdrop. Most homes date from the 1950s through the 1980s, many significantly upgraded or fully rebuilt over the years, while a concentrated planned-community phase in the late 1980s added roughly 300 turnkey homes, townhomes, and condos with well-maintained common areas. The neighborhoods border the protected Ring Mountain Nature Preserve and Corte Madera Ecological Reserve, giving residents rare, direct access to tidal marshland open space and wildlife habitat. For buyers who value water views, sunshine, and low-maintenance living close to protected open space, Marin Estates and Mariner are among Corte Madera's most desirable addresses.",
     images: []
   },
@@ -653,7 +693,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Corte Madera", typical: "5–8 min", peak: "10–15 min" },
+      { destination: "San Francisco (via 101)", typical: "25–30 min", peak: "40–60 min" }
+    ],
     description: "Meadowsweet offers a quieter, more residential side of Corte Madera — an established neighborhood with mid-century roots that's evolved into a settled, family-friendly pocket of town, all while staying close to Corte Madera's excellent shopping centers, including the Village and Town Center, both anchored by major retailers and a well-loved weekly farmers market. It's a practical, well-located address for buyers who want easy access to shopping, dining, and top-rated schools without paying a premium for water views or hillside drama. For buyers who prioritize convenience and everyday livability, Meadowsweet delivers a genuinely comfortable, central Corte Madera lifestyle.",
     images: []
   },
@@ -667,7 +710,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Corte Madera", typical: "8–10 min", peak: "12–18 min" },
+      { destination: "San Francisco (via 101)", typical: "25–30 min", peak: "40–60 min" }
+    ],
     description: "The Shores offers Corte Madera's most direct connection to the bay — a waterfront-adjacent neighborhood where the town's tidal marshlands and protected open space are practically part of the backyard. It's a setting that appeals to buyers who want genuine proximity to water and wildlife habitat while still being minutes from Corte Madera's shopping centers and easy freeway access to San Francisco. For buyers drawn to Marin's natural beauty and water-adjacent living, without sacrificing convenience, The Shores is a compelling, distinctive choice.",
     images: []
   },
@@ -681,7 +727,9 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "San Francisco (via 101)", typical: "25–30 min", peak: "40–60 min" }
+    ],
     description: "Downtown Mill Valley is one of Marin's most storied addresses — a walkable, redwood-shaded town center that grew up around the old North Pacific Coast Railroad depot and never lost its village charm. Lytton Square anchors the scene with independent bookstores, cafes, and restaurants that feel more like community living rooms than businesses, and the surrounding blocks are lined with early 1900s craftsman and Victorian homes that give the town its unmistakable character. Buyers drawn here want to walk to dinner, catch a film at the historic Sequoia Theatre, and live somewhere that feels genuinely lived-in rather than curated for tourists — even though tourists come anyway. It's the kind of neighborhood where mature redwoods shade the streets and a slower, more intentional pace of life feels built into the address itself.",
     images: []
   },
@@ -695,7 +743,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Mill Valley", typical: "8–10 min", peak: "12–16 min" },
+      { destination: "San Francisco (via 101)", typical: "22–27 min", peak: "38–55 min" }
+    ],
     description: "Tamalpais Valley and neighboring Almonte offer a more relaxed, laid-back version of Mill Valley living — flatter terrain, easy access to Highway 101, and a genuine sense of being tucked into a quiet valley at the base of Mt. Tamalpais without the premium of the hillside estates closer to downtown. Mid-century development here means practical, well-built ranch and split-level homes that have aged into genuine value, appealing to buyers who want space and easy living over architectural drama. The valley's proximity to Muir Beach and the Golden Gate National Recreation Area gives outdoor-minded buyers direct access to some of Marin's best hiking and coastal trails, while still being close enough to Mill Valley's downtown and Highway 101 for an easy commute. It's Mill Valley's most accessible entry point — genuine mountain-town character without the steepest price tag.",
     images: []
   },
@@ -709,7 +760,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Mill Valley", typical: "8–10 min", peak: "12–16 min" },
+      { destination: "San Francisco (via 101)", typical: "27–32 min", peak: "42–62 min" }
+    ],
     description: "Homestead Valley is Mill Valley at its most bohemian and tucked-away — a hillside neighborhood of cozy 1920s-through-1950s cottages nestled among redwoods and bay laurel, connected by a network of pedestrian paths and staircases that give the whole area a genuinely storybook feel. It's a place where the outdoors isn't a backdrop but a daily reality: trails lead directly from many streets into Mt. Tamalpais's watershed lands, and the community itself has a close-knit, artistic energy that residents fiercely love. Homes here tend to be smaller and more idiosyncratic than newer Marin subdivisions, appealing to buyers who want genuine character, privacy, and a real sense of place over square footage. For buyers who dream of a cabin-in-the-woods feeling without leaving Marin's excellent schools and short commute to San Francisco, Homestead Valley delivers something few other neighborhoods can match.",
     images: []
   },
@@ -723,7 +777,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Mill Valley", typical: "5–8 min", peak: "8–12 min" },
+      { destination: "San Francisco (via 101)", typical: "25–30 min", peak: "40–60 min" }
+    ],
     description: "Cascade Canyon is Mill Valley's most quintessentially redwood-shaded address — a narrow, winding canyon neighborhood where homes from the 1920s through the 1950s sit tucked among towering redwoods along Cascade Creek, just steps from Old Mill Park and the Cascade Falls trailhead. It's genuinely one of the most picturesque settings in Marin, with a history tied to early landscape painters and creative residents drawn to the canyon's natural beauty. Living here means daily walks beneath the redwood canopy, the sound of the creek running past your property line, and a level of privacy and seclusion that's remarkable given the proximity to downtown Mill Valley's restaurants and shops just a short walk away. For buyers who want to live inside the forest rather than just visit it, Cascade Canyon is one of Marin's most special addresses.",
     images: []
   },
@@ -737,7 +794,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Mill Valley", typical: "8–10 min", peak: "12–16 min" },
+      { destination: "San Francisco (via 101)", typical: "20–25 min", peak: "35–55 min" }
+    ],
     description: "Strawberry is Mill Valley's most practical, family-friendly answer — a peninsula neighborhood jutting into Richardson Bay with direct freeway access, excellent schools, and a genuinely strong sense of community built up during its 1950s-through-70s development boom. The Strawberry Village shopping center anchors everyday life with groceries, restaurants, and services, while waterfront parks and the Bay Trail give residents direct access to water views and outdoor recreation without leaving the neighborhood. It's a place where families can find more home for their money than in Mill Valley's pricier hillside enclaves, while still carrying the Mill Valley name and school district. For buyers who want genuine convenience — freeway access, shopping, schools, and water views — all in one practical, well-established package, Strawberry delivers.",
     images: []
   },
@@ -751,7 +811,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown Mill Valley", typical: "5–8 min", peak: "8–12 min" },
+      { destination: "San Francisco (via 101)", typical: "25–30 min", peak: "40–60 min" }
+    ],
     description: "Blithedale Canyon carries some of Mill Valley's deepest history — the neighborhood takes its name from the old Blithedale Hotel, a Victorian-era resort that once drew San Francisco visitors up the canyon by horse-drawn carriage to escape the city's fog. That resort-town heritage is still visible in the neighborhood's early 1900s craftsman and Victorian homes, tucked into a lushly wooded canyon just west of downtown. It's a genuinely storied, established neighborhood — walkable to Lytton Square, but with a quieter, more residential feel once you're up in the canyon itself. For buyers drawn to Mill Valley's historic character and redwood-canyon setting, but who want a bit more separation from downtown's daily bustle, Blithedale Canyon offers the best of both — history, nature, and proximity, all in one address.",
     images: []
   },
@@ -765,7 +828,9 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "San Francisco (via 101)", typical: "30–35 min", peak: "50–75 min" }
+    ],
     description: "Downtown San Anselmo grew up around \"the Hub\" — the old rail junction where Sir Francis Drake Boulevard, Red Hill Avenue, and Center Boulevard still meet, a crossroads that's been connecting the Ross Valley to West Marin since the town incorporated in 1907. Today, San Anselmo Avenue is lined with independent restaurants, wine bars, coffee shops, and boutiques that have been there long enough to feel like genuine institutions rather than trendy pop-ups. San Anselmo Creek runs behind the main drag, hills rise on every side, and the town sits in one of Marin's warmest, sunniest microclimates. It's a place where dogs are welcome everywhere and the community actually means it. For buyers who want authentic small-town character, walkability, and a genuine sense of place, Downtown San Anselmo is one of Marin's most beloved addresses.",
     images: []
   },
@@ -779,7 +844,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown San Anselmo", typical: "8–10 min", peak: "12–18 min" },
+      { destination: "San Francisco (via 101)", typical: "33–38 min", peak: "55–80 min" }
+    ],
     description: "Sleepy Hollow is San Anselmo's semi-rural retreat — a unique community tucked into its own valley along Butterfield Road, dating back to 1939 and known for generous lot sizes, diverse architecture (including a small pocket of Eichler mid-century modern homes), and whimsical street names straight out of Washington Irving. The neighborhood has an active homes association with a community pool, clubhouse, tennis courts, and a genuinely strong sense of community — swim teams, scouting troops, and women's clubs all call Sleepy Hollow home. Surrounded by grassy, tree-studded hills with direct hiking and horseback trail access, it offers buyers a rare sense of space and privacy within the San Anselmo school district. For buyers who want room to breathe — bigger lots, a country-home character, and genuine natural beauty — Sleepy Hollow is the clearest answer in the San Anselmo area.",
     images: []
   },
@@ -793,7 +861,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown San Anselmo", typical: "3–5 min", peak: "6–10 min" },
+      { destination: "San Francisco (via 101)", typical: "30–35 min", peak: "50–75 min" }
+    ],
     description: "The Seminary and Sunnyside neighborhood, nestled on the Ross/San Anselmo border, is arguably the area's most coveted pocket — centered around the historic San Francisco Theological Seminary, with the neighborhood's true character found along Sunnyside Avenue itself. As one of San Anselmo's oldest residential tracts, it's famous for genuine walk-to-town convenience, flat, sunny lots, and a stately mix of grand historic estates, eco-modern contemporaries, and classic Craftsman homes. High-ranking Wade Thomas Elementary serves the area, making it a natural draw for families who want both prestige and practicality. For buyers who want San Anselmo's most historic, walkable, and quietly majestic address, the Seminary and Sunnyside deliver.",
     images: []
   },
@@ -807,7 +878,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
+    commuteTimes: [
+      { destination: "Downtown San Anselmo", typical: "5–8 min", peak: "10–15 min" },
+      { destination: "San Francisco (via 101)", typical: "30–35 min", peak: "50–75 min" }
+    ],
     description: "The Yolanda District and Winship Park offer a genuinely unusual depth of history for Marin — pre-1940 bungalow blocks that give San Anselmo's housing stock a character rarely found elsewhere in the county. Original-detail homes sit alongside more recently updated properties, giving buyers real range in how much vintage charm versus modern renovation they want in a single walkable neighborhood. It's a slower, more residential pocket of town, still close enough to San Anselmo's downtown restaurants and shops for easy day-to-day living. For buyers who appreciate genuine pre-war character and original architectural detail, the Yolanda District and Winship Park offer some of San Anselmo's most historically rich housing stock.",
     images: []
   }
