@@ -147,13 +147,17 @@ const NEIGHBORHOODS_DATA = [
     slug: "marin-country-club",
     town: "Novato",
     zip: "94949",
-    builtEra: "PLACEHOLDER",
+    builtEra: "1960s–1970s",
     avgSqft: null,
     avgPrice: null,
     amenities: [],
-    commuteAccess: "PLACEHOLDER",
-    commuteTimes: [], // PLACEHOLDER — e.g. { destination: "Downtown Novato", typical: "8–12 min", peak: "12–18 min" }
-    description: "PLACEHOLDER",
+    commuteAccess: "",
+    commuteTimes: [
+      { destination: "Downtown Novato", typical: "10–12 min", peak: "15–20 min" },
+      { destination: "San Rafael", typical: "10–12 min", peak: "18–22 min" },
+      { destination: "San Francisco (via 101 + Golden Gate Bridge)", typical: "~35 min", peak: "50–70 min" }
+    ],
+    description: "For buyers who want a golf-course lifestyle without leaving Novato, Marin Country Club Estates is the answer, and it's been delivering on that promise since the club itself opened in the 1950s. The surrounding neighborhood filled in through the 1960s and '70s with substantial, established homes on generous lots, many backing directly onto fairways or framed by the hills that wrap this Southwest Novato valley — a genuinely picturesque setting that's hard to replicate elsewhere in the county. The private club at the center of it all offers a full 18-hole golf course, tennis courts, multiple pools, a fitness center, and a clubhouse for dining and events, so residents aren't just buying a house, they're buying access to a resort-caliber amenity package a few minutes from their own front door — golf carts are even a legitimate way to get around locally. It's a drive-quick rather than walk-to-everything neighborhood, but South Novato's shopping and dining corridor, plus direct access to Marin's open space trails for hiking and biking, are all close by. Families benefit from Novato Unified schools — Loma Verde Elementary, San Jose Middle, and Novato High serve most of the area, though school assignment is always worth verifying by exact address. The overall pitch is straightforward: quiet, established, green-space-forward living for buyers who value privacy, space, and a country-club pace of life over density and walkability.",
     images: []
   }
 ];
