@@ -170,8 +170,11 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "Downtown San Rafael", typical: "10–12 min", peak: "15–20 min" },
+      { destination: "San Francisco (via 101 + Golden Gate Bridge)", typical: "30–35 min", peak: "45–65 min" }
+    ],
+    description: "Terra Linda is where mid-century design meets everyday family life. This North San Rafael neighborhood is known for its Eichler homes — those iconic glass-walled, indoor-outdoor houses that turned California modernism into something you could actually live in — alongside a broader mix of classic ranch-style homes on wide, tree-lined streets built for kids to bike and neighbors to know each other. Families gravitate here for the schools (Vallecito Elementary, Miller Creek Middle, and Terra Linda High all serve the area) and for direct access to the Terra Linda/Sleepy Hollow Preserve, where hiking and mountain biking trails start right at the edge of the neighborhood. Add in Northgate Mall for everyday shopping and easy 101 access, and Terra Linda offers a rare combination: genuine architectural character, real community feel, and the kind of practical convenience that makes daily life simple.",
     images: []
   },
   {
@@ -184,8 +187,11 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "Downtown San Rafael", typical: "12–15 min", peak: "18–24 min" },
+      { destination: "San Francisco (via 101 + Golden Gate Bridge)", typical: "32–38 min", peak: "48–68 min" }
+    ],
+    description: "Lucas Valley is one of Marin's most distinctive addresses — a quiet, tucked-away enclave built around a striking collection of Eichler homes, prized for their clean mid-century lines, floor-to-ceiling glass, and seamless connection between indoor living and the natural landscape outside. Surrounded by protected open space and hillside terrain, the neighborhood has a genuinely peaceful, removed feel despite being minutes from everyday conveniences, and it's famously home to Skywalker Ranch, giving the area a quiet cachet. Further west, Lucas Valley Estates offers a different flavor — larger, more traditional homes on bigger lots for buyers who want the same setting without the Eichler-specific commitment. Locals grab coffee or a sandwich at Big Rock Deli, hit the trailheads right from their street, and send their kids to some of Marin's highly rated schools. It's a neighborhood built for buyers who want privacy, architectural distinction, and nature at their doorstep, all without leaving San Rafael.",
     images: []
   },
   {
@@ -198,8 +204,11 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "Downtown San Rafael", typical: "12–15 min", peak: "18–24 min" },
+      { destination: "San Francisco (via 101 + Golden Gate Bridge)", typical: "32–38 min", peak: "48–68 min" }
+    ],
+    description: "Marinwood offers a genuinely appealing mix — mid-century modern homes alongside more exclusive, larger estates — all wrapped around one of North San Rafael's best community assets: the Marinwood Community Center, with its pool, parks, and year-round events that give the neighborhood a real sense of togetherness. It's a place where buyers can find real range, from classic ranch homes to more substantial properties, without sacrificing the tight-knit, family-first feel that defines the area. Marinwood Creek Park adds green space right in the neighborhood's core, and highly rated schools make it an easy sell for buyers prioritizing education. For families who want community infrastructure — not just a house, but a place with built-in gathering spots and activities — Marinwood delivers in a way that's hard to match elsewhere in North San Rafael.",
     images: []
   },
   {
@@ -212,8 +221,11 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "Downtown San Rafael", typical: "5–8 min", peak: "8–12 min" },
+      { destination: "San Francisco (via 101 + Golden Gate Bridge)", typical: "25–30 min", peak: "40–60 min" }
+    ],
+    description: "Gerstle Park is often called the crown jewel of San Rafael's in-town neighborhoods, and it earns that reputation. Centered on the historic namesake park — mature oaks, a running creek, a playground, and trails climbing into the hills — the neighborhood pairs early 20th-century charm with genuine modern convenience. Tree-lined streets create a natural canopy over well-kept sidewalks, and the strong, established sense of community here means neighbors actually know each other, not just wave in passing. It's a short walk to downtown's restaurants and shops, which makes it a favorite for buyers who want historic character and walkability without giving up a real neighborhood feel. Homes here range from classic bungalows to larger updated properties, appealing to a wide mix of buyers — young families, professionals, and downsizers alike — who all want the same thing: charm that doesn't feel manufactured.",
     images: []
   },
   {
@@ -226,8 +238,11 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "Downtown San Rafael", typical: "5–8 min", peak: "8–12 min" },
+      { destination: "San Francisco (via 101 + Golden Gate Bridge)", typical: "25–30 min", peak: "40–60 min" }
+    ],
+    description: "Dominican is San Rafael living at its most elegant — a neighborhood built around Dominican University of California, where grand Victorian homes sit beneath mature tree canopy just minutes from a vibrant downtown. The university presence gives the area a genuine intellectual, cultured energy, while forested preserves and scenic trails right nearby offer an easy escape into nature without leaving the neighborhood. It's a rare pairing: historic architectural grandeur alongside quick, practical access to downtown's restaurants, shops, and the Smith Rafael Film Center. Buyers drawn to Dominican tend to want a home with real presence and history — not a cookie-cutter subdivision — while still being close enough to everything that daily errands stay easy. It's one of the more prestigious, established pockets of San Rafael, and it shows in both the architecture and the atmosphere.",
     images: []
   },
   {
@@ -240,8 +255,11 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "Downtown San Rafael", typical: "8–10 min", peak: "12–16 min" },
+      { destination: "San Francisco (via 101 + Golden Gate Bridge)", typical: "28–33 min", peak: "42–62 min" }
+    ],
+    description: "Country Club is San Rafael's upscale bayfront address, overlooking San Rafael Bay with custom homes that reflect the neighborhood's understated prestige. The Marin Yacht Club anchors the area's waterfront lifestyle, and residents gather at Bayside Park or Andy's Market — a genuinely local grocery-bar-cafe hybrid that gives the neighborhood its social hub. This is a place for buyers who want water views and a boating or sailing lifestyle without leaving the practicality of in-town living behind. Homes here tend to be custom-built and individually distinctive rather than tract construction, appealing to buyers who want a property with real character and a setting that feels genuinely special every time they pull into the driveway. It's quieter and more residential than downtown, but never far from it.",
     images: []
   },
   {
@@ -254,8 +272,11 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "Downtown San Rafael", typical: "10–12 min", peak: "15–20 min" },
+      { destination: "San Francisco (via 101 + Golden Gate Bridge)", typical: "30–35 min", peak: "45–65 min" }
+    ],
+    description: "Peacock Gap is San Rafael's premier bayside golf community, and it delivers a genuinely resort-like daily life. Homes here — many from the 1970s ranch era, well-maintained and often updated — sit close to China Camp State Park, McNears Beach Park, and the Peacock Gap Golf Club, giving residents a rare trifecta of golf, waterfront recreation, and protected open space all within a few minutes of home. Scenic bay views are the norm rather than the exception, and the neighborhood's flat, sunny terrain makes it easy to enjoy the outdoors year-round — walking, biking, paddling, or just an evening round of golf. Highly rated schools round out the appeal for families. Peacock Gap sells itself to buyers who want an active, outdoor-oriented lifestyle in a genuinely beautiful setting, without sacrificing the convenience of being part of San Rafael proper.",
     images: []
   },
   {
@@ -268,8 +289,11 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "Downtown San Rafael", typical: "5–8 min", peak: "8–14 min" },
+      { destination: "San Francisco (via 101 + Golden Gate Bridge)", typical: "25–30 min", peak: "40–60 min" }
+    ],
+    description: "Sun Valley is the neighborhood buyers choose when space, privacy, and a view are non-negotiable. Perched on the hilltop above central San Rafael, it offers panoramic bay views and noticeably larger lots than most in-town neighborhoods, with custom homes, gated properties, and a genuinely suburban, estate-like feel despite being just minutes from downtown. It's a hillside enclave in the truest sense — winding streets that climb toward sweeping vistas, with a sense of seclusion that's hard to find this close to the city center. For buyers coming from denser markets who want elbow room, a real driveway, and a view worth waking up to, Sun Valley is one of San Rafael's clearest answers. It pairs that privacy with genuine practicality — downtown, shopping, and the freeway are all a short drive away, so the seclusion never comes at the cost of convenience.",
     images: []
   },
   {
@@ -282,8 +306,10 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "San Francisco (via 101 + Golden Gate Bridge)", typical: "25–30 min", peak: "40–60 min" }
+    ],
+    description: "Downtown San Rafael is the beating heart of Marin County, and living here means being in the middle of it — genuinely, not just nearby. San Rafael City Plaza hosts weekend events, a lively Thursday farmers market, and outdoor summer concerts, while the Smith Rafael Film Center anchors a downtown arts and dining scene that spans sushi, Indian, Thai, Italian, Mexican, and Puerto Rican food, often all within a few blocks of each other on 4th Street. The West End, just adjacent, has built its own reputation as one of San Rafael's premier family neighborhoods — walkable, well-established, and close enough to downtown's energy without sitting directly in it. The SMART train connects the area north and south, adding a genuine transit option beyond the car. For buyers who want to walk to dinner, catch a film, or grab a coffee before hopping a train — while still having a real neighborhood to come home to — Downtown/West End is San Rafael's most vibrant, connected answer.",
     images: []
   },
   {
@@ -296,8 +322,11 @@ const NEIGHBORHOODS_DATA = [
     avgPrice: null,
     amenities: [],
     commuteAccess: "",
-    commuteTimes: [],
-    description: "",
+    commuteTimes: [
+      { destination: "Downtown San Rafael", typical: "5 min", peak: "8–10 min" },
+      { destination: "San Francisco (via 101 + Golden Gate Bridge)", typical: "25–30 min", peak: "40–60 min" }
+    ],
+    description: "The Canal District is San Rafael's most dynamic neighborhood in transition — a mixed-use, waterfront-adjacent community along the Marin Canal that's actively revitalizing while holding onto its genuinely diverse, welcoming character. It offers a real mix of affordable housing options and newer apartment developments, all with easy access to shops, restaurants, and public transit, making it one of the more accessible entry points into San Rafael living. The energy here is different from the rest of the city — dense, walkable, and culturally rich, with a strong sense of community identity that residents take real pride in. For buyers priced out of San Rafael's pricier hillside neighborhoods but who still want to be close to downtown and the water, the Canal District offers a genuine, evolving opportunity — a neighborhood on the way up, with the accessibility to match.",
     images: []
   },
   {

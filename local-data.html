@@ -381,7 +381,7 @@
   </div>
 </footer>
 
-<script src="js/data/neighborhoods-data.js?v=9"></script>
+<script src="js/data/neighborhoods-data.js?v=10"></script>
 <script>
 (function () {
   const TOWNS = ['Novato', 'San Rafael', 'Petaluma', 'Mill Valley', 'Larkspur', 'Corte Madera', 'San Anselmo'];
@@ -402,14 +402,20 @@
 
   function renderTownSelector() {
     const selector = document.getElementById('townSelector');
+    // A town becomes selectable once at least one of its neighborhoods has content.
+    const populated = new Set(
+      NEIGHBORHOODS_DATA.filter(n => n.description).map(n => n.town)
+    );
     TOWNS.forEach(town => {
-      const isNovato = town === 'Novato';
+      const isPopulated = populated.has(town);
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'town-btn' + (isNovato ? ' active' : ' coming-soon');
+      btn.className = 'town-btn'
+        + (town === activeTown ? ' active' : '')
+        + (isPopulated ? '' : ' coming-soon');
       btn.textContent = town;
-      btn.disabled = !isNovato;
-      if (isNovato) {
+      btn.disabled = !isPopulated;
+      if (isPopulated) {
         btn.addEventListener('click', () => selectTown(town));
       }
       selector.appendChild(btn);
@@ -445,7 +451,7 @@
         <div class="neighborhood-card-preview">
           <h3 class="neighborhood-card-title">${neighborhood.name}</h3>
           <div class="neighborhood-card-meta">
-            <strong>${neighborhood.zip}</strong> • ${neighborhood.town}
+            ${neighborhood.zip ? '<strong>' + neighborhood.zip + '</strong> • ' : ''}${neighborhood.town}
           </div>
         </div>
       `;
@@ -465,7 +471,7 @@
     const html = `
       <h2 class="detail-title">${neighborhood.name}</h2>
       <div class="detail-meta">
-        <strong>${neighborhood.zip}</strong> • ${neighborhood.town}
+        ${neighborhood.zip ? '<strong>' + neighborhood.zip + '</strong> • ' : ''}${neighborhood.town}
       </div>
 
       ${neighborhood.description ? `
@@ -558,25 +564,29 @@
   }
 
   function init() {
-    renderTownSelector();
-
     const neighborhoodSlug = getQueryParam('neighborhood');
     const townParam = getQueryParam('town');
 
+    // Resolve the active town first so the selector renders with the right
+    // button highlighted on a deep link.
+    let pendingDetail = null;
     if (neighborhoodSlug) {
       const neighborhood = NEIGHBORHOODS_DATA.find(n => n.slug === neighborhoodSlug);
       if (neighborhood) {
         activeTown = neighborhood.town;
-        showDetail(neighborhood);
-      } else {
-        renderNeighborhoods();
+        pendingDetail = neighborhood;
       }
     } else if (townParam) {
       const town = TOWNS.find(t => t.toLowerCase() === townParam);
       if (town) {
         activeTown = town;
       }
-      renderNeighborhoods();
+    }
+
+    renderTownSelector();
+
+    if (pendingDetail) {
+      showDetail(pendingDetail);
     } else {
       renderNeighborhoods();
     }
