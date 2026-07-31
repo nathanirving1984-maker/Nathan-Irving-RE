@@ -72,6 +72,15 @@
     text-transform: uppercase;
   }
 
+  .town-search {
+    text-align: center;
+    margin-top: var(--space-md);
+  }
+
+  .town-search:empty {
+    margin-top: 0;
+  }
+
   .grid-view {
     display: block;
   }
@@ -336,6 +345,7 @@
     <div class="container">
       <div id="gridView" class="grid-view">
         <div class="town-selector" id="townSelector"></div>
+        <div class="town-search" id="townSearch"></div>
         <div id="neighborhoodContent"></div>
       </div>
 
@@ -381,7 +391,7 @@
   </div>
 </footer>
 
-<script src="js/data/neighborhoods-data.js?v=15"></script>
+<script src="js/data/neighborhoods-data.js?v=16"></script>
 <script>
 (function () {
   const TOWNS = ['Novato', 'San Rafael', 'Petaluma', 'Mill Valley', 'Larkspur', 'Corte Madera', 'San Anselmo'];
@@ -431,7 +441,24 @@
     renderNeighborhoods();
   }
 
+  // Builds the BAREIS link with the DOM API rather than an HTML string so the
+  // pre-generated search URL is carried through byte for byte.
+  function renderTownSearch() {
+    const container = document.getElementById('townSearch');
+    container.innerHTML = '';
+    const url = typeof TOWN_MLS_SEARCH !== 'undefined' && TOWN_MLS_SEARCH[activeTown];
+    if (!url) return;
+    const link = document.createElement('a');
+    link.className = 'btn';
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.setAttribute('href', url);
+    link.textContent = 'Search ' + activeTown + ' Homes';
+    container.appendChild(link);
+  }
+
   function renderNeighborhoods() {
+    renderTownSearch();
     const neighborhoods = NEIGHBORHOODS_DATA.filter(n => n.town === activeTown);
     const container = document.getElementById('neighborhoodContent');
 

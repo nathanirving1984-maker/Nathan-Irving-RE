@@ -886,3 +886,15 @@ const NEIGHBORHOODS_DATA = [
     images: []
   }
 ];
+
+// BAREIS MLS property-search URLs, one per town. Paste replacements verbatim —
+// these are pre-generated and must not be shortened or rebuilt.
+const TOWN_MLS_SEARCH = {
+  "Novato": "https://rebareis.rapmls.com/scripts/mgrqispi.dll?APPNAME=ReBareis&PRGNAME=MLSLogin&ARGUMENT=mksAcGLMbUJT2gWf930cu8K9hglG1GctXJGRyX1wNS0fCm%2Fof9i4qLLiLvb3orSwjsBu8db9jZDdOjHOoeD7Zg%3D%3D&KeyRid=1&MLS_Origin=BARI&SN=Novato&HM=Y",
+  "San Rafael": "https://rebareis.rapmls.com/scripts/mgrqispi.dll?APPNAME=ReBareis&PRGNAME=MLSLogin&ARGUMENT=mksAcGLMbUJT2gWf930cu8K9hglG1GctXJGRyX1wNS0fCm%2Fof9i4qLLiLvb3orSwGEJzerTNgPOlvM3nCoZdKw%3D%3D&KeyRid=1&MLS_Origin=BARI&SN=San%20Rafael&HM=Y",
+  "Petaluma": "https://rebareis.rapmls.com/scripts/mgrqispi.dll?APPNAME=ReBareis&PRGNAME=MLSLogin&ARGUMENT=mksAcGLMbUJT2gWf930cu8K9hglG1GctXJGRyX1wNS0fCm%2Fof9i4qLLiLvb3orSww2e66qWo11ZZ020tzoYwkg%3D%3D&KeyRid=1&MLS_Origin=BARI&SN=Petaluma&HM=Y",
+  "Larkspur": "https://rebareis.rapmls.com/scripts/mgrqispi.dll?APPNAME=ReBareis&PRGNAME=MLSLogin&ARGUMENT=mksAcGLMbUJT2gWf930cu8K9hglG1GctXJGRyX1wNS0fCm%2Fof9i4qLLiLvb3orSwOD83wmgUCuf0onM3kH2dEA%3D%3D&KeyRid=1&MLS_Origin=BARI&SN=Larkspur&HM=Y",
+  "Corte Madera": "https://rebareis.rapmls.com/scripts/mgrqispi.dll?APPNAME=ReBareis&PRGNAME=MLSLogin&ARGUMENT=mksAcGLMbUJT2gWf930cu8K9hglG1GctXJGRyX1wNS0fCm%2Fof9i4qLLiLvb3orSwf9ocZOWQpqS6pguES63EUg%3D%3D&KeyRid=1&MLS_Origin=BARI&SN=Corte%20Madera&HM=Y",
+  "Mill Valley": "https://rebareis.rapmls.com/scripts/mgrqispi.dll?APPNAME=ReBareis&PRGNAME=MLSLogin&ARGUMENT=mksAcGLMbUJT2gWf930cu8K9hglG1GctXJGRyX1wNS0fCm%2Fof9i4qLLiLvb3orSwH7jE5R0WCo%2FyL%2FY3hzfs5Q%3D%3D&KeyRid=1&MLS_Origin=BARI&SN=Mill%20Valley&HM=Y",
+  "San Anselmo": "https://rebareis.rapmls.com/scripts/mgrqispi.dll?APPNAME=ReBareis&PRGNAME=MLSLogin&ARGUMENT=mksAcGLMbUJT2gWf930cu8K9hglG1GctXJGRyX1wNS0fCm%2Fof9i4qLLiLvb3orSwA7eQetCGA8PDpI3OfGJc%2BA%3D%3D&KeyRid=1&MLS_Origin=BARI&SN=San%20Anselmo&HM=Y",
+};
