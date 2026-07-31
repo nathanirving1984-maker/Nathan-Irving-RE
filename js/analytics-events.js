@@ -1,5 +1,44 @@
-// Fires GA4 conversion events for lead forms and phone/email clicks.
+// Fires GA4 events and Google Ads conversions for lead forms and phone/email clicks.
 (function () {
+  // ---------------------------------------------------------------------------
+  // Google Ads conversion tracking.
+  //
+  // Fill these in from Google Ads > Goals > Conversions. Open a conversion action,
+  // choose "Install the tag yourself", and copy the send_to value it shows:
+  //
+  //     gtag('event', 'conversion', {'send_to': 'AW-1234567890/AbC-D_efGhIjKlMn'});
+  //                                              ^conversion ID  ^conversion label
+  //
+  // The conversion ID is the same for every action on the account; each action has
+  // its own label. Until ADS_CONVERSION_ID is set, nothing below sends to Ads and
+  // GA4 tracking continues as normal. Leave an individual label as '' to skip it.
+  // ---------------------------------------------------------------------------
+  var ADS_CONVERSION_ID = ''; // e.g. 'AW-1234567890'
+  var ADS_LABELS = {
+    lead_form: '',   // form submissions (all four Formspree forms)
+    phone_click: '', // clicks on tel: links
+    email_click: ''  // clicks on mailto: links
+  };
+
+  var adsEnabled = /^AW-[\w-]+$/.test(ADS_CONVERSION_ID);
+
+  // Register the Ads destination on the existing Google tag so it picks up the
+  // gclid from the landing page URL and sets the conversion linker cookie.
+  if (adsEnabled && typeof gtag === 'function') {
+    gtag('config', ADS_CONVERSION_ID);
+  }
+
+  function fireAdsConversion(labelKey) {
+    if (!adsEnabled || typeof gtag !== 'function') return;
+
+    var label = ADS_LABELS[labelKey];
+    if (!label) return;
+
+    gtag('event', 'conversion', {
+      send_to: ADS_CONVERSION_ID + '/' + label
+    });
+  }
+
   function fireConversionEvent(formName) {
     if (typeof gtag === 'function') {
       gtag('event', 'generate_lead', {
@@ -7,6 +46,7 @@
         page_location: window.location.href
       });
     }
+    fireAdsConversion('lead_form');
   }
 
   function handleFormSubmit(form) {
@@ -48,16 +88,17 @@
 
   document.querySelectorAll('form[data-form-name]').forEach(handleFormSubmit);
 
-  function trackClicks(selector, eventName) {
+  function trackClicks(selector, eventName, adsLabelKey) {
     document.querySelectorAll(selector).forEach(function (el) {
       el.addEventListener('click', function () {
         if (typeof gtag === 'function') {
           gtag('event', eventName, { page_location: window.location.href });
         }
+        fireAdsConversion(adsLabelKey);
       });
     });
   }
 
-  trackClicks('a[href^="tel:"]', 'phone_click');
-  trackClicks('a[href^="mailto:"]', 'email_click');
+  trackClicks('a[href^="tel:"]', 'phone_click', 'phone_click');
+  trackClicks('a[href^="mailto:"]', 'email_click', 'email_click');
 })();
