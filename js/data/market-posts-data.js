@@ -10,8 +10,6 @@
 //   stats:     array of { label, value, trend: "up"|"down"|"flat", trendLabel }
 //              — rendered as a row of stat cards above the post text. "up"
 //              renders in the gold/positive tone, "down" in muted gray.
-//              Use "up-negative" for a number that rose but is NOT good news
-//              (e.g. days on market): up arrow, muted gray instead of gold.
 // When "zip" is set, a small "ZIP {zip}" pill renders next to the date, and
 // if js/data/zip-boundaries/{zip}.json exists, a Leaflet boundary map
 // renders below the post text. See market-updates.html.
@@ -28,15 +26,9 @@ const MARKET_POSTS_DATA = [
       { label: "Homes sold", value: "23", trend: "up", trendLabel: "187.5% vs last year" },
       { label: "Months of inventory", value: "1.0", trend: "down", trendLabel: "~74% vs last year" },
       { label: "Active listings", value: "23", trend: "down", trendLabel: "25.8% vs last year" },
-      { label: "Pending sales", value: "16", trend: "up", trendLabel: "77.8% vs last year" },
-      { label: "Avg. sold price", value: "$1,177,000", trend: "up", trendLabel: "5.8% vs last year" },
-      { label: "Median sold price", value: "$1,065,000", trend: "up", trendLabel: "3.8% vs last year" },
-      { label: "Avg. price / sq. ft.", value: "$571", trend: "up", trendLabel: "9.4% vs last year" },
-      { label: "Avg. days on market", value: "41", trend: "up-negative", trendLabel: "32.3% vs last year" },
     ],
     excerpt:
-      "The 94945 market — Black Point and Central Novato — shifted noticeably over the past year. Closed sales nearly tripled, active inventory pulled back by a quarter, and prices continued their steady climb — a combination that points to a market moving firmly in sellers’ favor, even with homes taking a bit longer to find buyers. Twenty-three homes closed in July 2026 versus 8 in July 2025, while active listings fell from 31 to 23 and months of inventory compressed from 3.9 to 1.0. Pending sales rose from 9 to 16. The average sold price reached $1,177,000, up 5.8% from $1,113,000; the median came in at $1,065,000, up 3.8% from $1,026,000; and average price per square foot on sold homes rose to $571 from $522, up 9.4%. Year to date the same pattern holds: 106 homes sold versus 80 a year ago, up 32.5%; 112 pending sales versus 83, up 34.9%; and year-to-date months of inventory at 2.1 versus 2.8, down 25.2%. With active inventory down and sales volume climbing, 94945 buyers are facing more competition for fewer available homes than a year ago — even though days on market ticked up slightly, likely reflecting a handful of longer-sitting listings rather than a cooling trend. Sellers pricing correctly are still seeing strong sold-to-list ratios. Source: TrendVision / BAREIS MLS, published August 2026, based on data through the end of July 2026.",
-    // Photo gallery intentionally empty — listing photos to be added later.
+      "The 94945 market — Black Point and Central Novato — shifted noticeably over the past year. Closed sales nearly tripled, active inventory pulled back by a quarter, and prices continued their steady climb — a combination that points to a market moving firmly in sellers’ favor, even with homes taking a bit longer to find buyers. Twenty-three homes closed in July 2026 versus 8 in July 2025, while active listings fell from 31 to 23 and months of inventory compressed from 3.9 to 1.0. Pending sales rose from 9 to 16. The average sold price reached $1,177,000, up 5.8% from $1,113,000; the median came in at $1,065,000, up 3.8% from $1,026,000; and average price per square foot on sold homes rose to $571 from $522, up 9.4%. Days on market averaged 41, up 32.3% from 31 a year ago. Year to date the same pattern holds: 106 homes sold versus 80 a year ago, up 32.5%; 112 pending sales versus 83, up 34.9%; and year-to-date months of inventory at 2.1 versus 2.8, down 25.2%. With active inventory down and sales volume climbing, 94945 buyers are facing more competition for fewer available homes than a year ago — even though days on market ticked up slightly, likely reflecting a handful of longer-sitting listings rather than a cooling trend. Sellers pricing correctly are still seeing strong sold-to-list ratios. Source: TrendVision / BAREIS MLS, published August 2026, based on data through the end of July 2026.",
     images: [],
   },
   {
