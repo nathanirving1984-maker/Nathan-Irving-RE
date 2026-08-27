@@ -332,8 +332,8 @@ p { margin: 0 0 var(--space-sm); color: var(--color-charcoal); }
 }
 
 /* ---- Logos (added) ---- */
-.brand-logo { height: 56px; display: block; }
-.footer-logo { height: 48px; margin-bottom: var(--space-xs); display: block; }
+.brand-logo { height: 64px; width: auto; display: block; }
+.footer-logo { height: 56px; width: auto; margin-bottom: var(--space-xs); display: block; }
 .site-footer p { color: rgba(247,244,238,0.75); }
 .cb-badge {
   background: var(--color-bone);
