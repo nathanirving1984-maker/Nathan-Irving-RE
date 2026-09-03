@@ -16,6 +16,22 @@
 
 const MARKET_POSTS_DATA = [
   {
+    id: "novato-94947-san-marin-ytd-2026",
+    isSample: false,
+    date: "2026-09-03",
+    title: "94947 Market Update: Steady Growth Across the Board, Year to Date",
+    zip: "94947",
+    zipLabel: "Novato \u2014 San Marin & West Novato",
+    stats: [
+      { label: "Homes sold YTD", value: "138", trend: "up", trendLabel: "2.2% vs last year" },
+      { label: "Pending sales YTD", value: "154", trend: "up", trendLabel: "6.2% vs last year" },
+      { label: "Avg. sold price", value: "$1,193,000", trend: "up", trendLabel: "4.0% vs last year" },
+    ],
+    excerpt:
+      "The 94947 market has shown consistent, if modest, growth through the first eight months of 2026. Sales, pending activity, and both listing and sold prices are all up versus the same period last year, with inventory holding roughly steady \u2014 a picture of a market gaining momentum without overheating. Year to date through September 2, 138 homes have closed versus 135 in the same window last year, up 2.2%, while pending sales rose to 154 from 145, up 6.2%. Active listings stand at 44 versus 42, up 4.8%, and months of inventory sits at 2.6 versus 2.5, up 3.9% \u2014 essentially flat, and well short of the kind of tightening that produces a squeeze. On price, the average sold home reached $1,193,000, up 4.0% from $1,147,000, and average price per square foot on sold homes rose to $609 from $594, up 2.5% \u2014 meaning the gain reflects real per-foot appreciation, not just a shift toward larger homes. Two measures moved the other way: homes averaged 41 days on market versus 39 a year ago, up 5.1%, and the sold-to-list price ratio eased to 98% from 99%. Neither is a favorable move for sellers, and together they suggest buyers have a touch more room to negotiate than last year, even as overall demand holds strong. Taken as a whole, 94947 has been a market of steady, broad-based gains this year \u2014 more homes selling, more going pending, and prices ticking up across every real measure, without inventory tightening to the point of a squeeze. Source: TrendVision / BAREIS MLS, published August 2026, ZIP 94947, based on data through 9/2/26 (preliminary for the current period).",
+    images: [],
+  },
+  {
     id: "novato-94945-black-point-central-novato-july-2026",
     isSample: false,
     date: "2026-08-19",
