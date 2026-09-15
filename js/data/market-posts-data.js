@@ -16,6 +16,23 @@
 
 const MARKET_POSTS_DATA = [
   {
+    id: "novato-94949-ignacio-hamilton-bel-marin-keys-august-2026",
+    isSample: false,
+    date: "2026-09-15",
+    title: "94949 Market Update: August Sales Up 40% Year Over Year",
+    zip: "94949",
+    zipLabel: "Novato \u2014 Ignacio, Hamilton & Bel Marin Keys",
+    stats: [
+      { label: "Homes sold", value: "14", trend: "up", trendLabel: "40% vs last year" },
+      { label: "Active listings", value: "30", trend: "up", trendLabel: "20% vs last year" },
+      { label: "Homes sold YTD", value: "115", trend: "up", trendLabel: "12.7% vs last year" },
+      { label: "Avg. sold price YTD", value: "$1.24M", trend: "down", trendLabel: "2.7% vs last year" },
+    ],
+    excerpt:
+      "The 94949 market \u2014 Ignacio, Hamilton, and Bel Marin Keys \u2014 closed August with a clear jump in sales volume. Fourteen homes sold during the month versus 10 in August 2025, up 40%, and buyers had more to choose from while they shopped: 30 homes were listed for sale against 25 a year ago, up 20%. The year-to-date picture is just as solid on volume, with 115 closings through September 14 versus 102 in the same window last year, up 12.7%. Pricing has been steadier than those sales figures might suggest. The year-to-date average sold price came in at $1.24M against $1.27M a year ago, down 2.7% \u2014 close enough to flat across a full year of transactions to read as a market holding its value rather than one moving in either direction, and a reminder that rising sales counts have not translated into upward price pressure here. The number sellers should weigh most carefully is time on market. Homes averaged 59 days to sell, up from 25 a year ago, a 136% increase \u2014 and one of the few figures where a rising number is unfavorable news. More than doubling the typical marketing period means buyers are taking their time rather than competing on the first weekend, and a home that would have gone under contract in under a month last summer can now sit through a third or fourth round of showings. Pending sales dipped slightly as well, 9 versus 10 last year, a small enough gap to be noise on its own but worth noting next to the longer days on market. Taken together, 94949 is a market with healthy transaction volume and more inventory to work through, where sellers who price to the current pace \u2014 not to last year's \u2014 are the ones getting clean, timely results. Source: TrendVision / BAREIS MLS, published September 2026, ZIP 94949, based on data through 9/14/26 (preliminary for the current period).",
+    images: [],
+  },
+  {
     id: "novato-94947-san-marin-ytd-2026",
     isSample: false,
     date: "2026-09-03",
