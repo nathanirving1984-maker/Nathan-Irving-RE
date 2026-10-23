@@ -96,3 +96,6 @@
 
 .mp-disclaim { padding: var(--space-md) 0; }
 .mp-disclaim p { font-size: 0.78rem; color: #7a7972; line-height: 1.6; max-width: 960px; margin: 0; }
+
+.mp-stale { background: var(--color-ivory); border: 1px solid var(--color-gold-soft); border-left: 3px solid var(--color-gold); border-radius: var(--radius); padding: 0.8rem 1rem; font-size: 0.88rem; color: var(--color-navy); margin: 0 0 var(--space-sm); }
+.mp-grid .mp-stale { grid-column: 1 / -1; }

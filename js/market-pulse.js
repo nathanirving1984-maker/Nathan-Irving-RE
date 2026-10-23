@@ -174,12 +174,26 @@
     hit.addEventListener('touchend', leave);
   }
 
+  // ---------- freshness ----------
+  // Sections maintained outside the automatic FRED pull are hidden or flagged
+  // once they are older than these limits, so visitors never see stale info.
+  var MAX_AGE = { market: 4, news: 21, local: 135 }; // days
+  function daysSince(s) { if (!s) return Infinity; return (Date.now() - parseDate(s).getTime()) / DAY; }
+  function staleNote(text) { var p = el('p', 'mp-stale'); p.textContent = text; return p; }
+
   // ---------- sections ----------
   function renderUpdated() {
     var u = $('#mp-updated');
     if (!M || !M.updated) { u.textContent = ''; return; }
     var d = new Date(M.updated);
-    u.textContent = 'Data last updated ' + d.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: tz, timeZoneName: 'short' }) + ' · Refreshes twice daily';
+    var when = d.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: tz, timeZoneName: 'short' });
+    u.textContent = 'Data last updated ' + when + ' · Refreshes twice daily';
+    var old = document.querySelector('.mp-stale--market'); if (old) old.remove();
+    if (daysSince(M.updated) > MAX_AGE.market) {
+      var n = staleNote('Heads up: the automatic data update is running behind. Figures below are as of ' + fmtDate(d) + '; each one shows its own date.');
+      n.classList.add('mp-stale--market');
+      $('#mp-summary').before(n);
+    }
   }
 
   function nextFedDate() {
@@ -332,6 +346,7 @@
     if (!LOCAL || !LOCAL.areas) { box.appendChild(el('p', 'mp-note', 'Local sales data is temporarily unavailable.')); return; }
     var per = LOCAL.areas[0] && LOCAL.areas[0].period;
     if (per) $('#local-period').textContent = per.charAt(0).toUpperCase() + per.slice(1) + ' homes that actually sold, from BAREIS MLS (open-market sales). Updated each quarter.';
+    if (daysSince(LOCAL.updated) > MAX_AGE.local) box.appendChild(staleNote('Newer quarterly figures are on the way. The numbers below are for ' + (per ? per.split(',')[0] : 'the previous quarter') + '.'));
     LOCAL.areas.forEach(function (a) {
       var c = el('div', 'card');
       c.appendChild(el('h3', null, a.area));
@@ -390,6 +405,12 @@
     list.textContent = ''; cal.textContent = '';
     if (!NEWS) { list.appendChild(el('p', 'mp-note', 'Policy news is temporarily unavailable.')); return; }
     if (NEWS.updated) $('#news-updated').textContent = 'Federal actions that affect mortgages and homeownership, in plain English. Last reviewed ' + fmtDate(parseDate(NEWS.updated)) + '.';
+    if (daysSince(NEWS.updated) > MAX_AGE.news) {
+      $('#news-updated').textContent = 'Federal actions that affect mortgages and homeownership, in plain English.';
+      list.appendChild(staleNote('Policy news is being refreshed. Check back soon for the latest.'));
+      cal.appendChild(el('li', null, 'Calendar updating soon.'));
+      return;
+    }
     var cutoff = parseDate(NEWS.updated || new Date().toISOString().slice(0, 10)); cutoff = new Date(cutoff - 14 * DAY);
     (NEWS.policy || []).slice().sort(function (a, b) { return b.date.localeCompare(a.date); }).forEach(function (n) {
       var it = el('article', 'mp-item' + (parseDate(n.date) >= cutoff ? ' is-new' : ''));
