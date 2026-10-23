@@ -75,12 +75,12 @@
   {
    "date": "2026-11-12",
    "event": "October existing-home sales (NAR)",
-   "why": "First read after pending sales fell 7.3%."
+   "why": "Pace of closed sales nationally for October."
   },
   {
    "date": "2026-11-18",
-   "event": "October housing starts",
-   "why": "New-supply trend."
+   "event": "October housing starts (Census) & pending home sales (NAR)",
+   "why": "New-supply trend and a read on contracts signed."
   }
  ]
 }
