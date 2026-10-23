@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marin Housing Market Pulse: Mortgage Rates, Treasury Yields &amp; Local Data | Nathan Irving</title>
+<meta name="description" content="Today's mortgage rates, Treasury yields, Fed policy, Marin County listing data, Novato home sales and federal housing news in one place, updated automatically every day. From Nathan Irving, REALTOR® with Coldwell Banker Realty.">
+<link rel="canonical" href="https://nathan-irving.com/market-pulse.html">
+<meta property="og:title" content="Marin Housing Market Pulse | Nathan Irving, REALTOR®">
+<meta property="og:description" content="Live mortgage rates, Treasury yields, Marin listing data and housing policy news, updated every day.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nathan-irving.com/market-pulse.html">
+<meta property="og:image" content="https://nathan-irving.com/images/hero.jpg">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/market-pulse.css?v=1">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VT6K9D4HKX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VT6K9D4HKX');
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand"><img src="images/ni-logo-re-dark.png" alt="Nathan Irving Real Estate" class="brand-logo"></a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" data-main-nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="buy.html">Buy</a>
+      <a href="sell.html">Sell</a>
+      <a href="property-search.html">Property Search</a>
+      <a href="market-updates.html">Market Updates</a>
+      <a href="market-pulse.html">Market Pulse</a>
+      <a href="local-data.html">Local Data</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="section section--navy mp-hero">
+    <div class="container">
+      <span class="eyebrow">Live market data &middot; Updated automatically every day</span>
+      <h1>Housing Market Pulse</h1>
+      <p class="mp-lede">Mortgage rates, Treasury yields, Fed policy, Marin County listings and the federal housing news that moves them, in one place. No spin, just the numbers and where they come from.</p>
+      <p class="mp-updated" id="mp-updated">Loading the latest data&hellip;</p>
+    </div>
+  </section>
+
+  <section class="section mp-section">
+    <div class="container">
+      <div class="mp-summary card" id="mp-summary" aria-live="polite">
+        <span class="eyebrow">Where things stand</span>
+        <p id="mp-summary-text" class="mp-skel">&nbsp;</p>
+      </div>
+      <div class="mp-kpis" id="mp-kpis"></div>
+    </div>
+  </section>
+
+  <section class="section section--alt mp-section" id="rates">
+    <div class="container">
+      <div class="mp-head">
+        <span class="eyebrow">Mortgage rates &amp; Treasuries</span>
+        <h2>What borrowing costs today</h2>
+        <p>Mortgage rates follow the 10-year Treasury yield closely. When investors demand more to lend to the government, home loans get more expensive too. The gap between the two lines is the lender's spread.</p>
+      </div>
+      <div class="card mp-chart-card">
+        <div class="mp-chart-top">
+          <div class="mp-legend" id="rates-legend"></div>
+          <div class="mp-range" role="group" aria-label="Time range">
+            <button data-range="6">6M</button><button data-range="12" class="is-on">1Y</button><button data-range="24">2Y</button><button data-range="36">3Y</button>
+          </div>
+        </div>
+        <div class="mp-chart" id="rates-chart" style="height:300px"></div>
+        <p class="mp-src">Weekly mortgage averages: Freddie Mac Primary Mortgage Market Survey (conforming loans, 20% down, strong credit). Daily Treasury yields: U.S. Treasury. Via FRED.</p>
+      </div>
+
+      <div class="grid-2 mp-grid">
+        <div class="card">
+          <h3>Payment calculator</h3>
+          <p class="mp-note">See what today's average rate means for a monthly payment, and how it compares with a year ago.</p>
+          <div class="mp-calc">
+            <label>Home price<input type="text" inputmode="numeric" id="calc-price" value=""></label>
+            <label>Down payment (%)<input type="number" id="calc-down" value="20" min="0" max="100" step="1"></label>
+            <label>Interest rate (%)<input type="number" id="calc-rate" value="" min="0" max="20" step="0.01"></label>
+          </div>
+          <div class="mp-calc-out">
+            <div><span class="mp-lbl">Monthly principal &amp; interest</span><span class="mp-big" id="calc-pay">&mdash;</span></div>
+            <div><span class="mp-lbl">Loan amount</span><span class="mp-mid" id="calc-loan">&mdash;</span></div>
+          </div>
+          <p class="mp-note" id="calc-compare"></p>
+          <p class="mp-src">Starts with Novato's median sale price and the latest 30-year average. Excludes property taxes, insurance and HOA dues. Your actual rate depends on your loan, credit and lender.</p>
+        </div>
+        <div class="card">
+          <h3>Treasury yields</h3>
+          <p class="mp-note">The latest close, and how far each has moved.</p>
+          <table class="mp-table" id="tsy-table">
+            <thead><tr><th>Maturity</th><th class="num">Yield</th><th class="num">1 month ago</th><th class="num">1 year ago</th></tr></thead>
+            <tbody></tbody>
+          </table>
+          <p class="mp-src">In parentheses: how much the yield has changed since then. U.S. Treasury constant-maturity yields via FRED.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section mp-section" id="marin">
+    <div class="container">
+      <div class="mp-head">
+        <span class="eyebrow">Marin County listings</span>
+        <h2>What's on the market</h2>
+        <p>Monthly listing data for all of Marin County: the asking price of a typical home, how many homes are for sale, and how long they take to go under contract.</p>
+      </div>
+      <div class="grid-3 mp-grid3">
+        <div class="card"><h3>Median list price</h3><div class="mp-mini-val" id="marin-price-val">&mdash;</div><div class="mp-chart" id="marin-price" style="height:160px"></div></div>
+        <div class="card"><h3>Homes for sale</h3><div class="mp-mini-val" id="marin-active-val">&mdash;</div><div class="mp-chart" id="marin-active" style="height:160px"></div></div>
+        <div class="card"><h3>Median days on market</h3><div class="mp-mini-val" id="marin-dom-val">&mdash;</div><div class="mp-chart" id="marin-dom" style="height:160px"></div></div>
+      </div>
+      <p class="mp-src">Realtor.com Housing Inventory Core Metrics for Marin County, via FRED. Listing prices are asking prices, not sale prices.</p>
+
+      <div class="mp-head mp-head--tight">
+        <h2>Closed sales: Novato &amp; Marin</h2>
+        <p id="local-period">Single-family homes that actually sold, from BAREIS MLS.</p>
+      </div>
+      <div class="grid-2 mp-grid" id="local-cards"></div>
+    </div>
+  </section>
+
+  <section class="section section--alt mp-section" id="national">
+    <div class="container">
+      <div class="mp-head">
+        <span class="eyebrow">The bigger picture</span>
+        <h2>National housing &amp; inflation</h2>
+        <p>Inflation drives Fed policy and Treasury yields, and national sales and construction show which way the wider market is heading.</p>
+      </div>
+      <div class="card">
+        <div class="mp-scroll">
+          <table class="mp-table" id="nat-table">
+            <thead><tr><th>Measure</th><th class="num">Latest</th><th class="num">A year earlier</th><th>Month</th><th>Source</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section mp-section" id="policy">
+    <div class="container">
+      <div class="mp-head">
+        <span class="eyebrow">Washington watch</span>
+        <h2>Housing policy &amp; what's coming up</h2>
+        <p id="news-updated">Federal actions that affect mortgages and homeownership, in plain English.</p>
+      </div>
+      <div class="grid-2 mp-grid mp-grid--news">
+        <div class="mp-news" id="news-list"></div>
+        <div class="card">
+          <h3>On the calendar</h3>
+          <p class="mp-note">Releases and events that can move rates.</p>
+          <ul class="mp-cal" id="cal-list"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy">
+    <div class="container text-center">
+      <span class="eyebrow">What does it mean for you?</span>
+      <h2>Numbers are only half the story</h2>
+      <p style="max-width:580px;margin:0 auto var(--space-md);">Every buyer's and seller's situation is different. If you'd like to talk through how today's market affects your plans, reach out anytime. No pressure, just a conversation.</p>
+      <a href="contact.html" class="btn btn--gold">Contact Nathan</a>
+    </div>
+  </section>
+
+  <section class="section mp-disclaim">
+    <div class="container">
+      <p>Data is pulled automatically from public sources: Freddie Mac, the U.S. Treasury, the Federal Reserve, the Bureau of Labor Statistics, the Census Bureau, the National Association of REALTORS® and Realtor.com, all via FRED (Federal Reserve Bank of St. Louis). Novato and Marin closed-sales figures are from BAREIS MLS and are updated each quarter; policy summaries are written by Nathan Irving. This page is for general information only and is not financial, lending, legal or tax advice. Rates shown are national averages. Information deemed reliable but not guaranteed and should be independently verified.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="images/ni-logo-re-light.png" alt="Nathan Irving Real Estate" class="footer-logo">
+        <p style="max-width:280px;">Marin County REALTOR® with Coldwell Banker Realty, Greenbrae office.</p>
+        <div class="cb-badge">
+          <img src="images/cb-logo.png" alt="Coldwell Banker Realty">
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="about.html">About Nathan</a>
+        <a href="buy.html">Buy</a>
+        <a href="sell.html">Sell</a>
+        <a href="property-search.html">Property Search</a>
+        <a href="market-updates.html">Market Updates</a>
+        <a href="market-pulse.html">Market Pulse</a>
+        <a href="local-data.html">Local Data</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+14152094864">(415) 209-4864</a>
+        <a href="mailto:nathan.irving@cbrealty.com">nathan.irving@cbrealty.com</a>
+        <a href="https://www.linkedin.com/in/nathan-irving-realestate" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/nathan.irvingrealestate" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://nextdoor.com/page/nathan-irving-realtor-novato-ca" target="_blank" rel="noopener">Nextdoor</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">Coldwell Banker Realty fully supports the principles of the Fair Housing Act and the Equal Opportunity Act. Each Coldwell Banker&reg; franchise office is independently owned and operated. Information deemed reliable but not guaranteed and should be independently verified. Not intended as a solicitation if your property is currently listed with another broker.</p>
+      <div class="footer-bottom-row">
+        <span>&copy; <span data-current-year></span> Nathan Irving, REALTOR® &middot; Coldwell Banker Realty &middot; Equal Housing Opportunity</span>
+        <span><a href="privacy-policy.html">Privacy Policy</a> &middot; <a href="terms-of-use.html">Terms of Use</a> &middot; CA DRE# 02414117</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="mp-tip" id="mp-tip" role="tooltip"></div>
+<script src="js/nav.js"></script>
+<script src="js/analytics-events.js"></script>
+<script src="js/market-pulse.js?v=1"></script>
+</body>
+</html>

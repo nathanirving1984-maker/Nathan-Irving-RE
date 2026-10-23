@@ -1,0 +1,86 @@
+{
+ "updated": "2026-10-22",
+ "policy": [
+  {
+   "date": "2026-10-22",
+   "title": "New housing executive order signed",
+   "detail": "\u201cDecreasing Housing Costs for the American People\u201d: FHFA pilot to cancel mortgage insurance once equity is met at current value (future loans), makes the refi title-insurance waiver permanent, creates a manufactured-housing task force, and tells VA and USDA to lower their loan rates.",
+   "impact": "Mostly helps refis and FHA/VA/USDA borrowers; little near-term effect on Marin price points.",
+   "source": "White House / Reuters"
+  },
+  {
+   "date": "2026-10-20",
+   "title": "Fannie & Freddie stay in conservatorship for now",
+   "detail": "Treasury Secretary Bessent said ownership changes are a next-year-or-later question and called mortgage rates the administration's North Star.",
+   "impact": "Removes a near-term rate-spike risk from a GSE release.",
+   "source": "Semafor"
+  },
+  {
+   "date": "2026-10-19",
+   "title": "FHFA weighs dropping 3-bureau credit pulls",
+   "detail": "Director Pulte said FHFA is studying one or two credit reports instead of three for Fannie/Freddie loans, with a decision on loan-level price adjustments (LLPAs) before year end.",
+   "impact": "Could trim closing costs; watch for LLPA changes affecting buyer pricing.",
+   "source": "ABA Banking Journal / CU Today"
+  },
+  {
+   "date": "2026-09-16",
+   "title": "Fed raises rates 0.25 pt",
+   "detail": "First hike since 2023, to 3.75\u20134.00%. September minutes show most officials expect another hike by year end. Next decision Oct 28; markets lean toward a hold.",
+   "impact": "Main driver behind 7%+ mortgage rates and the 10-yr above 5%.",
+   "source": "Federal Reserve / FOMC minutes"
+  },
+  {
+   "date": "2026-08-26",
+   "title": "FHFA lowers GSE affordable-housing goals",
+   "detail": "2026\u20132028 goals for Fannie and Freddie were scaled back; Congress has not passed GSE reform.",
+   "impact": "Less required support for lower-income loans.",
+   "source": "Legis1 / CRS"
+  },
+  {
+   "date": "2026-03-13",
+   "title": "Two housing executive orders",
+   "detail": "EO 14393 (Promoting Access to Mortgage Credit) loosened lending/capital rules for smaller lenders; EO 14394 (Removing Regulatory Barriers to Affordable Home Construction) targets permitting and energy-code costs.",
+   "impact": "Supply effects depend on local zoning, so slow to reach Marin.",
+   "source": "White House / LeadingAge"
+  },
+  {
+   "date": "2026-01-20",
+   "title": "Institutional-investor order + $200B MBS buy",
+   "detail": "Order to stop large institutional investors buying single-family homes; Fannie/Freddie directed to buy $200B in mortgage-backed securities.",
+   "impact": "Investor limits still need Congress to codify; a Treasury rule for corporate buyers is expected in early 2027.",
+   "source": "White House"
+  }
+ ],
+ "calendar": [
+  {
+   "date": "2026-10-28",
+   "event": "Fed rate decision (2:00 PM ET)",
+   "why": "Hold expected; any hike or hawkish tone pushes rates up."
+  },
+  {
+   "date": "2026-10-29",
+   "event": "Freddie Mac weekly rates",
+   "why": "Next official 30-yr / 15-yr average."
+  },
+  {
+   "date": "2026-11-03",
+   "event": "Midterm elections",
+   "why": "Policy direction for housing and GSEs."
+  },
+  {
+   "date": "2026-11-10",
+   "event": "October CPI",
+   "why": "Inflation is what's keeping yields high."
+  },
+  {
+   "date": "2026-11-12",
+   "event": "October existing-home sales (NAR)",
+   "why": "First read after pending sales fell 7.3%."
+  },
+  {
+   "date": "2026-11-18",
+   "event": "October housing starts",
+   "why": "New-supply trend."
+  }
+ ]
+}

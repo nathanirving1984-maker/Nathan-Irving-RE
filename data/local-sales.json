@@ -1,0 +1,34 @@
+{
+ "updated": "2026-10-22",
+ "note": "Closed single-family sales, BAREIS MLS. Updated each quarter.",
+ "areas": [
+  {
+   "area": "Novato",
+   "median": 1204375,
+   "yoy": -0.001,
+   "dom": 25,
+   "domPrior": null,
+   "sales": 110,
+   "salesYoy": 0.341,
+   "ppsf": 649,
+   "ppsfYoy": 0.09,
+   "monthsSupply": 1.9,
+   "period": "Q3 2026 (Jul\u2013Sep), single-family",
+   "source": "BAREIS MLS via Imagine Marin"
+  },
+  {
+   "area": "Marin County",
+   "median": 1700000,
+   "yoy": 0.059,
+   "dom": 19,
+   "domPrior": 29,
+   "sales": 477,
+   "salesYoy": null,
+   "ppsf": null,
+   "ppsfYoy": null,
+   "monthsSupply": null,
+   "period": "Q3 2026 (Jul\u2013Sep), single-family",
+   "source": "BAREIS MLS via Imagine Marin"
+  }
+ ]
+}

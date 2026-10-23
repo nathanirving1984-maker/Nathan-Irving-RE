@@ -154,6 +154,8 @@ p { margin: 0 0 var(--space-sm); color: var(--color-charcoal); }
   transition: border-color 0.2s ease;
 }
 .main-nav a:hover, .main-nav a.active { border-color: var(--color-gold); }
+.main-nav a { white-space: nowrap; }
+@media (max-width: 1260px) { .main-nav { gap: 1.1rem; } }
 .nav-toggle { display: none; background: none; border: none; }
 .nav-toggle span {
   display: block;
@@ -163,7 +165,7 @@ p { margin: 0 0 var(--space-sm); color: var(--color-charcoal); }
   margin: 5px 0;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1120px) {
   .nav-toggle { display: block; }
   .main-nav {
     position: absolute;

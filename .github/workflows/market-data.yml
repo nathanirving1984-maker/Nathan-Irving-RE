@@ -1,0 +1,47 @@
+name: Update market data
+
+on:
+  schedule:
+    # 6:17 AM and 10:27 AM Pacific (13:17 and 17:27 UTC during PDT).
+    # The second run catches Freddie Mac's Thursday rate release.
+    - cron: "17 13 * * *"
+    - cron: "27 17 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/fetch_market_data.py"
+      - ".github/workflows/market-data.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: market-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch latest data from FRED
+        run: python scripts/fetch_market_data.py
+
+      - name: Commit if anything changed
+        run: |
+          if git diff --quiet -- data/market.json; then
+            echo "No changes."
+            exit 0
+          fi
+          git config user.name "market-data-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/market.json
+          git commit -m "Update market data $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase origin main
+          git push
