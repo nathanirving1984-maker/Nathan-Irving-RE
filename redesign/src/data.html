@@ -1,0 +1,249 @@
+<title>Nathan Irving Data</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: the market is the headline. A sentence built from live Novato numbers opens the page, a weekly readout follows, then the tools and the person behind them. Left-aligned throughout. */
+:root {
+  --bg: #FFFFFF;
+  --ink: #0C1733;
+  --cb: #012269;         /* Coldwell Banker blue */
+  --signal: #2A62D8;     /* live numbers */
+  --wash: #EEF2FA;
+  --muted: #5A6378;
+  --rule: #DCE1EA;
+  --display: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --body: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.num { font-variant-numeric: tabular-nums; }
+
+.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-block: 20px; flex-wrap: wrap; }
+.mark { font-family: var(--display); font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; text-decoration: none; color: var(--cb); }
+.nav { display: flex; gap: 24px; flex-wrap: wrap; font-weight: 500; }
+.nav a { text-decoration: none; color: var(--muted); }
+.nav a:hover { color: var(--ink); }
+
+/* hero */
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 56px; align-items: center; padding-block: 56px 64px; }
+.asof { font-size: 0.9rem; color: var(--muted); margin: 0 0 20px; }
+.asof .live { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #2E9E5B; margin-right: 8px; vertical-align: 1px; }
+.hero h1 { font-family: var(--display); font-weight: 500; font-size: clamp(2.1rem, 4.4vw, 3.7rem); line-height: 1.08; letter-spacing: -0.03em; margin: 0 0 28px; text-wrap: pretty; }
+.hero h1 .v { font-weight: 800; color: var(--signal); white-space: nowrap; }
+.hero p.sub { font-size: 1.12rem; color: var(--muted); max-width: 34em; margin: 0 0 28px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { display: inline-block; padding: 13px 20px; border-radius: 6px; background: var(--cb); color: #fff; font-weight: 600; text-decoration: none; border: 1px solid var(--cb); }
+.btn:hover { background: #0A2E86; }
+.btn.alt { background: var(--bg); color: var(--cb); border-color: var(--rule); }
+.btn.alt:hover { border-color: var(--cb); }
+
+.zipmap svg { width: 100%; height: auto; display: block; }
+.zipmap path { fill: var(--wash); stroke: var(--cb); stroke-width: 1.4; stroke-linejoin: round; transition: fill 0.15s; }
+.zipmap path:hover { fill: #D7E1F6; }
+.zipmap text { font-family: var(--display); font-weight: 700; font-size: 22px; fill: var(--cb); letter-spacing: -0.01em; }
+.zipmap text.small { font-family: var(--body); font-weight: 500; font-size: 13px; fill: var(--muted); }
+.zipmap figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }
+
+/* readout */
+.readout { border-top: 1px solid var(--rule); background: linear-gradient(var(--wash), var(--wash)) no-repeat 0 0 / 100% 100%; }
+.readout .wrap { padding-block: 48px 56px; }
+.readout h2 { font-family: var(--display); font-weight: 700; font-size: 1.5rem; letter-spacing: -0.02em; margin: 0 0 6px; }
+.readout .intro { color: var(--muted); margin: 0 0 28px; }
+.stats { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; }
+.stat { background: var(--bg); padding: 22px 24px 20px; min-width: 0; }
+.stat .k { font-size: 0.95rem; color: var(--muted); }
+.stat .v { font-family: var(--display); font-weight: 700; font-size: 2.3rem; letter-spacing: -0.03em; line-height: 1.1; margin: 6px 0 4px; }
+.stat .d { font-size: 0.9rem; color: var(--muted); }
+.stat .d.up { color: #B5462F; }
+.stat .d.down { color: #2E7D4F; }
+.spark { width: 100%; height: 54px; display: block; margin-top: 10px; }
+.spark .line { fill: none; stroke: var(--signal); stroke-width: 2; }
+.spark .area { fill: color-mix(in srgb, var(--signal) 10%, transparent); }
+.spark .end { fill: var(--signal); }
+.spark .lbl { font-size: 11px; fill: var(--muted); font-family: var(--body); }
+
+/* tools */
+.tools .wrap { padding-block: 64px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 56px; }
+.tools h2 { font-family: var(--display); font-weight: 700; font-size: clamp(1.7rem, 3vw, 2.3rem); letter-spacing: -0.03em; line-height: 1.1; margin: 0 0 14px; }
+.tools .lede { color: var(--muted); margin: 0; }
+.toollist { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.toollist li { border-bottom: 1px solid var(--rule); }
+.toollist a { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 24px; padding: 20px 4px; text-decoration: none; }
+.toollist a:hover .t { color: var(--signal); }
+.toollist .t { font-family: var(--display); font-weight: 700; font-size: 1.2rem; letter-spacing: -0.01em; color: var(--cb); }
+.toollist .s { color: var(--muted); }
+
+/* person */
+.person { background: var(--cb); color: #fff; }
+.person .wrap { padding-block: 56px; display: grid; grid-template-columns: 160px minmax(0, 1fr) auto; gap: 40px; align-items: center; }
+.person img { width: 160px; height: 160px; object-fit: cover; object-position: 50% 18%; border-radius: 50%; background: #fff; }
+.person h2 { font-family: var(--display); font-weight: 700; font-size: 1.8rem; letter-spacing: -0.02em; margin: 0 0 10px; }
+.person p { margin: 0; color: rgba(255,255,255,0.82); max-width: 40em; }
+.person .contact { font-size: 1.1rem; line-height: 1.9; text-align: right; white-space: nowrap; }
+.person .contact a { text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); }
+
+.foot { font-size: 0.82rem; color: var(--muted); }
+.foot .wrap { padding-block: 32px 40px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 28px; }
+.foot img { height: 60px; width: auto; }
+.foot p { margin: 0 0 8px; max-width: 72em; }
+.src { font-size: 0.8rem; color: var(--muted); margin-top: 14px; }
+
+@media (max-width: 900px) {
+  .hero .wrap, .tools .wrap { grid-template-columns: 1fr; gap: 32px; }
+  .zipmap { max-width: 460px; }
+  .stats { grid-template-columns: 1fr; }
+  .person .wrap { grid-template-columns: 1fr; gap: 20px; }
+  .person .contact { text-align: left; }
+  .toollist a { grid-template-columns: 1fr; gap: 4px; }
+  .foot .wrap { grid-template-columns: 1fr; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="{{HOME}}">Nathan Irving</a>
+    <nav class="nav" aria-label="Main">
+      <a href="{{SITE}}buy.html">Buy</a>
+      <a href="{{SITE}}sell.html">Sell</a>
+      <a href="{{SITE}}market-pulse.html">Market data</a>
+      <a href="{{SITE}}about.html">About</a>
+      <a href="{{SITE}}contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="asof"><span class="live" aria-hidden="true"></span>Novato single-family sales, <span id="d_period">Q3 2026</span></p>
+        <h1>A typical Novato home sold for <span class="v num" id="d_median">$1,204,375</span> last quarter. <span class="v num" id="d_sales">110</span> homes changed hands, <span id="d_salesyoy">34% more</span> than a year ago.</h1>
+        <p class="sub">I'm Nathan, a Novato real estate agent with Coldwell Banker. I track this market every week so my clients make decisions with real numbers, not guesses.</p>
+        <div class="actions">
+          <a class="btn" href="{{SITE}}sell.html">Get your home's value</a>
+          <a class="btn alt" href="{{SITE}}buy.html">Start a home search</a>
+        </div>
+      </div>
+      <figure class="zipmap" style="margin:0;">
+        <svg viewBox="-10 -10 620 534" role="img" aria-label="Novato's three ZIP codes">
+          <path d="{{MAP_94945}}"><title>94945: Downtown, San Marin, north Novato</title></path>
+          <path d="{{MAP_94947}}"><title>94947: west Novato, Indian Valley</title></path>
+          <path d="{{MAP_94949}}"><title>94949: Hamilton, Ignacio, Bel Marin Keys</title></path>
+          <text x="330" y="140">94945</text><text class="small" x="330" y="160">North &amp; east Novato</text>
+          <text x="60" y="205">94947</text><text class="small" x="60" y="225">West Novato</text>
+          <text x="380" y="440">94949</text><text class="small" x="380" y="460">Hamilton &amp; Ignacio</text>
+        </svg>
+        <figcaption>The three ZIP codes I cover, drawn from Census boundaries.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="readout">
+    <div class="wrap">
+      <h2>What I'm watching this week</h2>
+      <p class="intro">Updated automatically from Freddie Mac and FRED.</p>
+      <div class="stats">
+        <div class="stat">
+          <div class="k">30-year mortgage rate</div>
+          <div class="v num" id="d_rate">7.32%</div>
+          <div class="d" id="d_rate_d">Week of Oct 22</div>
+          <svg class="spark" id="d_spark" viewBox="0 0 300 54" preserveAspectRatio="none" aria-hidden="true"></svg>
+        </div>
+        <div class="stat">
+          <div class="k">Days a Marin listing sits</div>
+          <div class="v num" id="d_dom">39</div>
+          <div class="d" id="d_dom_d">Median, September 2026</div>
+        </div>
+        <div class="stat">
+          <div class="k">Marin listings with a price cut</div>
+          <div class="v num" id="d_cuts">122</div>
+          <div class="d" id="d_cuts_d">of 458 active, September 2026</div>
+        </div>
+      </div>
+      <p class="src">Mortgage rate: Freddie Mac weekly average. Marin listing figures: Realtor.com via FRED. Novato sales: BAREIS MLS.</p>
+    </div>
+  </section>
+
+  <section class="tools">
+    <div class="wrap">
+      <div>
+        <h2>Tools I built for buyers and sellers</h2>
+        <p class="lede">Free to use. No sign-up.</p>
+      </div>
+      <ul class="toollist">
+        <li><a href="{{SITE}}market-pulse.html"><span class="t">Market Pulse</span><span class="s">Rates, Treasury yields, and Marin housing numbers, updated daily.</span></a></li>
+        <li><a href="{{SITE}}local-data.html"><span class="t">Neighborhood data</span><span class="s">Commute times and background on Hamilton, San Marin, and other Marin neighborhoods.</span></a></li>
+        <li><a href="{{SITE}}buy.html#calculator"><span class="t">Mortgage calculator</span><span class="s">Your monthly payment with taxes, insurance, and HOA included.</span></a></li>
+        <li><a href="{{SITE}}market-updates.html"><span class="t">Market updates</span><span class="s">My regular write-ups on what is selling in Novato and Marin, and for how much.</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="person">
+    <div class="wrap">
+      <img src="images/headshot.jpg" alt="Nathan Irving">
+      <div>
+        <h2>You'll work with me directly</h2>
+        <p>I grew up in Marin and live in Hamilton. I came back from Reno in 2026 to focus on one town I know well. When you call, you get me.</p>
+      </div>
+      <div class="contact">
+        <a href="tel:+14152094864">(415) 209-4864</a><br>
+        <a href="mailto:nathan.irving@cbrealty.com">nathan.irving@cbrealty.com</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="images/cb-logo.png" alt="Coldwell Banker Realty">
+    <div>
+      <p>Nathan Irving, REALTOR®, Coldwell Banker Realty, 350 Bon Air Center, Suite 100, Greenbrae, CA 94904. CA DRE# 02414117. Equal Housing Opportunity.</p>
+      <p>Coldwell Banker Realty fully supports the principles of the Fair Housing Act and the Equal Opportunity Act. Each Coldwell Banker® franchise office is independently owned and operated. Information deemed reliable but not guaranteed and should be independently verified. Not intended as a solicitation if your property is currently listed with another broker.</p>
+      <p><a href="{{SITE}}privacy-policy.html">Privacy Policy</a> &nbsp; <a href="{{SITE}}terms-of-use.html">Terms of Use</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function money(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+  function mon(s) { return new Date(s + 'T12:00:00').toLocaleDateString('en-US', { month: 'long', year: 'numeric' }); }
+  function last(o) { return o[o.length - 1]; }
+
+  fetch('data/local-sales.json').then(function (r) { return r.json(); }).then(function (d) {
+    var a = (d.areas || []).filter(function (x) { return x.area === 'Novato'; })[0];
+    if (!a) return;
+    $('d_period').textContent = a.period.split(' (')[0];
+    $('d_median').textContent = money(a.median);
+    $('d_sales').textContent = a.sales;
+    if (a.salesYoy != null) $('d_salesyoy').textContent = Math.round(Math.abs(a.salesYoy) * 100) + '% ' + (a.salesYoy >= 0 ? 'more' : 'fewer');
+  }).catch(function () {});
+
+  fetch('data/market.json').then(function (r) { return r.json(); }).then(function (d) {
+    var s = d.series;
+    var r = s.MORTGAGE30US.obs, now = last(r), yr = r[Math.max(0, r.length - 53)];
+    $('d_rate').textContent = now[1].toFixed(2) + '%';
+    var diff = now[1] - yr[1];
+    $('d_rate_d').textContent = (Math.abs(diff) < 0.05 ? 'About flat' : (diff > 0 ? 'Up ' : 'Down ') + Math.abs(diff).toFixed(2) + ' points') + ' from a year ago';
+    $('d_rate_d').className = 'd' + (diff > 0.05 ? ' up' : diff < -0.05 ? ' down' : '');
+    var pts = r.slice(-53), vals = pts.map(function (p) { return p[1]; });
+    var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals), W = 300, H = 54;
+    var xy = vals.map(function (v, i) { return [i / (vals.length - 1) * (W - 6) + 3, H - 6 - (v - lo) / ((hi - lo) || 1) * (H - 14)]; });
+    var line = xy.map(function (p, i) { return (i ? 'L' : 'M') + p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join('');
+    var e = xy[xy.length - 1];
+    $('d_spark').innerHTML = '<path class="area" d="' + line + 'L' + e[0] + ',' + H + 'L3,' + H + 'Z"/><path class="line" d="' + line + '"/><circle class="end" cx="' + e[0] + '" cy="' + e[1] + '" r="3"/>';
+    var dom = last(s.MEDDAYONMAR6041.obs), cuts = last(s.PRIREDCOU6041.obs), act = last(s.ACTLISCOU6041.obs);
+    $('d_dom').textContent = Math.round(dom[1]);
+    $('d_dom_d').textContent = 'Median, ' + mon(dom[0]);
+    $('d_cuts').textContent = Math.round(cuts[1]);
+    $('d_cuts_d').textContent = 'of ' + Math.round(act[1]) + ' active, ' + mon(cuts[0]);
+  }).catch(function () {});
+})();
+</script>
