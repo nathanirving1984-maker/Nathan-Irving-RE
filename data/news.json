@@ -1,6 +1,13 @@
 {
- "updated": "2026-10-27",
+ "updated": "2026-10-28",
  "policy": [
+  {
+   "date": "2026-10-28",
+   "title": "Fed holds rates steady",
+   "detail": "The FOMC kept the federal funds target range at 3.75\u20134.00% in a 10\u20132 vote; Lisa Cook and Beth Hammack dissented in favor of a quarter-point hike. Next decision is Dec 9.",
+   "impact": "No new upward push on borrowing costs from this meeting; mortgage rates still track inflation data and bond yields.",
+   "source": "Federal Reserve / CNN"
+  },
   {
    "date": "2026-10-22",
    "title": "New housing executive order signed",
@@ -25,7 +32,7 @@
   {
    "date": "2026-09-16",
    "title": "Fed raises rates 0.25 pt",
-   "detail": "First hike since 2023, to 3.75\u20134.00%. September minutes show most officials expect another hike by year end. Next decision Oct 28; markets lean toward a hold.",
+   "detail": "First hike since 2023, to 3.75\u20134.00%. September minutes showed most officials expected another hike by year end.",
    "impact": "Main driver behind 7%+ mortgage rates and the 10-yr above 5%.",
    "source": "Federal Reserve / FOMC minutes"
   },
@@ -53,14 +60,9 @@
  ],
  "calendar": [
   {
-   "date": "2026-10-28",
-   "event": "Fed rate decision (2:00 PM ET)",
-   "why": "Hold expected; any hike or hawkish tone pushes rates up."
-  },
-  {
    "date": "2026-10-29",
    "event": "Freddie Mac weekly rates",
-   "why": "Next official 30-yr / 15-yr average."
+   "why": "Next official 30-yr / 15-yr average, first since the Fed hold."
   },
   {
    "date": "2026-11-03",
@@ -81,6 +83,11 @@
    "date": "2026-11-18",
    "event": "October housing starts (Census) & pending home sales (NAR)",
    "why": "New-supply trend and a read on contracts signed."
+  },
+  {
+   "date": "2026-12-09",
+   "event": "Fed rate decision (2:00 PM ET)",
+   "why": "Last decision of 2026; a hike would push mortgage rates up."
   }
  ]
 }
