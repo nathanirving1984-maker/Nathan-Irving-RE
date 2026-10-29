@@ -4,12 +4,12 @@
           <path class="zip home" d="M264.2,438.0L271.0,429.3L279.5,415.0L269.3,403.3L262.5,384.1L272.9,382.8L279.6,373.3L289.1,369.1L291.2,366.1L290.2,361.6L290.7,357.9L299.6,351.0L302.6,350.1L309.1,351.6L311.2,375.3L315.8,377.0L320.3,381.0L328.7,384.4L337.4,385.3L338.4,382.9L342.2,384.0L347.8,383.9L354.6,387.4L358.9,388.0L358.9,384.3L356.8,380.9L364.6,380.9L371.2,387.4L385.2,381.8L401.8,391.4L401.8,400.1L436.2,400.2L425.8,378.3L419.2,370.2L423.3,365.5L430.2,361.5L426.6,364.6L440.8,354.6L450.7,345.3L453.2,355.3L465.0,364.8L474.3,364.2L468.2,353.4L467.3,348.8L468.3,345.4L471.9,344.1L476.2,345.6L484.6,345.3L490.3,336.4L494.7,333.0L500.5,331.0L504.3,333.6L503.9,341.6L505.8,347.9L505.9,347.0L511.7,353.0L515.3,354.9L520.0,356.6L526.6,356.5L534.1,351.9L537.9,342.4L541.7,336.7L545.6,333.3L549.8,330.6L559.7,329.4L573.3,318.6L579.6,303.9L591.8,304.2L591.6,310.6L596.8,329.2L600.0,399.1L599.4,410.2L579.0,473.9L578.7,483.4L526.6,482.2L526.9,484.9L522.8,490.6L506.5,493.6L506.1,478.9L502.6,470.2L488.6,465.2L490.8,480.0L489.5,481.4L492.2,509.1L487.3,514.3L470.7,508.4L469.7,505.8L461.6,504.4L450.6,508.7L447.8,505.2L444.7,506.5L444.7,502.7L439.7,501.0L437.0,497.7L396.9,485.4L351.2,486.9L345.9,490.1L340.5,486.3L317.9,474.8L311.0,473.0L301.8,472.5L298.8,464.0L296.4,464.1L288.3,460.9L281.4,462.0L255.8,446.5L264.2,438.0Z"/>
           <text class="zipno" x="144" y="215" text-anchor="middle">94947</text>
           <text class="zipno" x="366" y="184" text-anchor="middle">94945</text>
-          <text class="zipno" x="543" y="405" text-anchor="middle">94949</text>
-          <circle class="dot" cx="278" cy="218" r="3.5"/><text class="lbl" x="226" y="208">San Marin</text>
-          <circle class="dot" cx="357" cy="277" r="3.5"/><text class="lbl" x="368" y="282">Downtown</text>
-          <circle class="dot" cx="504" cy="336" r="3.5"/><text class="lbl" x="452" y="318">Bel Marin Keys</text>
-          <circle class="dot" cx="436" cy="398" r="3.5"/><text class="lbl" x="352" y="424">Ignacio</text>
-          <circle class="dot home" cx="490" cy="440" r="5"/><text class="lbl" x="500" y="447">Hamilton</text>
-          <path class="leader" d="M498 452 C 540 490, 580 500, 610 500"/>
-          <text class="note" x="540" y="520">where I live</text>
+          <text class="zipno" x="566" y="423" text-anchor="middle">94949</text>
+          <circle class="dot" cx="248.8" cy="233.4" r="3.5"/><text class="lbl" x="258" y="226">San Marin</text>
+          <circle class="dot" cx="337.4" cy="270.6" r="3.5"/><text class="lbl" x="348" y="262">Downtown</text>
+          <circle class="dot" cx="504.6" cy="362.8" r="3.5"/><text class="lbl" x="505" y="386" text-anchor="middle">Bel Marin Keys</text>
+          <circle class="dot" cx="439.6" cy="404.1" r="3.5"/><text class="lbl" x="430" y="425" text-anchor="end">Ignacio</text>
+          <circle class="dot home" cx="508.4" cy="451.2" r="5"/><text class="lbl" x="518" y="457">Hamilton</text>
+          <path class="leader" d="M514 463 C 548 494, 584 504, 612 506"/>
+          <text class="note" x="548" y="526">where I live</text>
         </svg>
