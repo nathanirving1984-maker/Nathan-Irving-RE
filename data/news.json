@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-28",
+ "updated": "2026-10-29",
  "policy": [
   {
    "date": "2026-10-28",
@@ -60,14 +60,14 @@
  ],
  "calendar": [
   {
-   "date": "2026-10-29",
-   "event": "Freddie Mac weekly rates",
-   "why": "Next official 30-yr / 15-yr average, first since the Fed hold."
-  },
-  {
    "date": "2026-11-03",
    "event": "Midterm elections",
    "why": "Policy direction for housing and GSEs."
+  },
+  {
+   "date": "2026-11-05",
+   "event": "Freddie Mac weekly rates",
+   "why": "Weekly 30-yr / 15-yr average, first full week after the Fed hold."
   },
   {
    "date": "2026-11-10",
