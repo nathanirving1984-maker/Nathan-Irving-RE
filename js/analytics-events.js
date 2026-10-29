@@ -31,7 +31,7 @@
         if (!response.ok) throw new Error('Submission failed');
         fireConversionEvent(formName);
         if (statusEl) {
-          statusEl.textContent = "Thanks — your message is on its way. Nathan will be in touch soon.";
+          statusEl.textContent = "Thanks, your message is on its way. I'll be in touch soon.";
           statusEl.style.color = '#2e7d32';
         }
         form.reset();

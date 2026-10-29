@@ -3,9 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Nathan Irving, REALTOR®</title>
-<meta name="description" content="Get in touch with Nathan Irving, Marin County REALTOR® at Coldwell Banker Realty.">
-<link rel="stylesheet" href="css/styles.css">
+<title>Contact Nathan Irving | Novato REALTOR®</title>
+<meta name="description" content="Call, text, or message Nathan Irving about buying or selling a home in Novato or Marin County.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/site.css">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -23,130 +26,99 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="brand"><img src="images/ni-logo-re-dark.png" alt="Nathan Irving Real Estate" class="brand-logo"></a>
-    <button class="nav-toggle" data-nav-toggle aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="main-nav" data-main-nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
+    <a href="index.html" class="brand"><span class="brand-name">Nathan Irving</span><span class="brand-tag">Novato real estate</span></a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="main-nav" data-main-nav aria-label="Main">
       <a href="buy.html">Buy</a>
       <a href="sell.html">Sell</a>
-      <a href="property-search.html">Property Search</a>
-      <a href="market-updates.html">Market Updates</a>
-      <a href="market-pulse.html">Market Pulse</a>
-      <a href="local-data.html">Local Data</a>
-      <a href="contact.html">Contact</a>
+      <a href="local-data.html">Neighborhoods</a>
+      <a href="market-pulse.html">Market</a>
+      <a href="market-updates.html">Notes</a>
+      <a href="about.html">About</a>
+      <a href="tel:+14152094864" class="nav-call">(415) 209-4864</a>
     </nav>
   </div>
 </header>
 
 <main>
-
-  <section class="section" style="padding-bottom:0;">
-    <div class="container text-center">
-      <span class="eyebrow">Get In Touch</span>
-      <h1>Let's start the conversation</h1>
-      <p style="max-width:520px;margin:0 auto;">No pressure, no scripts — just reach out and Nathan will get back to you personally, usually within one business day.</p>
+  <section class="page-intro">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h1>Ask me anything about buying or selling in Novato.</h1>
+      <p class="lede">No pressure and no scripts. Send a note and I'll get back to you personally, usually within one business day.</p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" style="padding-top:var(--space-md);">
     <div class="container grid-2" style="align-items:start;">
-
       <div class="tool-panel">
         <form action="https://formspree.io/f/xaqrpydp" method="POST" class="form-grid" data-form-name="contact_form">
           <div class="form-row">
             <label for="c_name">Name</label>
-            <input type="text" id="c_name" name="name" required>
+            <input type="text" id="c_name" name="name" autocomplete="name" required>
           </div>
           <div class="form-row">
             <label for="c_email">Email</label>
-            <input type="email" id="c_email" name="email" required>
+            <input type="email" id="c_email" name="email" autocomplete="email" required>
           </div>
           <div class="form-row">
             <label for="c_phone">Phone</label>
-            <input type="tel" id="c_phone" name="phone">
+            <input type="tel" id="c_phone" name="phone" autocomplete="tel">
           </div>
           <div class="form-row">
             <label for="c_message">Message</label>
             <textarea id="c_message" name="message" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn">Send Message</button>
+          <button type="submit" class="btn">Send message</button>
           <p class="form-status"></p>
         </form>
       </div>
 
       <div>
-        <span class="eyebrow">Direct Contact</span>
-        <h2>Nathan Irving</h2>
-        <p style="color:var(--color-navy-soft);font-weight:500;">Marin County REALTOR® &middot; Coldwell Banker Realty</p>
-        <div class="divider"></div>
-
-        <div style="margin-bottom:var(--space-sm);">
-          <span class="post-date" style="color:var(--color-gold);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">Phone</span>
-          <p><a href="tel:+14152094864" style="color:var(--color-navy);font-weight:500;">(415) 209-4864</a></p>
-        </div>
-        <div style="margin-bottom:var(--space-sm);">
-          <span class="post-date" style="color:var(--color-gold);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">Email</span>
-          <p><a href="mailto:nathan.irving@cbrealty.com" style="color:var(--color-navy);font-weight:500;">nathan.irving@cbrealty.com</a></p>
-        </div>
-        <div style="margin-bottom:var(--space-sm);">
-          <span class="post-date" style="color:var(--color-gold);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">LinkedIn</span>
-          <p><a href="https://www.linkedin.com/in/nathan-irving-realestate" target="_blank" rel="noopener" style="color:var(--color-navy);font-weight:500;">linkedin.com/in/nathan-irving-realestate</a></p>
-        </div>
-        <div style="margin-bottom:var(--space-sm);">
-          <span class="post-date" style="color:var(--color-gold);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">Instagram</span>
-          <p><a href="https://www.instagram.com/nathan.irvingrealestate" target="_blank" rel="noopener" style="color:var(--color-navy);font-weight:500;">@nathan.irvingrealestate</a></p>
-        </div>
-        <div style="margin-bottom:var(--space-sm);">
-          <span class="post-date" style="color:var(--color-gold);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">Brokerage</span>
-          <p>Coldwell Banker Realty, Greenbrae Office</p>
-        </div>
-        <div style="margin-bottom:var(--space-sm);">
-          <span class="post-date" style="color:var(--color-gold);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">DRE License</span>
-          <p style="color:var(--color-navy);font-weight:500;">CA DRE# 02414117</p>
+        <div class="contact-list">
+          <div><div class="k">Call or text</div><a class="v" href="tel:+14152094864">(415) 209-4864</a></div>
+          <div><div class="k">Email</div><a class="v" href="mailto:nathan.irving@cbrealty.com">nathan.irving@cbrealty.com</a></div>
+          <div><div class="k">Office</div><div class="v" style="font-weight:500;">Coldwell Banker Realty<br>350 Bon Air Center, Suite 100<br>Greenbrae, CA 94904</div></div>
+          <div><div class="k">Elsewhere</div><div class="v" style="font-weight:500;"><a href="https://www.linkedin.com/in/nathan-irving-realestate" target="_blank" rel="noopener">LinkedIn</a> &nbsp; <a href="https://www.instagram.com/nathan.irvingrealestate" target="_blank" rel="noopener">Instagram</a> &nbsp; <a href="https://nextdoor.com/page/nathan-irving-realtor-novato-ca" target="_blank" rel="noopener">Nextdoor</a></div></div>
+          <div><div class="k">License</div><div class="v" style="font-weight:500;">CA DRE# 02414117</div></div>
         </div>
 
-        <div class="tool-panel" style="margin-top:var(--space-md);">
-          <h3>Looking for more specific help?</h3>
-          <p style="margin-bottom:var(--space-sm);">Go straight to a dedicated form for a faster, more tailored response.</p>
-          <div class="hero-actions">
-            <a href="buy.html#buying" class="btn btn--ghost">Buyer Intake</a>
-            <a href="sell.html#selling" class="btn btn--ghost">Seller Intake</a>
+        <div class="card" style="margin-top:var(--space-md);">
+          <h3>Already know what you need?</h3>
+          <p class="muted">These forms ask the right questions up front, so I can come back with something useful faster.</p>
+          <div class="actions" style="margin-top:var(--space-sm);">
+            <a href="buy.html#buying" class="btn btn--ghost">I'm buying</a>
+            <a href="sell.html#selling" class="btn btn--ghost">I'm selling</a>
           </div>
         </div>
       </div>
-
     </div>
   </section>
-
 </main>
 
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <img src="images/ni-logo-re-light.png" alt="Nathan Irving Real Estate" class="footer-logo">
-        <p style="max-width:280px;">Marin County REALTOR® with Coldwell Banker Realty, Greenbrae office.</p>
-        <div class="cb-badge">
-          <img src="images/cb-logo.png" alt="Coldwell Banker Realty">
-        </div>
+      <div class="footer-brand">
+        <span class="brand-name">Nathan Irving</span>
+        <p>REALTOR® with Coldwell Banker Realty, Greenbrae office. Helping buyers and sellers in Novato and across Marin.</p>
+        <div class="cb-badge"><img src="images/cb-logo.png" alt="Coldwell Banker Realty"></div>
       </div>
       <div class="footer-col">
         <h4>Explore</h4>
-        <a href="about.html">About Nathan</a>
-        <a href="buy.html">Buy</a>
-        <a href="sell.html">Sell</a>
-        <a href="property-search.html">Property Search</a>
-        <a href="market-updates.html">Market Updates</a>
+        <a href="buy.html">Buy a home</a>
+        <a href="sell.html">Sell your home</a>
+        <a href="property-search.html">Property search</a>
+        <a href="local-data.html">Neighborhood guides</a>
         <a href="market-pulse.html">Market Pulse</a>
-        <a href="local-data.html">Local Data</a>
+        <a href="market-updates.html">Market notes</a>
+        <a href="about.html">About me</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <a href="tel:+14152094864">(415) 209-4864</a>
         <a href="mailto:nathan.irving@cbrealty.com">nathan.irving@cbrealty.com</a>
+        <a href="contact.html">Send a message</a>
         <a href="https://www.linkedin.com/in/nathan-irving-realestate" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://www.instagram.com/nathan.irvingrealestate" target="_blank" rel="noopener">Instagram</a>
         <a href="https://nextdoor.com/page/nathan-irving-realtor-novato-ca" target="_blank" rel="noopener">Nextdoor</a>
@@ -155,8 +127,8 @@
     <div class="footer-bottom">
       <p class="footer-disclaimer">Coldwell Banker Realty fully supports the principles of the Fair Housing Act and the Equal Opportunity Act. Each Coldwell Banker&reg; franchise office is independently owned and operated. Information deemed reliable but not guaranteed and should be independently verified. Not intended as a solicitation if your property is currently listed with another broker.</p>
       <div class="footer-bottom-row">
-        <span>&copy; <span data-current-year></span> Nathan Irving, REALTOR® &middot; Coldwell Banker Realty &middot; Equal Housing Opportunity</span>
-        <span><a href="privacy-policy.html">Privacy Policy</a> &middot; <a href="terms-of-use.html">Terms of Use</a> &middot; CA DRE# 02414117</span>
+        <span>&copy; <span data-current-year>2026</span> Nathan Irving, REALTOR® &nbsp; Coldwell Banker Realty, 350 Bon Air Center, Suite 100, Greenbrae, CA 94904 &nbsp; Equal Housing Opportunity</span>
+        <span><a href="privacy-policy.html">Privacy Policy</a> &nbsp; <a href="terms-of-use.html">Terms of Use</a> &nbsp; CA DRE# 02414117</span>
       </div>
     </div>
   </div>
