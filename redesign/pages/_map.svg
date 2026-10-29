@@ -9,7 +9,7 @@
           <text class="zipno" x="147" y="245" text-anchor="middle">94947</text>
           <text class="zipno" x="318" y="200" text-anchor="middle">94945</text>
           <text class="zipno on-fill" x="547" y="416" text-anchor="middle">94949</text>
-          <circle class="dot" cx="248.8" cy="233.4" r="3.5"/><text class="lbl" x="258" y="226">San Marin</text>
+          <circle class="dot" cx="248.8" cy="233.4" r="3.5"/><text class="lbl" x="258" y="226">San Marin High</text>
           <circle class="dot" cx="337.4" cy="270.6" r="3.5"/><text class="lbl" x="348" y="262">Downtown</text>
           <circle class="dot" cx="504.6" cy="362.8" r="3.5"/><text class="lbl on-fill" x="505" y="386" text-anchor="middle">Bel Marin Keys</text>
           <circle class="dot home" cx="392.3" cy="415.4" r="5"/><text class="lbl on-fill" x="400" y="433">Ignacio</text>
