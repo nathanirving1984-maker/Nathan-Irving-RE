@@ -261,6 +261,9 @@ p { margin: 0 0 var(--space-sm); }
 .novato-map .dot { fill: var(--ink); }
 .novato-map .dot.home { fill: var(--marsh); }
 .novato-map .peak { fill: var(--ink); }
+.novato-map .hwy { fill: none; stroke: var(--bay); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; opacity: 0.75; }
+.novato-map .shield rect { fill: var(--white); stroke: var(--bay); stroke-width: 1.4; }
+.novato-map .shield text { font-family: var(--sans); font-weight: 700; font-size: 11px; fill: var(--bay); }
 .novato-map .zipno { font-family: var(--sans); font-size: 12px; fill: var(--muted); letter-spacing: 0.04em; }
 .novato-map .note { font-family: var(--serif); font-style: italic; font-size: 15px; fill: var(--marsh); }
 .novato-map .leader { stroke: var(--marsh); stroke-width: 1; fill: none; }
