@@ -58,8 +58,8 @@
 
   function render() {
     if (typeof APPEARANCES === 'undefined' || !Array.isArray(APPEARANCES)) return;
-    var header = document.querySelector('.site-header');
-    if (!header) return;
+    var slot = document.querySelector('[data-appearance-slot]');
+    if (!slot) return;
 
     var now = new Date();
     var upcoming = APPEARANCES
@@ -86,29 +86,25 @@
     var tag = relativeTag(ev._start, ev._end, now);
 
     var bar = document.createElement('div');
-    bar.className = 'appearance-bar';
+    bar.className = 'appearance-card';
     bar.setAttribute('role', 'region');
     bar.setAttribute('aria-label', 'Where to find Nathan next');
     bar.innerHTML =
-      '<div class="container appearance-inner">' +
-        '<div class="appearance-text">' +
-          '<span class="appearance-label">Find me next</span>' +
-          (tag ? '<span class="appearance-tag">' + esc(tag) + '</span>' : '') +
-          '<span class="appearance-detail">' +
-            '<strong>' + esc(ev.type) + '</strong>' +
-            (location ? ' · ' + esc(location) : '') +
-            ' · <span class="appearance-when">' + esc(whenText(ev._start, ev._end)) + '</span>' +
-            (ev.note ? ' · ' + esc(ev.note) : '') +
-          '</span>' +
-        '</div>' +
+      '<div class="appearance-top">' +
+        '<span class="appearance-label">Find me next</span>' +
+        (tag ? '<span class="appearance-tag">' + esc(tag) + '</span>' : '') +
+      '</div>' +
+      '<div class="appearance-type">' + esc(ev.type) + '</div>' +
+      '<div class="appearance-where">' + esc(ev.address) + (ev.city ? '<span>' + esc(ev.city) + '</span>' : '') + '</div>' +
+      '<div class="appearance-when">' + esc(whenText(ev._start, ev._end)) + '</div>' +
+      (ev.note ? '<div class="appearance-note">' + esc(ev.note) + '</div>' : '') +
         '<div class="appearance-links">' +
           (location ? '<a href="' + esc(mapsUrl) + '" target="_blank" rel="noopener">Directions</a>' : '') +
           '<a href="' + esc(calUrl) + '" target="_blank" rel="noopener">Add to calendar</a>' +
           (ev.link ? '<a href="' + esc(ev.link) + '" target="_blank" rel="noopener">Details</a>' : '') +
-        '</div>' +
       '</div>';
 
-    header.parentNode.insertBefore(bar, header);
+    slot.appendChild(bar);
 
     if (typeof gtag === 'function') {
       bar.querySelectorAll('a').forEach(function (a) {

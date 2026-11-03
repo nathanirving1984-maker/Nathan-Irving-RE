@@ -356,54 +356,42 @@ p { margin: 0 0 var(--space-sm); color: var(--color-charcoal); }
   background: transparent;
   color: var(--color-gold);
 }
-/* ---- "Find me next" appearance banner ---- */
-.appearance-bar {
-  background: var(--color-navy);
+/* ---- "Find me next" card (homepage hero) ---- */
+.appearance-card {
+  display: inline-block;
+  max-width: 380px;
+  margin-bottom: var(--space-lg);
+  padding: 1.25rem 1.5rem 1.1rem;
+  background: rgba(27,42,74,0.62);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(201,169,97,0.55);
+  border-left: 3px solid var(--color-gold);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 32px rgba(27,42,74,0.25);
   color: var(--color-bone);
-  font-size: 0.85rem;
-  border-bottom: 1px solid var(--color-gold);
 }
-.appearance-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-sm);
-  padding-top: 0.6rem;
-  padding-bottom: 0.6rem;
-}
-.appearance-text { display: flex; align-items: center; flex-wrap: wrap; gap: 0.35rem 0.75rem; }
+.appearance-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
 .appearance-label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-gold);
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--color-gold);
 }
 .appearance-tag {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: var(--color-gold);
-  color: var(--color-navy);
-  padding: 0.12rem 0.5rem;
-  border-radius: var(--radius);
+  font-size: 0.64rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  background: var(--color-gold); color: var(--color-navy);
+  padding: 0.12rem 0.5rem; border-radius: var(--radius);
 }
-.appearance-detail { color: rgba(247,244,238,0.92); }
-.appearance-detail strong { font-weight: 600; color: var(--color-white); }
-.appearance-when { white-space: nowrap; }
-.appearance-links { display: flex; gap: 1.1rem; flex-shrink: 0; }
+.appearance-type { font-size: 1.35rem; font-weight: 300; color: var(--color-white); line-height: 1.2; }
+.appearance-where { font-size: 0.95rem; font-weight: 500; color: var(--color-white); margin-top: 0.35rem; }
+.appearance-where span { display: block; font-weight: 400; color: rgba(247,244,238,0.8); }
+.appearance-when { font-size: 0.9rem; color: var(--color-gold-soft); margin-top: 0.35rem; }
+.appearance-note { font-size: 0.85rem; color: rgba(247,244,238,0.85); margin-top: 0.35rem; }
+.appearance-links { display: flex; gap: 1.2rem; margin-top: 0.9rem; padding-top: 0.75rem; border-top: 1px solid rgba(247,244,238,0.18); }
 .appearance-links a {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-gold-soft);
-  border-bottom: 1px solid rgba(201,169,97,0.5);
-  padding: 0.35rem 0 0.1rem;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--color-gold-soft); padding: 0.3rem 0;
 }
-.appearance-links a:hover { color: var(--color-gold); border-color: var(--color-gold); }
+.appearance-links a:hover { color: var(--color-gold); }
 @media (max-width: 760px) {
-  .appearance-inner { flex-direction: column; align-items: flex-start; gap: 0.4rem; padding-left: 16px; padding-right: 16px; }
-  .appearance-when { white-space: normal; }
+  .appearance-card { display: block; max-width: none; margin-bottom: var(--space-md); }
 }
