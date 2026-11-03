@@ -356,3 +356,54 @@ p { margin: 0 0 var(--space-sm); color: var(--color-charcoal); }
   background: transparent;
   color: var(--color-gold);
 }
+/* ---- "Find me next" appearance banner ---- */
+.appearance-bar {
+  background: var(--color-navy);
+  color: var(--color-bone);
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--color-gold);
+}
+.appearance-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+.appearance-text { display: flex; align-items: center; flex-wrap: wrap; gap: 0.35rem 0.75rem; }
+.appearance-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+.appearance-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--color-gold);
+  color: var(--color-navy);
+  padding: 0.12rem 0.5rem;
+  border-radius: var(--radius);
+}
+.appearance-detail { color: rgba(247,244,238,0.92); }
+.appearance-detail strong { font-weight: 600; color: var(--color-white); }
+.appearance-when { white-space: nowrap; }
+.appearance-links { display: flex; gap: 1.1rem; flex-shrink: 0; }
+.appearance-links a {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold-soft);
+  border-bottom: 1px solid rgba(201,169,97,0.5);
+  padding: 0.35rem 0 0.1rem;
+}
+.appearance-links a:hover { color: var(--color-gold); border-color: var(--color-gold); }
+@media (max-width: 760px) {
+  .appearance-inner { flex-direction: column; align-items: flex-start; gap: 0.4rem; padding-left: 16px; padding-right: 16px; }
+  .appearance-when { white-space: normal; }
+}
