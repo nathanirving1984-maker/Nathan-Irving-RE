@@ -100,9 +100,9 @@
       '<div class="appearance-when">' + esc(whenText(ev._start, ev._end)) + '</div>' +
       (ev.note ? '<div class="appearance-note">' + esc(ev.note) + '</div>' : '') +
       '<div class="appearance-links">' +
-        (location ? '<a class="btn btn--gold" href="' + esc(mapsUrl) + '" target="_blank" rel="noopener">Get Directions</a>' : '') +
-        '<a class="btn btn--light" href="' + esc(calUrl) + '" target="_blank" rel="noopener">Add to Calendar</a>' +
-        (ev.link ? '<a class="btn btn--light" href="' + esc(ev.link) + '" target="_blank" rel="noopener">Details</a>' : '') +
+        (location ? '<a class="btn" href="' + esc(mapsUrl) + '" target="_blank" rel="noopener">Get Directions</a>' : '') +
+        '<a class="btn btn--ghost" href="' + esc(calUrl) + '" target="_blank" rel="noopener">Add to Calendar</a>' +
+        (ev.link ? '<a class="btn btn--ghost" href="' + esc(ev.link) + '" target="_blank" rel="noopener">Details</a>' : '') +
       '</div>';
 
     slot.appendChild(bar);
