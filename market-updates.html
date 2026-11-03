@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Market Updates | Nathan Irving, REALTOR®</title>
 <meta name="description" content="Marin County real estate market updates from Nathan Irving, REALTOR® at Coldwell Banker Realty.">
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles.css?v=20261102e">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -52,6 +52,11 @@
     transition: transform 0.2s ease;
   }
   .post-item.is-open .post-toggle-icon { transform: rotate(45deg); }
+  @media (max-width: 600px) {
+    .post-toggle { padding: 1.2rem 1.1rem; gap: 0.75rem; }
+    .post-toggle-text h3 { font-size: 1.12rem; line-height: 1.25; }
+    .post-body { padding-left: 1.1rem; padding-right: 1.1rem; }
+  }
   .post-body {
     max-height: 0;
     overflow: hidden;

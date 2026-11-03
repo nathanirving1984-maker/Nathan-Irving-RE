@@ -411,3 +411,45 @@ p { margin: 0 0 var(--space-sm); color: var(--color-charcoal); }
   .hero-appearance { padding-left: 16px; padding-right: 16px; }
   .appearance-card { max-width: 100%; }
 }
+
+/* ---- Tablet & phone: restore side gutters the header/hero padding overrides ---- */
+@media (max-width: 1120px) {
+  .header-inner, .hero-inner { padding-left: var(--space-md); padding-right: var(--space-md); }
+}
+
+/* ---- Phone layout (compact) ---- */
+@media (max-width: 600px) {
+  :root { --space-lg: 2.5rem; --space-xl: 3.5rem; --space-2xl: 5rem; }
+  .container, .header-inner, .hero-inner { padding-left: 20px; padding-right: 20px; }
+  .section { padding: var(--space-xl) 0; }
+
+  /* Header */
+  .header-inner { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+  .brand-logo { height: 46px; }
+  .main-nav { padding: var(--space-sm) 20px var(--space-md); }
+  .main-nav a { font-size: 0.9rem; padding: 0.35rem 0; }
+
+  /* Hero */
+  .hero { min-height: 0; }
+  .hero--appearance .hero-inner { padding-top: var(--space-md); padding-bottom: var(--space-lg); }
+  .hero-appearance { padding-top: 20px; }
+  .hero .eyebrow { font-size: 0.62rem; letter-spacing: 0.16em; line-height: 1.6; }
+  .hero h1 { font-size: 2.25rem; line-height: 1.12; }
+  .hero p { font-size: 1rem; }
+  .hero-actions { flex-direction: column; gap: 0.6rem; }
+  .hero-actions .btn { width: 100%; text-align: center; }
+
+  /* Type & components */
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.65rem; }
+  .eyebrow { font-size: 0.66rem; letter-spacing: 0.18em; }
+  .section-head { margin-bottom: var(--space-md); }
+  .grid-2, .grid-3 { gap: var(--space-md); }
+  .card, .tool-panel, .tool-result { padding: 1.4rem; }
+  .btn { padding: 0.85rem 1.4rem; }
+
+  /* Footer */
+  .site-footer { padding-top: var(--space-lg); }
+  .footer-grid { margin-bottom: var(--space-md); }
+  .footer-bottom-row { flex-direction: column; gap: 0.4rem; }
+}
