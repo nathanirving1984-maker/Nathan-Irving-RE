@@ -91,17 +91,18 @@
     bar.setAttribute('aria-label', 'Where to find Nathan next');
     bar.innerHTML =
       '<div class="appearance-top">' +
-        '<span class="appearance-label">Find me next</span>' +
+        '<span class="appearance-dot" aria-hidden="true"></span>' +
+        '<span class="appearance-label">Where you\'ll find me next</span>' +
         (tag ? '<span class="appearance-tag">' + esc(tag) + '</span>' : '') +
       '</div>' +
       '<div class="appearance-type">' + esc(ev.type) + '</div>' +
-      '<div class="appearance-where">' + esc(ev.address) + (ev.city ? '<span>' + esc(ev.city) + '</span>' : '') + '</div>' +
+      '<div class="appearance-where">' + esc(location) + '</div>' +
       '<div class="appearance-when">' + esc(whenText(ev._start, ev._end)) + '</div>' +
       (ev.note ? '<div class="appearance-note">' + esc(ev.note) + '</div>' : '') +
-        '<div class="appearance-links">' +
-          (location ? '<a href="' + esc(mapsUrl) + '" target="_blank" rel="noopener">Directions</a>' : '') +
-          '<a href="' + esc(calUrl) + '" target="_blank" rel="noopener">Add to calendar</a>' +
-          (ev.link ? '<a href="' + esc(ev.link) + '" target="_blank" rel="noopener">Details</a>' : '') +
+      '<div class="appearance-links">' +
+        (location ? '<a class="btn btn--gold" href="' + esc(mapsUrl) + '" target="_blank" rel="noopener">Get Directions</a>' : '') +
+        '<a class="btn btn--light" href="' + esc(calUrl) + '" target="_blank" rel="noopener">Add to Calendar</a>' +
+        (ev.link ? '<a class="btn btn--light" href="' + esc(ev.link) + '" target="_blank" rel="noopener">Details</a>' : '') +
       '</div>';
 
     slot.appendChild(bar);
