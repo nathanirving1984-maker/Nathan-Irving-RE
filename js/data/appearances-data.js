@@ -28,5 +28,15 @@ const APPEARANCES = [
     end: "2026-11-07T16:00:00-08:00",
     note: "",
     link: ""
+  },
+  {
+    type: "Open House",
+    title: "Open House with Nathan Irving",
+    address: "10 Pebble Beach Drive",
+    city: "Novato, CA",
+    start: "2026-11-08T13:00:00-08:00",
+    end: "2026-11-08T16:00:00-08:00",
+    note: "",
+    link: ""
   }
 ];
