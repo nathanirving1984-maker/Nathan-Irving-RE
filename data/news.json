@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-03",
+ "updated": "2026-11-04",
  "policy": [
   {
    "date": "2026-10-28",
@@ -60,11 +60,6 @@
  ],
  "calendar": [
   {
-   "date": "2026-11-03",
-   "event": "Midterm elections",
-   "why": "Policy direction for housing and GSEs."
-  },
-  {
    "date": "2026-11-05",
    "event": "Freddie Mac weekly rates",
    "why": "Weekly 30-yr / 15-yr average, first full week after the Fed hold."
@@ -83,6 +78,11 @@
    "date": "2026-11-18",
    "event": "October housing starts (Census) & pending home sales (NAR)",
    "why": "New-supply trend and a read on contracts signed."
+  },
+  {
+   "date": "2026-12-09",
+   "event": "November existing-home sales (NAR)",
+   "why": "Closed-sales pace heading into year end."
   },
   {
    "date": "2026-12-09",
