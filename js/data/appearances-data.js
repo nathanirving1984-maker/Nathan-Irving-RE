@@ -3,8 +3,10 @@
 // HOW TO UPDATE: add one entry per event below, then commit and push.
 // - Past events hide themselves automatically once their end time passes,
 //   so you never have to delete old entries (but you can, to keep it tidy).
-// - The banner shows only the NEXT upcoming event, and hides itself entirely
-//   when nothing is scheduled.
+// - The homepage shows a card for EVERY event in the next 7 days (side by side
+//   on desktop, stacked on phones). Events further out stay hidden until they
+//   come within 7 days, and the section hides entirely when nothing is coming up.
+//   Change WINDOW_DAYS in js/appearances-banner.js to show more or fewer days.
 // - Times are Pacific. Keep the -08:00 offset (standard time, Nov–Mar)
 //   or use -07:00 for daylight time (Mar–Nov).
 //

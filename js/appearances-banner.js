@@ -1,6 +1,6 @@
 // Nathan Irving, REALTOR® — "Find me next" banner
-// Reads APPEARANCES from js/data/appearances-data.js and shows the next
-// upcoming event above the site header. Renders nothing if none are upcoming.
+// Reads APPEARANCES from js/data/appearances-data.js and shows a card for each
+// event in the next WINDOW_DAYS days over the homepage hero. Renders nothing if none.
 (function () {
   var TZ = 'America/Los_Angeles';
 
@@ -56,24 +56,30 @@
     return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
   }
 
+  // Show every event that hasn't ended yet and starts within this many days
+  // of the moment the visitor opens the page.
+  var WINDOW_DAYS = 7;
+
   function render() {
     if (typeof APPEARANCES === 'undefined' || !Array.isArray(APPEARANCES)) return;
     var slot = document.querySelector('[data-appearance-slot]');
     if (!slot) return;
 
     var now = new Date();
+    var horizon = new Date(now.getTime() + WINDOW_DAYS * 24 * 60 * 60 * 1000);
     var upcoming = APPEARANCES
       .map(function (ev) {
         return Object.assign({}, ev, { _start: new Date(ev.start), _end: new Date(ev.end) });
       })
       .filter(function (ev) {
-        return !isNaN(ev._start) && !isNaN(ev._end) && ev._end > now;
+        return !isNaN(ev._start) && !isNaN(ev._end) && ev._end > now && ev._start <= horizon;
       })
       .sort(function (a, b) { return a._start - b._start; });
 
-    if (!upcoming.length) return;
-    var ev = upcoming[0];
+    upcoming.forEach(function (ev) { renderCard(slot, ev, now); });
+  }
 
+  function renderCard(slot, ev, now) {
     var location = [ev.address, ev.city].filter(Boolean).join(', ');
     var mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(location);
     var calUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
