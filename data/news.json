@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04",
+ "updated": "2026-11-05",
  "policy": [
   {
    "date": "2026-10-28",
@@ -60,11 +60,6 @@
  ],
  "calendar": [
   {
-   "date": "2026-11-05",
-   "event": "Freddie Mac weekly rates",
-   "why": "Weekly 30-yr / 15-yr average, first full week after the Fed hold."
-  },
-  {
    "date": "2026-11-10",
    "event": "October CPI",
    "why": "Inflation is what's keeping yields high."
@@ -73,6 +68,11 @@
    "date": "2026-11-12",
    "event": "October existing-home sales (NAR)",
    "why": "Pace of closed sales nationally for October."
+  },
+  {
+   "date": "2026-11-12",
+   "event": "Freddie Mac weekly rates",
+   "why": "Weekly 30-yr / 15-yr average; the 30-yr was 7.18% on Nov 5 after three weekly declines."
   },
   {
    "date": "2026-11-18",
