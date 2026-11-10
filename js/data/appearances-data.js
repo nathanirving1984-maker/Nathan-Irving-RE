@@ -24,21 +24,21 @@ const APPEARANCES = [
   {
     type: "Open House",
     title: "Open House with Nathan Irving",
-    address: "10 Pebble Beach Drive",
+    address: "24 Cottage Lane",
     city: "Novato, CA",
-    start: "2026-11-07T13:00:00-08:00",
-    end: "2026-11-07T16:00:00-08:00",
-    note: "",
+    start: "2026-11-14T14:00:00-08:00",
+    end: "2026-11-14T16:00:00-08:00",
+    note: "Hamilton Cottages, a 62+ community. Guest parking on the right as you enter Cottage Lane.",
     link: ""
   },
   {
     type: "Open House",
     title: "Open House with Nathan Irving",
-    address: "10 Pebble Beach Drive",
+    address: "24 Cottage Lane",
     city: "Novato, CA",
-    start: "2026-11-08T13:00:00-08:00",
-    end: "2026-11-08T16:00:00-08:00",
-    note: "",
+    start: "2026-11-15T14:00:00-08:00",
+    end: "2026-11-15T16:00:00-08:00",
+    note: "Hamilton Cottages, a 62+ community. Guest parking on the right as you enter Cottage Lane.",
     link: ""
   }
 ];
