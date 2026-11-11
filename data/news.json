@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09",
+ "updated": "2026-11-11",
  "policy": [
   {
    "date": "2026-10-28",
@@ -60,11 +60,6 @@
  ],
  "calendar": [
   {
-   "date": "2026-11-10",
-   "event": "October CPI",
-   "why": "Inflation is what's keeping yields high."
-  },
-  {
    "date": "2026-11-12",
    "event": "October existing-home sales (NAR)",
    "why": "Pace of closed sales nationally for October."
@@ -88,6 +83,11 @@
    "date": "2026-12-09",
    "event": "Fed rate decision (2:00 PM ET)",
    "why": "Last decision of 2026; a hike would push mortgage rates up."
+  },
+  {
+   "date": "2026-12-10",
+   "event": "November CPI",
+   "why": "Latest inflation read, the day after the Fed decides."
   }
  ]
 }
