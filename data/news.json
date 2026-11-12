@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11",
+ "updated": "2026-11-12",
  "policy": [
   {
    "date": "2026-10-28",
@@ -60,19 +60,14 @@
  ],
  "calendar": [
   {
-   "date": "2026-11-12",
-   "event": "October existing-home sales (NAR)",
-   "why": "Pace of closed sales nationally for October."
-  },
-  {
-   "date": "2026-11-12",
-   "event": "Freddie Mac weekly rates",
-   "why": "Weekly 30-yr / 15-yr average; the 30-yr was 7.18% on Nov 5 after three weekly declines."
-  },
-  {
    "date": "2026-11-18",
    "event": "October housing starts (Census) & pending home sales (NAR)",
    "why": "New-supply trend and a read on contracts signed."
+  },
+  {
+   "date": "2026-11-19",
+   "event": "Freddie Mac weekly rates",
+   "why": "Weekly 30-yr / 15-yr average; the 30-yr was 7.11% on Nov 12, a fourth straight weekly decline."
   },
   {
    "date": "2026-12-09",
@@ -88,6 +83,11 @@
    "date": "2026-12-10",
    "event": "November CPI",
    "why": "Latest inflation read, the day after the Fed decides."
+  },
+  {
+   "date": "2026-12-17",
+   "event": "November pending home sales (NAR)",
+   "why": "Contracts signed in November, a lead on early-2027 closings."
   }
  ]
 }
