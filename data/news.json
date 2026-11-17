@@ -1,6 +1,13 @@
 {
- "updated": "2026-11-12",
+ "updated": "2026-11-17",
  "policy": [
+  {
+   "date": "2026-11-11",
+   "title": "House passes bill raising VA refi fees",
+   "detail": "The House passed H.R. 9237, the Take Care of America's Veterans Act, by voice vote. It would raise the VA streamline-refinance (IRRRL) funding fee from 0.5% to 1.42% and the VA loan assumption fee from 0.5% to 1%; it still needs Senate passage.",
+   "impact": "If enacted, VA borrowers who refinance or assume a VA loan would pay more at closing; standard purchase-loan fee rates would stay as they are.",
+   "source": "HousingWire / Military Times / NAR"
+  },
   {
    "date": "2026-10-28",
    "title": "Fed holds rates steady",
@@ -49,13 +56,6 @@
    "detail": "EO 14393 (Promoting Access to Mortgage Credit) loosened lending/capital rules for smaller lenders; EO 14394 (Removing Regulatory Barriers to Affordable Home Construction) targets permitting and energy-code costs.",
    "impact": "Supply effects depend on local zoning, so slow to reach Marin.",
    "source": "White House / LeadingAge"
-  },
-  {
-   "date": "2026-01-20",
-   "title": "Institutional-investor order + $200B MBS buy",
-   "detail": "Order to stop large institutional investors buying single-family homes; Fannie/Freddie directed to buy $200B in mortgage-backed securities.",
-   "impact": "Investor limits still need Congress to codify; a Treasury rule for corporate buyers is expected in early 2027.",
-   "source": "White House"
   }
  ],
  "calendar": [
@@ -67,7 +67,12 @@
   {
    "date": "2026-11-19",
    "event": "Freddie Mac weekly rates",
-   "why": "Weekly 30-yr / 15-yr average; the 30-yr was 7.11% on Nov 12, a fourth straight weekly decline."
+   "why": "Weekly 30-yr / 15-yr average; the 30-yr was 7.11% on Nov 12."
+  },
+  {
+   "date": "2026-11-25",
+   "event": "Freddie Mac weekly rates (Wednesday, Thanksgiving week) & October new-home sales (Census)",
+   "why": "Rate update a day early for the holiday, plus the pace of new-construction sales."
   },
   {
    "date": "2026-12-09",
@@ -77,17 +82,12 @@
   {
    "date": "2026-12-09",
    "event": "Fed rate decision (2:00 PM ET)",
-   "why": "Last decision of 2026; a hike would push mortgage rates up."
+   "why": "Last decision of 2026; the Fed's rate path feeds into mortgage rates."
   },
   {
    "date": "2026-12-10",
    "event": "November CPI",
    "why": "Latest inflation read, the day after the Fed decides."
-  },
-  {
-   "date": "2026-12-17",
-   "event": "November pending home sales (NAR)",
-   "why": "Contracts signed in November, a lead on early-2027 closings."
   }
  ]
 }
