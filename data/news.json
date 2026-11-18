@@ -1,6 +1,13 @@
 {
- "updated": "2026-11-17",
+ "updated": "2026-11-18",
  "policy": [
+  {
+   "date": "2026-11-12",
+   "title": "Fed trims 2027 rate decisions to seven",
+   "detail": "The Fed released a tentative 2027 calendar: eight FOMC meetings, but the October meeting becomes a strategy session with no rate decision, and the usual December meeting moves to mid-November (Nov 16\u201317).",
+   "impact": "Fewer scheduled points next year when the Fed can change rates, so each decision and the data between them may carry more weight for mortgage rates.",
+   "source": "Federal Reserve / Scotsman Guide"
+  },
   {
    "date": "2026-11-11",
    "title": "House passes bill raising VA refi fees",
@@ -49,13 +56,6 @@
    "detail": "2026\u20132028 goals for Fannie and Freddie were scaled back; Congress has not passed GSE reform.",
    "impact": "Less required support for lower-income loans.",
    "source": "Legis1 / CRS"
-  },
-  {
-   "date": "2026-03-13",
-   "title": "Two housing executive orders",
-   "detail": "EO 14393 (Promoting Access to Mortgage Credit) loosened lending/capital rules for smaller lenders; EO 14394 (Removing Regulatory Barriers to Affordable Home Construction) targets permitting and energy-code costs.",
-   "impact": "Supply effects depend on local zoning, so slow to reach Marin.",
-   "source": "White House / LeadingAge"
   }
  ],
  "calendar": [
