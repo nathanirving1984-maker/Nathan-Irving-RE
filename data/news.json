@@ -1,6 +1,13 @@
 {
- "updated": "2026-11-18",
+ "updated": "2026-11-19",
  "policy": [
+  {
+   "date": "2026-11-12",
+   "title": "HUD finalizes rental-aid status verification rule",
+   "detail": "HUD published a final rule requiring every household member in public housing and Section 8 programs to verify U.S. citizenship or eligible immigration status, ending ongoing prorated aid for mixed-status families. It takes effect Dec. 14, with existing mixed-status tenants given until mid-March 2027.",
+   "impact": "Mainly affects assisted renters and housing agencies; voucher landlords are not asked to verify status and should keep working through their housing authority.",
+   "source": "HUD / Federal Register / NAR"
+  },
   {
    "date": "2026-11-12",
    "title": "Fed trims 2027 rate decisions to seven",
@@ -49,21 +56,9 @@
    "detail": "First hike since 2023, to 3.75\u20134.00%. September minutes showed most officials expected another hike by year end.",
    "impact": "Main driver behind 7%+ mortgage rates and the 10-yr above 5%.",
    "source": "Federal Reserve / FOMC minutes"
-  },
-  {
-   "date": "2026-08-26",
-   "title": "FHFA lowers GSE affordable-housing goals",
-   "detail": "2026\u20132028 goals for Fannie and Freddie were scaled back; Congress has not passed GSE reform.",
-   "impact": "Less required support for lower-income loans.",
-   "source": "Legis1 / CRS"
   }
  ],
  "calendar": [
-  {
-   "date": "2026-11-18",
-   "event": "October housing starts (Census) & pending home sales (NAR)",
-   "why": "New-supply trend and a read on contracts signed."
-  },
   {
    "date": "2026-11-19",
    "event": "Freddie Mac weekly rates",
@@ -88,6 +83,11 @@
    "date": "2026-12-10",
    "event": "November CPI",
    "why": "Latest inflation read, the day after the Fed decides."
+  },
+  {
+   "date": "2026-12-17",
+   "event": "November housing starts (Census) & pending home sales (NAR)",
+   "why": "New-supply trend and a read on contracts signed."
   }
  ]
 }
