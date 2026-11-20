@@ -1,6 +1,13 @@
 {
- "updated": "2026-11-19",
+ "updated": "2026-11-20",
  "policy": [
+  {
+   "date": "2026-11-18",
+   "title": "Fed minutes show October hike was debated",
+   "detail": "Minutes of the Oct 27\u201328 FOMC meeting showed some officials favored a quarter-point increase and a few called the decision to hold a close call. Some participants said market expectations of a December increase were broadly in line with their own views.",
+   "impact": "Signals a rate hike is on the table at the Dec 9 meeting, which can keep upward pressure on mortgage rates in the weeks ahead.",
+   "source": "Federal Reserve / InvestmentNews"
+  },
   {
    "date": "2026-11-12",
    "title": "HUD finalizes rental-aid status verification rule",
@@ -49,25 +56,18 @@
    "detail": "Director Pulte said FHFA is studying one or two credit reports instead of three for Fannie/Freddie loans, with a decision on loan-level price adjustments (LLPAs) before year end.",
    "impact": "Could trim closing costs; watch for LLPA changes affecting buyer pricing.",
    "source": "ABA Banking Journal / CU Today"
-  },
-  {
-   "date": "2026-09-16",
-   "title": "Fed raises rates 0.25 pt",
-   "detail": "First hike since 2023, to 3.75\u20134.00%. September minutes showed most officials expected another hike by year end.",
-   "impact": "Main driver behind 7%+ mortgage rates and the 10-yr above 5%.",
-   "source": "Federal Reserve / FOMC minutes"
   }
  ],
  "calendar": [
   {
-   "date": "2026-11-19",
-   "event": "Freddie Mac weekly rates",
-   "why": "Weekly 30-yr / 15-yr average; the 30-yr was 7.11% on Nov 12."
-  },
-  {
    "date": "2026-11-25",
    "event": "Freddie Mac weekly rates (Wednesday, Thanksgiving week) & October new-home sales (Census)",
-   "why": "Rate update a day early for the holiday, plus the pace of new-construction sales."
+   "why": "Rate update a day early for the holiday (30-yr was 7.28% on Nov 19), plus the pace of new-construction sales."
+  },
+  {
+   "date": "2026-12-03",
+   "event": "Freddie Mac weekly rates",
+   "why": "Weekly 30-yr / 15-yr mortgage rate average."
   },
   {
    "date": "2026-12-09",
