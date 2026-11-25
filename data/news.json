@@ -1,6 +1,13 @@
 {
- "updated": "2026-11-24",
+ "updated": "2026-11-25",
  "policy": [
+  {
+   "date": "2026-11-24",
+   "title": "FHFA raises 2027 conforming loan limit",
+   "detail": "FHFA set the 2027 baseline conforming loan limit for one-unit homes at $855,400, up $22,650 (2.72%) from 2026, based on its house price index. The ceiling in designated high-cost areas rises to $1,283,100, 150% of the baseline.",
+   "impact": "Buyers can borrow somewhat more with a Fannie Mae or Freddie Mac loan before needing jumbo financing, which matters in high-cost counties like those in the Bay Area.",
+   "source": "FHFA / HousingWire"
+  },
   {
    "date": "2026-11-18",
    "title": "Fed minutes show October hike was debated",
@@ -49,20 +56,13 @@
    "detail": "Treasury Secretary Bessent said ownership changes are a next-year-or-later question and called mortgage rates the administration's North Star.",
    "impact": "Removes a near-term rate-spike risk from a GSE release.",
    "source": "Semafor"
-  },
-  {
-   "date": "2026-10-19",
-   "title": "FHFA weighs dropping 3-bureau credit pulls",
-   "detail": "Director Pulte said FHFA is studying one or two credit reports instead of three for Fannie/Freddie loans, with a decision on loan-level price adjustments (LLPAs) before year end.",
-   "impact": "Could trim closing costs; watch for LLPA changes affecting buyer pricing.",
-   "source": "ABA Banking Journal / CU Today"
   }
  ],
  "calendar": [
   {
    "date": "2026-11-25",
    "event": "Freddie Mac weekly rates (Wednesday, Thanksgiving week) & October new-home sales (Census)",
-   "why": "Rate update a day early for the holiday (30-yr was 7.28% on Nov 19), plus the pace of new-construction sales."
+   "why": "Rate update a day early for the holiday: the 30-yr averaged 7.21% (down from 7.28%), plus the pace of new-construction sales."
   },
   {
    "date": "2026-12-03",
