@@ -1,6 +1,13 @@
 {
- "updated": "2026-11-25",
+ "updated": "2026-11-26",
  "policy": [
+  {
+   "date": "2026-11-24",
+   "title": "FHFA approves FICO 10T for Fannie and Freddie",
+   "detail": "FHFA approved FICO 10T for loans sold to Fannie Mae and Freddie Mac and published an implementation roadmap, with a pilot planned for December 2027 and Classic FICO set to be retired by September 2028.",
+   "impact": "Little change for buyers today; over the next two years lenders will move to a newer credit score that also weighs payment trends, which may shift some borrowers' scores and pricing.",
+   "source": "FHFA / HousingWire / Scotsman Guide"
+  },
   {
    "date": "2026-11-24",
    "title": "FHFA raises 2027 conforming loan limit",
@@ -49,21 +56,9 @@
    "detail": "\u201cDecreasing Housing Costs for the American People\u201d: FHFA pilot to cancel mortgage insurance once equity is met at current value (future loans), makes the refi title-insurance waiver permanent, creates a manufactured-housing task force, and tells VA and USDA to lower their loan rates.",
    "impact": "Mostly helps refis and FHA/VA/USDA borrowers; little near-term effect on Marin price points.",
    "source": "White House / Reuters"
-  },
-  {
-   "date": "2026-10-20",
-   "title": "Fannie & Freddie stay in conservatorship for now",
-   "detail": "Treasury Secretary Bessent said ownership changes are a next-year-or-later question and called mortgage rates the administration's North Star.",
-   "impact": "Removes a near-term rate-spike risk from a GSE release.",
-   "source": "Semafor"
   }
  ],
  "calendar": [
-  {
-   "date": "2026-11-25",
-   "event": "Freddie Mac weekly rates (Wednesday, Thanksgiving week) & October new-home sales (Census)",
-   "why": "Rate update a day early for the holiday: the 30-yr averaged 7.21% (down from 7.28%), plus the pace of new-construction sales."
-  },
   {
    "date": "2026-12-03",
    "event": "Freddie Mac weekly rates",
@@ -83,6 +78,11 @@
    "date": "2026-12-10",
    "event": "November CPI",
    "why": "Latest inflation read, the day after the Fed decides."
+  },
+  {
+   "date": "2026-12-10",
+   "event": "Freddie Mac weekly rates",
+   "why": "Weekly mortgage-rate average, the first read after the Fed decision."
   },
   {
    "date": "2026-12-17",
